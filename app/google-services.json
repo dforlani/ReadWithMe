@@ -1,0 +1,48 @@
+{
+  "project_info": {
+    "project_number": "899703895919",
+    "firebase_url": "https://read-with-me-c94cf.firebaseio.com",
+    "project_id": "read-with-me-c94cf",
+    "storage_bucket": "read-with-me-c94cf.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:899703895919:android:c640cf0fa1536ef2c7da9a",
+        "android_client_info": {
+          "package_name": "br.com.dforlani.readwithme"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "899703895919-3ok2lhku19tq3259tr9qo5mj920d6935.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "br.com.dforlani.readwithme",
+            "certificate_hash": "51bac82a47e85a829923bfd70eb1c504b1994121"
+          }
+        },
+        {
+          "client_id": "899703895919-6b1sse146kjbqv65bndlljatj6onvn2n.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCUXm5i6crLkYz_4Yin52D2pDY4LPbcVIU"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "899703895919-6b1sse146kjbqv65bndlljatj6onvn2n.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

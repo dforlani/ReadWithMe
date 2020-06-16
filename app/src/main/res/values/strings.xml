@@ -1,0 +1,61 @@
+<resources>
+    <string name="app_name">Read With Me</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_settings">Settings</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_gallery">Gallery</string>
+    <string name="menu_slideshow">Slideshow</string>
+
+    <string name="home_second">Home Second</string>
+
+
+    <string name="facebook_app_id">701730560608609</string>
+    <string name="fb_login_protocol_scheme">fb701730560608609</string>
+
+
+    <string name="desc_firebase_lockup">Firebase logo and name</string>
+    <string name="google_title_text">Google Sign In</string>
+    <string name="signed_out">Signed Out</string>
+    <string name="sign_out">Sign Out</string>
+    <string name="disconnect">Sair</string>
+    <string name="google_status_fmt">Google User: %s</string>
+    <string name="firebase_status_fmt">Firebase UID: %s</string>
+    <string name="continue_com_o_facebook">Continue com o Facebook</string>
+    <string name="continue_com_o_google">Continue com o Google</string>
+
+
+    <string name="added">added</string>
+    <string name="modified">modified</string>
+    <string name="removed">removed</string>
+
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
+    <string name="voltar">Voltar</string>
+    <string name="continuar">Continuar</string>
+
+    <!--STRINGS DO QUESITOS 1-->
+    <string name="title_q1">Informações importantes sobre o texto</string>
+    <string name="q1_1">Título do texto</string>
+    <string name="q1_2">Autor ou autores</string>
+    <string name="q1_3">Você já conhecia o autor do texto? Já leu outros textos dele? O que achou? O que é importante registrar?</string>
+    <string name="q1_4">Referência Bibliográfica</string>
+    <string name="q1_5">Qual o seu objetivo ao ler o texto?</string>
+    <string name="q1_6">Assunto principal do texto</string>
+    <string name="q1_7">Outros assuntos do texto</string>
+    <string name="q1_8">Como você chegou até o texto? O texto foi indicado por alguém? Quem? Essa informação é importante para a leitura? Por quê?</string>
+    <string name="q1_9">Data de início da leitura</string>
+    <string name="q1_10">Data de término da leitura</string>
+    <string name="q1_11">Você quer fazer uma análise completa? *</string>
+    <!-- FIM DAS STRINGS DO QUESITOS 1-->
+</resources>
