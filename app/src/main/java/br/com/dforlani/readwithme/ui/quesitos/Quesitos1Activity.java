@@ -3,6 +3,7 @@ package br.com.dforlani.readwithme.ui.quesitos;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.app.DatePickerDialog;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -23,13 +24,23 @@ public class Quesitos1Activity extends AppCompatActivity {
 
     private static final String TAG = "Quesitos1Activity.class";
     ViewHolder viewHolder;
+    private Analise analise;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quesitos1);
-        this.setTitle(R.string.title_q1);
 
+        //pega informações de uma Analise sendo editada, se for o caso
+        Intent i = getIntent();
+        Object aux = i.getSerializableExtra("analise");
+        if(aux != null){
+            analise = (Analise)aux;
+        }else{//se não for pra edição, inicia um novo objeto Análise
+            analise = new Analise();
+        }
+
+        this.setTitle(R.string.title_q1);
         viewHolder = new ViewHolder();
 
 
@@ -40,8 +51,6 @@ public class Quesitos1Activity extends AppCompatActivity {
         Preferencias pref = new Preferencias(this.getBaseContext());
         email = pref.getEmail();
         if (email != null) {
-
-            Analise analise = new Analise();
             analise.setQ1_1(viewHolder.q1_1.getText().toString());
             analise.setQ1_2(viewHolder.q1_2.getText().toString());
             analise.setQ1_3(viewHolder.q1_3.getText().toString());
@@ -72,27 +81,25 @@ public class Quesitos1Activity extends AppCompatActivity {
         switch (view.getId()) {
             case R.id.radio_button_apenas_anotacoes:
                 if (checked)
-                    viewHolder.q1_11 = "radio_button_apenas_anotacoes";
+                    viewHolder.q1_11 = Analise.APENAS_ANOTACAOES;
                 break;
             case R.id.radio_button_apenas_reacoes:
                 if (checked)
-                    viewHolder.q1_11 = "radio_button_apenas_reacoes";
+                    viewHolder.q1_11 = Analise.APENAS_REACOES;
 
                 break;
             case R.id.radio_button_apenas_resumos:
                 if (checked)
-                    viewHolder.q1_11 = "radio_button_apenas_resumos";
+                    viewHolder.q1_11 = Analise.APENAS_RESUMOS;
 
                 break;
             case R.id.radio_button_encerrar:
                 if (checked)
-                    viewHolder.q1_11 = "radio_button_encerrar";
-
+                    viewHolder.q1_11 = Analise.ENCERRAR;
                 break;
             case R.id.radio_button_sim:
                 if (checked)
-                    viewHolder.q1_11 = "radio_button_sim";
-
+                    viewHolder.q1_11 = Analise.ANALISE_COMPLETA;
                 break;
         }
     }

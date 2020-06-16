@@ -1,20 +1,39 @@
 package br.com.dforlani.readwithme.model;
 
+import android.content.res.Resources;
+
 import androidx.annotation.Nullable;
 
 import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
+import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-public class Analise extends ModelFirestore{
+import br.com.dforlani.readwithme.R;
+
+public class Analise extends ModelFirestore implements Serializable {
     public static final String COLECAO = "Analise";
+
+    public static final String APENAS_ANOTACAOES = "apenas_anotacoes";
+    public static final String APENAS_ANOTACAOES_COMPLETE = "Apenas anotações livres";
+    public static final String APENAS_REACOES = "apenas_reacoes";
+    public static final String APENAS_REACOES_COMPLETE = "Apenas reações";
+    public static final String APENAS_RESUMOS = "apenas_resumos";
+    public static final String APENAS_RESUMOS_COMPLETE = "Apenas resumos, citações e paráfrases";
+    public static final String ENCERRAR = "encerrar";
+    public static final String ENCERRAR_COMPLETO = "Análise simples";
+    public static final String ANALISE_COMPLETA = "analise_completa";
+    public static final String ANALISE_COMPLETA_COMPLETO = "Análise completa";
 
     Map<String, String> mapaQuesitos;
 
+    /**
+     * ID vai guardar a identificação única dada a coleção pelo FIrebase
+     */
     private String id;
 
     Timestamp dt_criacao;
@@ -213,6 +232,28 @@ public class Analise extends ModelFirestore{
         this.q1_11 = q1_11;
     }
 
+
+    public String getTipoAnalise(){
+        switch (this.q1_11) {
+            case Analise.APENAS_ANOTACAOES:
+                return Analise.APENAS_ANOTACAOES;
+
+            case Analise.APENAS_REACOES:
+                return  Analise.APENAS_REACOES_COMPLETE;
+
+            case Analise.APENAS_RESUMOS:
+                return Analise.APENAS_RESUMOS_COMPLETE;
+
+            case Analise.ENCERRAR:
+                return Analise.ENCERRAR_COMPLETO;
+
+            case Analise.ANALISE_COMPLETA:
+                return Analise.ANALISE_COMPLETA_COMPLETO;
+
+        }
+        return "";
+    }
+
     @Override
     public boolean equals(@Nullable Object obj) {
         if((this.id.equals(((Analise)obj).id)))// && (this.descricao == ((Produto)obj).descricao) && (this.preco == ((Produto)obj).preco) )
@@ -236,7 +277,13 @@ public class Analise extends ModelFirestore{
         map.put("q1_9", this.q1_9);
         map.put("q1_10", this.q1_10);
         map.put("q1_11", this.q1_11);
-        Analise.addSubDocument(Usuario.COLECAO, email, Analise.COLECAO, map);
+
+        if(this.id != null && this.id.trim().length() > 0 )//edição
+        {
+            Analise.updateSubDocument(Usuario.COLECAO, email, Analise.COLECAO, this.id, map);
+        }else {//salvar um novo
+            Analise.addSubDocument(Usuario.COLECAO, email, Analise.COLECAO, map);
+        }
 
     }
 }

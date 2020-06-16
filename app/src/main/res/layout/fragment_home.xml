@@ -10,6 +10,6 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:id="@+id/analises_recycler_view"
-        tools:listitem="@layout/item_analise_adapter"
+        tools:listitem="@layout/adapter_item_analise"
         app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 </androidx.constraintlayout.widget.ConstraintLayout>

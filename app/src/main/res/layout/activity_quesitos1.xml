@@ -360,7 +360,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Sim" />
+                    android:text="@string/radio_sim" />
 
                 <RadioButton
                     android:id="@+id/radio_button_apenas_reacoes"
@@ -368,7 +368,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Quero apenas anotar minhas reações de leitura" />
+                    android:text="@string/radio_reacoes" />
 
                 <RadioButton
                     android:id="@+id/radio_button_apenas_anotacoes"
@@ -376,7 +376,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Quero apenas fazer anotações livres sobre minha leitura" />
+                    android:text="@string/radio_anotacoea" />
 
                 <RadioButton
                     android:id="@+id/radio_button_apenas_resumos"
@@ -384,7 +384,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Quero fazer apenas resumos, citações e paráfrases, rapidamente" />
+                    android:text="@string/radio_apenas_resumos" />
 
                 <RadioButton
                     android:id="@+id/radio_button_encerrar"
@@ -392,7 +392,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:onClick="onRadioButtonClicked"
-                    android:text="Quero encerrar por aqui" />
+                    android:text="@string/radio_encerrar" />
             </RadioGroup>
 
             <LinearLayout

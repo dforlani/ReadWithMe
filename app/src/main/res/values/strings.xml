@@ -57,5 +57,10 @@
     <string name="q1_9">Data de início da leitura</string>
     <string name="q1_10">Data de término da leitura</string>
     <string name="q1_11">Você quer fazer uma análise completa? *</string>
+    <string name="radio_sim">Sim</string>
+    <string name="radio_reacoes">Quero apenas anotar minhas reações de leitura</string>
+    <string name="radio_anotacoea">Quero apenas fazer anotações livres sobre minha leitura</string>
+    <string name="radio_apenas_resumos">Quero fazer apenas resumos, citações e paráfrases, rapidamente</string>
+    <string name="radio_encerrar">Quero encerrar por aqui</string>
     <!-- FIM DAS STRINGS DO QUESITOS 1-->
 </resources>

@@ -6,6 +6,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
@@ -57,21 +58,12 @@ public class HomeFragment extends Fragment {
 
 
 
-
-
-//    @Override
-//    protected void onResume() {
-//        super.onResume();
-//
-//
-//    }
-
     private void initAnalisesRecyclerView(){
         analiseRecyclerView = root.findViewById(R.id.analises_recycler_view);
     }
 
     private void initAnalisesAdapter() {
-        analiseAdapter = new AnaliseAdapter(analiseArrayList);
+        analiseAdapter = new AnaliseAdapter(analiseArrayList, this);
         analiseRecyclerView.setAdapter(analiseAdapter);
     }
 
@@ -172,5 +164,7 @@ public class HomeFragment extends Fragment {
         };
         analiseRecyclerView.addOnScrollListener(onScrollListener);
     }
-    /********************FIM DA LISTA DE ANÁLISES******************************/
+
+
+
 }

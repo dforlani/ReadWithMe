@@ -252,4 +252,19 @@ public class ModelFirestore {
                 });
         // [END add_document]
     }
+
+    public static void updateSubDocument(String colecaoParent, String documentIdParent, String colecaoSon,String documentIdSon, Map<String, Object> data) {
+
+        DocumentReference doc = db.collection(colecaoParent).document(documentIdParent).collection(colecaoSon).document(documentIdSon);
+
+        doc.update(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "Alteração enviada com sucesso ");
+                    }
+                });
+
+        // [END add_document]
+    }
 }

@@ -137,11 +137,6 @@ public class MainActivity extends BaseActivity {
         FirebaseMessaging.getInstance().setAutoInitEnabled(true);
     }
 
-    @Override
-    public void onStart() {
-        super.onStart();
-    }
-
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {

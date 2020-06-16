@@ -38,8 +38,13 @@ public class FirestoreAnaliseListRepositoryCallback implements AnaliseListViewMo
      * @param email
      */
     public void setQueryEmailDocument(String email){
-        analisesRef = firebaseFirestore.collection(Usuario.COLECAO).document(email).collection(Analise.COLECAO);
-        query = analisesRef.limit(Constants.LIMIT);
+        if(email != null && email.trim().length() > 0) {
+            analisesRef = firebaseFirestore.collection(Usuario.COLECAO).document(email).collection(Analise.COLECAO);
+            query = analisesRef.limit(Constants.LIMIT);
+        }else{
+            analisesRef = firebaseFirestore.collection(Usuario.COLECAO).document("naoexiste9955*").collection(Analise.COLECAO);
+            query = analisesRef.limit(Constants.LIMIT);
+        }
     }
 
     @Override
