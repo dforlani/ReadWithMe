@@ -36,6 +36,8 @@ public class Analise extends ModelFirestore implements Serializable {
      */
     private String id;
 
+    private String ISBN;
+
     Timestamp dt_criacao;
     //tela 1
     //Informações importantes sobre o texto
@@ -55,66 +57,65 @@ public class Analise extends ModelFirestore implements Serializable {
     private String q1_3;
 
     /**
-     *     Referência Bibliográfica
+     * Referência Bibliográfica
      */
     private String q1_4;
 
     /**
-     *    Qual o seu objetivo ao ler o texto?
+     * Qual o seu objetivo ao ler o texto?
      */
     private String q1_5;
 
     /**
-     *    Assunto principal do texto"
+     * Assunto principal do texto"
      */
     private String q1_6;
 
     /**
-     *   Outros assuntos do texto
+     * Outros assuntos do texto
      */
     private String q1_7;
 
     /**
-     *    Como você chegou até o texto? O texto foi indicado por alguém? Quem? Essa informação é importante para a leitura? Por quê?
+     * Como você chegou até o texto? O texto foi indicado por alguém? Quem? Essa informação é importante para a leitura? Por quê?
      */
     private String q1_8;
 
     /**
-     *  Data de início da leitura
+     * Data de início da leitura
      */
     private String q1_9;
 
     /**
-     *    Data de término da leitura
+     * Data de término da leitura
      */
     private String q1_10;
 
     /**
-     *    Você quer fazer uma análise completa? *
+     * Você quer fazer uma análise completa? *
      */
     private String q1_11;
 
-    public Analise(){
+    public Analise() {
         generateMap();
     }
 
 
-
-    public void generateMap(){
+    public void generateMap() {
         mapaQuesitos = new HashMap<>();
 
 
     }
 
     public static List<Analise> findAll(String email) {
-        List<QueryDocumentSnapshot> aux  =  ModelFirestore.findAllSubDocumentsByParentDocument(Usuario.COLECAO, email, Analise.COLECAO);
+        List<QueryDocumentSnapshot> aux = ModelFirestore.findAllSubDocumentsByParentDocument(Usuario.COLECAO, email, Analise.COLECAO);
         List<Analise> lista = new ArrayList<>();
-        if(aux != null){
-            for(QueryDocumentSnapshot doc: aux){
+        if (aux != null) {
+            for (QueryDocumentSnapshot doc : aux) {
                 lista.add(doc.toObject(Analise.class));
             }
             return lista;
-        }else {
+        } else {
             return null;
         }
     }
@@ -180,6 +181,14 @@ public class Analise extends ModelFirestore implements Serializable {
         return q1_5;
     }
 
+    public String getISBN() {
+        return ISBN;
+    }
+
+    public void setISBN(String ISBN) {
+        this.ISBN = ISBN;
+    }
+
     public void setQ1_5(String q1_5) {
         this.q1_5 = q1_5;
     }
@@ -233,13 +242,13 @@ public class Analise extends ModelFirestore implements Serializable {
     }
 
 
-    public String getTipoAnalise(){
+    public String getTipoAnalise() {
         switch (this.q1_11) {
             case Analise.APENAS_ANOTACAOES:
                 return Analise.APENAS_ANOTACAOES_COMPLETE;
 
             case Analise.APENAS_REACOES:
-                return  Analise.APENAS_REACOES_COMPLETE;
+                return Analise.APENAS_REACOES_COMPLETE;
 
             case Analise.APENAS_RESUMOS:
                 return Analise.APENAS_RESUMOS_COMPLETE;
@@ -254,13 +263,13 @@ public class Analise extends ModelFirestore implements Serializable {
         return "";
     }
 
-    public boolean isEncerrar(){
+    public boolean isEncerrar() {
         return this.q1_11.equals(Analise.ENCERRAR);
     }
 
     @Override
     public boolean equals(@Nullable Object obj) {
-        if((this.id.equals(((Analise)obj).id)))// && (this.descricao == ((Produto)obj).descricao) && (this.preco == ((Produto)obj).preco) )
+        if ((this.id.equals(((Analise) obj).id)))// && (this.descricao == ((Produto)obj).descricao) && (this.preco == ((Produto)obj).preco) )
             return true;
         else
             return false;
@@ -270,6 +279,7 @@ public class Analise extends ModelFirestore implements Serializable {
 
     public void save(String email) {
         Map<String, Object> map = new HashMap<>();
+        map.put("ISBN", this.getISBN());
         map.put("q1_1", this.q1_1);
         map.put("q1_2", this.q1_2);
         map.put("q1_3", this.q1_3);
@@ -282,10 +292,10 @@ public class Analise extends ModelFirestore implements Serializable {
         map.put("q1_10", this.q1_10);
         map.put("q1_11", this.q1_11);
 
-        if(this.id != null && this.id.trim().length() > 0 )//edição
+        if (this.id != null && this.id.trim().length() > 0)//edição
         {
             Analise.updateSubDocument(Usuario.COLECAO, email, Analise.COLECAO, this.id, map);
-        }else {//salvar um novo
+        } else {//salvar um novo
             Analise.addSubDocument(Usuario.COLECAO, email, Analise.COLECAO, map);
         }
 

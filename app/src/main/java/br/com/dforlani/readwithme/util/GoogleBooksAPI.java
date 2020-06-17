@@ -4,6 +4,7 @@ import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
+import android.os.StrictMode;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -19,7 +20,7 @@ import java.net.ProtocolException;
 import java.net.SocketTimeoutException;
 import java.net.URL;
 
-class GoogleBooksAPI extends AsyncTask<String, Object, JSONObject> {
+public class GoogleBooksAPI extends AsyncTask<String, Object, JSONObject> {
 
     ConnectivityManager mConnectivityManager;
     Context context;
@@ -40,7 +41,10 @@ class GoogleBooksAPI extends AsyncTask<String, Object, JSONObject> {
     }
 
     @Override
-    protected JSONObject doInBackground(String... isbns) {
+    public JSONObject doInBackground(String... isbns) {
+        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+        StrictMode.setThreadPolicy(policy);
+
         // Stop if cancelled
         if (isCancelled()) {
             return null;

@@ -2,6 +2,7 @@ package br.com.dforlani.readwithme.ui.barcode;
 
 import android.Manifest;
 import android.app.Activity;
+import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
@@ -52,7 +53,10 @@ public class BarCodeActivity extends Activity implements ZXingScannerView.Result
         // Do something with the result here
         Log.v(TAG, rawResult.getText()); // Prints scan results
         Log.v(TAG, rawResult.getBarcodeFormat().toString()); // Prints the scan format (qrcode, pdf417 etc.)
-
+        Intent returnIntent = getIntent();
+        returnIntent.putExtra("isbn",rawResult.getText());
+        setResult(RESULT_OK,returnIntent);
+        finish();
         // If you would like to resume scanning, call this method below:
         mScannerView.resumeCameraPreview(this);
     }

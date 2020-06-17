@@ -8,6 +8,13 @@
     android:orientation="vertical"
     tools:context=".ui.quesitos.Quesitos1Activity">
 
+    <ProgressBar
+        android:id="@+id/activity_quesitos1_progressBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        android:minHeight="100dp"
+        android:minWidth="100dp" />
 
     <ScrollView
         android:id="@+id/scroll_quesitos"
@@ -24,6 +31,56 @@
             android:orientation="vertical"
             tools:context=".ui.quesitos.Quesitos1Activity">
 
+
+
+            <TextView
+                android:id="@+id/textViewISBN"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/isbn"
+
+                />
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/text_q1_ISBN"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom_edit_text"
+                    android:layout_weight="0.2"
+                    android:hint=""
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintHorizontal_bias="0.0"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toBottomOf="@+id/textViewQ1_1">
+
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/act_quesitos1_ISBN"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <ImageButton
+                    android:id="@+id/activity_quesitos1_search"
+                    android:layout_width="80dp"
+                    android:layout_height="63dp"
+                    app:srcCompat="@drawable/ic_search_black_24dp" />
+
+                <ImageButton
+                    android:id="@+id/activity_quesitos1_barcode"
+                    android:layout_width="80dp"
+                    android:layout_height="63dp"
+                    app:srcCompat="@drawable/ic_photo_camera_black_24dp" />
+            </LinearLayout>
+
+
             <TextView
                 android:id="@+id/textViewQ1_1"
                 android:layout_width="match_parent"
@@ -34,40 +91,25 @@
                 />
 
 
-
-            <LinearLayout
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/text_q1_1"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_weight="2"
-                android:orientation="horizontal">
+                android:layout_marginBottom="@dimen/margin_bottom_edit_text"
+                android:hint=""
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintHorizontal_bias="0.0"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/textViewQ1_1">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/text_q1_1"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/act_quesitos1_1"
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_bottom_edit_text"
-                    android:hint=""
-                    android:layout_weight="0.2"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintHorizontal_bias="0.0"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/textViewQ1_1">
+                    android:layout_height="wrap_content" />
+            </com.google.android.material.textfield.TextInputLayout>
 
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/act_quesitos1_1"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <ImageButton
-                    android:id="@+id/activity_quesitos1_barcode"
-                    android:layout_width="80dp"
-                    android:layout_height="63dp"
-                    android:src="@drawable/ic_photo_camera_black_24dp" />
-            </LinearLayout>
 
             <TextView
                 android:id="@+id/textViewQ1_2"
@@ -181,7 +223,6 @@
             </com.google.android.material.textfield.TextInputLayout>
 
             <TextView
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -265,6 +306,8 @@
 
             </com.google.android.material.textfield.TextInputLayout>
 
+
+
             <TextView
 
                 android:layout_width="match_parent"
@@ -339,9 +382,9 @@
                         android:id="@+id/act_quesitos1_10"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:inputType="date"
                         android:editable="false"
-                        android:focusable="false"/>
+                        android:focusable="false"
+                        android:inputType="date" />
 
                 </com.google.android.material.textfield.TextInputLayout>
 
@@ -410,6 +453,14 @@
             </RadioGroup>
 
             <LinearLayout
+                android:id="@+id/act_quesitos1_layout_som"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+            </LinearLayout>
+
+
+            <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="horizontal"
@@ -432,6 +483,8 @@
                     android:layout_weight="0.5"
                     android:text="@string/continuar" />
             </LinearLayout>
+
+
         </LinearLayout>
 
     </ScrollView>

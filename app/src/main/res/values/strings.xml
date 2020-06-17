@@ -68,5 +68,6 @@
     <string name="select_camera">Selecionar Câmera</string>
     <string name="flash_on">On</string>
     <string name="flash_off">Off</string>
+    <string name="isbn">ISBN</string>
     <!-- FIM DAS STRINGS DO QUESITOS 1-->
 </resources>
