@@ -18,6 +18,7 @@ import java.util.Calendar;
 
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
+import br.com.dforlani.readwithme.ui.barcode.BarCodeActivity;
 import br.com.dforlani.readwithme.util.Preferencias;
 
 public class Quesitos1Activity extends AppCompatActivity {
@@ -122,7 +123,7 @@ public class Quesitos1Activity extends AppCompatActivity {
         TextInputEditText q1_9;
         TextInputEditText q1_10;
         String q1_11 = "";
-        RadioButton radioButton;
+        ImageButton barCodeCamera;
 
         ViewHolder() {
             continuar = findViewById(R.id.act_quesitos1_btt_continuar);
@@ -130,6 +131,8 @@ public class Quesitos1Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
+                    if(analise.isEncerrar())
+                        finish();
                 }
 
 
@@ -144,6 +147,18 @@ public class Quesitos1Activity extends AppCompatActivity {
 
 
             });
+
+            barCodeCamera = findViewById(R.id.activity_quesitos1_barcode);
+            barCodeCamera.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    Intent intent = new Intent(getBaseContext(), BarCodeActivity.class);
+                    startActivity(intent);
+                }
+
+
+            });
+
 
 
             dtInicio = findViewById(R.id.act_quesitos1_date_inicio);
@@ -166,6 +181,7 @@ public class Quesitos1Activity extends AppCompatActivity {
                 }
             });
 
+
             dtFim = findViewById(R.id.act_quesitos1_date_fim);
             dtFim.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -187,20 +203,60 @@ public class Quesitos1Activity extends AppCompatActivity {
             });
 
             q1_1 = findViewById(R.id.act_quesitos1_1);
+            q1_1.setText(analise.getQ1_1());
+
             q1_2 = findViewById(R.id.act_quesitos1_2);
+            q1_2.setText(analise.getQ1_2());
+
             q1_3 = findViewById(R.id.act_quesitos1_3);
+            q1_3.setText(analise.getQ1_3());
+
             q1_4 = findViewById(R.id.act_quesitos1_4);
+            q1_4.setText(analise.getQ1_4());
+
             q1_5 = findViewById(R.id.act_quesitos1_5);
+            q1_5.setText(analise.getQ1_5());
+
             q1_6 = findViewById(R.id.act_quesitos1_6);
+            q1_6.setText(analise.getQ1_6());
+
             q1_7 = findViewById(R.id.act_quesitos1_7);
+            q1_7.setText(analise.getQ1_7());
+
             q1_8 = findViewById(R.id.act_quesitos1_8);
+            q1_8.setText(analise.getQ1_8());
+
             q1_9 = findViewById(R.id.act_quesitos1_9);
+            q1_9.setText(analise.getQ1_9());
+
             q1_10 = findViewById(R.id.act_quesitos1_10);
+            q1_10.setText(analise.getQ1_10());
 
-            radioButton = findViewById(R.id.radio_button_sim);
-            radioButton.setChecked(true);//por padrão vai vir checado
+            q1_11 = analise.getQ1_11();
+            if(q1_11 != null) {
+                switch (q1_11) {
+                    case Analise.APENAS_ANOTACAOES:
+                        ((RadioButton) findViewById(R.id.radio_button_apenas_anotacoes)).setChecked(true);
+                        break;
 
+                    case Analise.APENAS_REACOES:
+                        ((RadioButton) findViewById(R.id.radio_button_apenas_reacoes)).setChecked(true);
+                        break;
 
+                    case Analise.APENAS_RESUMOS:
+                        ((RadioButton) findViewById(R.id.radio_button_apenas_resumos)).setChecked(true);
+                        break;
+
+                    case Analise.ENCERRAR:
+                        ((RadioButton) findViewById(R.id.radio_button_encerrar)).setChecked(true);
+                        break;
+
+                    default:
+                        ((RadioButton) findViewById(R.id.radio_button_sim)).setChecked(true);//por padrão vai vir checado
+                }
+            }else{
+                ((RadioButton) findViewById(R.id.radio_button_sim)).setChecked(true);//por padrão vai vir checado
+            }
         }
 
 

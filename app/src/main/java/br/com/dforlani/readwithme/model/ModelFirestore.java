@@ -250,7 +250,6 @@ public class ModelFirestore {
 
                     }
                 });
-        // [END add_document]
     }
 
     public static void updateSubDocument(String colecaoParent, String documentIdParent, String colecaoSon,String documentIdSon, Map<String, Object> data) {
@@ -264,7 +263,5 @@ public class ModelFirestore {
                         Log.d(TAG, "Alteração enviada com sucesso ");
                     }
                 });
-
-        // [END add_document]
     }
 }

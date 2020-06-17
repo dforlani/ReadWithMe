@@ -19,15 +19,15 @@ public class Analise extends ModelFirestore implements Serializable {
     public static final String COLECAO = "Analise";
 
     public static final String APENAS_ANOTACAOES = "apenas_anotacoes";
-    public static final String APENAS_ANOTACAOES_COMPLETE = "Apenas anotações livres";
+    private static final String APENAS_ANOTACAOES_COMPLETE = "Apenas anotações livres";
     public static final String APENAS_REACOES = "apenas_reacoes";
-    public static final String APENAS_REACOES_COMPLETE = "Apenas reações";
+    private static final String APENAS_REACOES_COMPLETE = "Apenas reações";
     public static final String APENAS_RESUMOS = "apenas_resumos";
-    public static final String APENAS_RESUMOS_COMPLETE = "Apenas resumos, citações e paráfrases";
+    private static final String APENAS_RESUMOS_COMPLETE = "Apenas resumos, citações e paráfrases";
     public static final String ENCERRAR = "encerrar";
-    public static final String ENCERRAR_COMPLETO = "Análise simples";
+    private static final String ENCERRAR_COMPLETO = "Análise simples";
     public static final String ANALISE_COMPLETA = "analise_completa";
-    public static final String ANALISE_COMPLETA_COMPLETO = "Análise completa";
+    private static final String ANALISE_COMPLETA_COMPLETO = "Análise completa";
 
     Map<String, String> mapaQuesitos;
 
@@ -236,7 +236,7 @@ public class Analise extends ModelFirestore implements Serializable {
     public String getTipoAnalise(){
         switch (this.q1_11) {
             case Analise.APENAS_ANOTACAOES:
-                return Analise.APENAS_ANOTACAOES;
+                return Analise.APENAS_ANOTACAOES_COMPLETE;
 
             case Analise.APENAS_REACOES:
                 return  Analise.APENAS_REACOES_COMPLETE;
@@ -252,6 +252,10 @@ public class Analise extends ModelFirestore implements Serializable {
 
         }
         return "";
+    }
+
+    public boolean isEncerrar(){
+        return this.q1_11.equals(Analise.ENCERRAR);
     }
 
     @Override

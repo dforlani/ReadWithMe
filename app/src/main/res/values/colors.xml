@@ -9,4 +9,5 @@
     <color name="grey_500">#9E9E9E</color>
 
     <color name="black">#251E1E</color>
+    <color name="actionbar_opacity">#33000000</color>
 </resources>

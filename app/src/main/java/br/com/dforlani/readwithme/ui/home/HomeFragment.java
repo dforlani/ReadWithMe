@@ -44,9 +44,6 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
        root = inflater.inflate(R.layout.fragment_home, container, false);
 
-      //  Preferencias pref = new Preferencias(root.getContext());
-//        analiseArrayList = Analise.findAll(  pref.getEmail()  );
-
         initAnalisesRecyclerView();
         initAnalisesAdapter();
         initAnaliseListViewModel();
@@ -106,11 +103,15 @@ public class HomeFragment extends Fragment {
     private void addAnalise(Analise analise) {
         boolean encontrou = false;
         //só insere na lista, se a análise ainda não estiver presente
+        int i =0;
         for (Analise analiseAux: analiseArrayList) {
+
             if(analise.equals(analiseAux)){
                 encontrou = true;
+                analiseArrayList.set(i, analise);//troca pelo novo, já que pode ter sido alterado
                 break;//encerra a função sem inserir
             }
+            i++;
         }
         if(!encontrou)
             analiseArrayList.add(analise);

@@ -62,5 +62,11 @@
     <string name="radio_anotacoea">Quero apenas fazer anotações livres sobre minha leitura</string>
     <string name="radio_apenas_resumos">Quero fazer apenas resumos, citações e paráfrases, rapidamente</string>
     <string name="radio_encerrar">Quero encerrar por aqui</string>
+    <string name="auto_focus_on">On</string>
+    <string name="auto_focus_off">Off</string>
+    <string name="formats">Formatos</string>
+    <string name="select_camera">Selecionar Câmera</string>
+    <string name="flash_on">On</string>
+    <string name="flash_off">Off</string>
     <!-- FIM DAS STRINGS DO QUESITOS 1-->
 </resources>
