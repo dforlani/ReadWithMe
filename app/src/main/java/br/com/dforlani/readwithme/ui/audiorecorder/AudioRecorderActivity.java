@@ -84,7 +84,7 @@ public class AudioRecorderActivity extends AppCompatActivity {
 
         analise = (Analise) aux;
         audioRecycler = findViewById(R.id.audio_recycler_view);
-         audioAdapter = new AudioAdapter(analise.getAudios(), this.getBaseContext());
+         audioAdapter = new AudioAdapter(analise.getAudios(), this.getBaseContext(), this);
         audioRecycler.setAdapter(audioAdapter);
 
     }

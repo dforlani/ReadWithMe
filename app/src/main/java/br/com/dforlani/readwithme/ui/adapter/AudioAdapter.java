@@ -1,6 +1,9 @@
 package br.com.dforlani.readwithme.ui.adapter;
 
-import android.app.AlertDialog;
+import android.app.Activity;
+
+import androidx.appcompat.app.AlertDialog;
+
 import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
@@ -29,13 +32,15 @@ import br.com.dforlani.readwithme.ui.quesitos.Quesitos1Activity;
 public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHolder> {
     public List<Map<String, String>> audios;
     Context context;
-    private MediaPlayer   player = null;
+    Activity parent;
+    private MediaPlayer player = null;
     private static final String TAG = "AudioRecordAdapter";
 
 
-    public AudioAdapter(List<Map<String, String>> audios, Context context) {
+    public AudioAdapter(List<Map<String, String>> audios, Context context, Activity parent) {
         this.audios = audios;
         this.context = context;
+        this.parent = parent;
     }
 
     @NonNull
@@ -58,7 +63,6 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHol
     }
 
 
-
     class AudioViewHolder extends RecyclerView.ViewHolder {
         TextView textDataAudio;
         View itemView;
@@ -77,13 +81,13 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHol
                 @Override
                 public void onClick(View v) {
 
-                        onPlay(mStartPlaying, context.getExternalCacheDir().getAbsolutePath() + audio.get(Analise.COLUMN_AUDIO_NOME));
-                        if (mStartPlaying) {
-                            bttStartStop.setImageResource(R.drawable.ic_stop_black_24dp);
-                        } else {
-                            bttStartStop.setImageResource(R.drawable.ic_play_arrow_black_24dp);
-                        }
-                        mStartPlaying = !mStartPlaying;
+                    onPlay(mStartPlaying, context.getExternalCacheDir().getAbsolutePath() + audio.get(Analise.COLUMN_AUDIO_NOME));
+                    if (mStartPlaying) {
+                        bttStartStop.setImageResource(R.drawable.ic_stop_black_24dp);
+                    } else {
+                        bttStartStop.setImageResource(R.drawable.ic_play_arrow_black_24dp);
+                    }
+                    mStartPlaying = !mStartPlaying;
 
                 }
             });
@@ -93,26 +97,25 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHol
                 @Override
                 public void onClick(View v) {
                     //dialog de confirmação para remoção
-                    new AlertDialog.Builder(context)
-                            // set message, title, and icon
-                            .setTitle("Remover")
-                            .setMessage("Quer mesmo remover este áudio?")
-                            .setIcon(R.drawable.ic_delete_black_24dp)
+                    AlertDialog.Builder alert = new AlertDialog.Builder(parent);
+                    alert.setTitle("Remover Áudio");
+                    alert.setMessage("Deseja realmente remover este áudio?");
+                    alert.setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
 
-                            .setPositiveButton("Confirma?", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int whichButton) {
-                                    audios.remove(audio);
-                                    notifyDataSetChanged();
-                                    dialog.dismiss();
-                                }
+                        public void onClick(DialogInterface dialog, int which) {
+                            // continue with delete
+                            audios.remove(audio);
+                            notifyDataSetChanged();
+                        }
+                    });
+                    alert.setNegativeButton(R.string.nao, new DialogInterface.OnClickListener() {
+                        public void onClick(DialogInterface dialog, int which) {
+                            // close dialog
+                            dialog.cancel();
+                        }
+                    });
+                    alert.show();
 
-                            })
-                            .setNegativeButton("Cancelar", new DialogInterface.OnClickListener() {
-                                public void onClick(DialogInterface dialog, int which) {
-                                    dialog.dismiss();
-                                }
-                            })
-                            .create().show();
 
                 }
             });
@@ -153,7 +156,7 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHol
         }
 
         private void stopPlaying() {
-            if(player != null)
+            if (player != null)
                 player.release();
             player = null;
         }

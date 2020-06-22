@@ -266,6 +266,7 @@ public class Quesitos1Activity extends AppCompatActivity {
 
             });
 
+
             bttSearch = findViewById(R.id.activity_quesitos1_search);
             bttSearch.setOnClickListener(new View.OnClickListener() {
                 @Override

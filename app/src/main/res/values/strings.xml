@@ -71,5 +71,7 @@
     <string name="isbn">ISBN</string>
     <string name="novo_audio">Novo Áudio</string>
     <string name="impressoes_em_audio">Impressões em Áudio</string>
+    <string name="sim">Sim</string>
+    <string name="nao">Não</string>
     <!-- FIM DAS STRINGS DO QUESITOS 1-->
 </resources>
