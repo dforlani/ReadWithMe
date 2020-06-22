@@ -1,24 +1,18 @@
 package br.com.dforlani.readwithme.ui.adapter;
 
 import android.app.Activity;
-
-import androidx.appcompat.app.AlertDialog;
-
 import android.content.Context;
 import android.content.DialogInterface;
-import android.content.Intent;
 import android.media.MediaPlayer;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import android.widget.Button;
 import android.widget.ImageButton;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
-import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
+import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
@@ -27,7 +21,6 @@ import java.util.Map;
 
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
-import br.com.dforlani.readwithme.ui.quesitos.Quesitos1Activity;
 
 public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHolder> {
     public List<Map<String, String>> audios;

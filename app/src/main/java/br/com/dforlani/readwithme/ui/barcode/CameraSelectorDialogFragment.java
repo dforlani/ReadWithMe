@@ -8,8 +8,6 @@ import android.os.Bundle;
 
 import androidx.fragment.app.DialogFragment;
 
-import br.com.dforlani.readwithme.R;
-
 
 public class CameraSelectorDialogFragment extends DialogFragment {
     public interface CameraSelectorDialogListener {

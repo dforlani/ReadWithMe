@@ -5,7 +5,6 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.View;
-import android.widget.AbsListView;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -14,14 +13,10 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.appcompat.widget.Toolbar;
 import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.lifecycle.Observer;
-import androidx.lifecycle.ViewModelProvider;
 import androidx.navigation.NavController;
 import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
 import androidx.navigation.ui.NavigationUI;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -53,17 +48,10 @@ import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.messaging.FirebaseMessaging;
 
-import java.util.ArrayList;
 import java.util.Arrays;
-import java.util.List;
 
-import br.com.dforlani.readwithme.firestore.Operation;
-import br.com.dforlani.readwithme.firestore.livedata.AnaliseListLiveData;
-import br.com.dforlani.readwithme.firestore.livedata.AnaliseListViewModel;
-import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.model.Usuario;
 import br.com.dforlani.readwithme.ui.BaseActivity;
-import br.com.dforlani.readwithme.ui.adapter.AnaliseAdapter;
 import br.com.dforlani.readwithme.ui.quesitos.Quesitos1Activity;
 import br.com.dforlani.readwithme.util.Preferencias;
 

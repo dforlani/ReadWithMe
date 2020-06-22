@@ -2,16 +2,10 @@ package br.com.dforlani.readwithme.ui.audiorecorder;
 
 
 import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
-import android.icu.text.SimpleDateFormat;
-import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
-//import android.support.annotation.NonNull;
-//import android.support.v4.app.ActivityCompat;
-//import android.support.v7.app.AppCompatActivity;
 import android.util.Log;
 import android.view.View;
 import android.widget.Button;
@@ -22,10 +16,7 @@ import androidx.core.app.ActivityCompat;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.io.IOException;
-import java.time.LocalDateTime;
-import java.time.format.DateTimeFormatter;
 import java.util.Calendar;
-import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 import java.util.UUID;
@@ -33,6 +24,10 @@ import java.util.UUID;
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.ui.adapter.AudioAdapter;
+
+//import android.support.annotation.NonNull;
+//import android.support.v4.app.ActivityCompat;
+//import android.support.v7.app.AppCompatActivity;
 
 public class AudioRecorderActivity extends AppCompatActivity {
 

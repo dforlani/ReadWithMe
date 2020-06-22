@@ -1,7 +1,5 @@
 package br.com.dforlani.readwithme.model;
 
-import android.content.res.Resources;
-
 import androidx.annotation.Nullable;
 
 import com.google.firebase.Timestamp;
@@ -12,8 +10,6 @@ import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
-
-import br.com.dforlani.readwithme.R;
 
 public class Analise extends ModelFirestore implements Serializable {
     public static final String COLECAO = "Analise";

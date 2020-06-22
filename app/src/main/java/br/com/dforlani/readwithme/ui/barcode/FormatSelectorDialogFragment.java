@@ -11,7 +11,6 @@ import com.google.zxing.BarcodeFormat;
 
 import java.util.ArrayList;
 
-import br.com.dforlani.readwithme.R;
 import me.dm7.barcodescanner.zxing.ZXingScannerView;
 
 public class FormatSelectorDialogFragment extends DialogFragment {

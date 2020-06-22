@@ -2,11 +2,11 @@ package br.com.dforlani.readwithme.ui.barcode;
 
 import android.os.Build;
 import android.view.MenuItem;
-import androidx.appcompat.widget.Toolbar;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.ActionBar;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
 
 import br.com.dforlani.readwithme.R;
 

@@ -1,25 +1,15 @@
 package br.com.dforlani.readwithme.firestore;
 
-import android.content.Context;
-import android.util.Log;
-
-import androidx.annotation.NonNull;
-
-import com.google.android.gms.tasks.OnCompleteListener;
-import com.google.android.gms.tasks.Task;
 import com.google.firebase.firestore.CollectionReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
 import com.google.firebase.firestore.Query;
-import com.google.firebase.firestore.QueryDocumentSnapshot;
-import com.google.firebase.firestore.QuerySnapshot;
 
 import br.com.dforlani.readwithme.firestore.livedata.AnaliseListLiveData;
 import br.com.dforlani.readwithme.firestore.livedata.AnaliseListViewModel;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.model.Usuario;
 import br.com.dforlani.readwithme.util.Constants;
-import br.com.dforlani.readwithme.util.Preferencias;
 
 public class FirestoreAnaliseListRepositoryCallback implements AnaliseListViewModel.AnaliseListRepository,
         AnaliseListLiveData.OnLastVisibleAnaliseCallback, AnaliseListLiveData.OnLastAnaliseReachedCallback {
