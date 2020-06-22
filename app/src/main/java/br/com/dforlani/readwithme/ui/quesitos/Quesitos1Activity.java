@@ -3,6 +3,7 @@ package br.com.dforlani.readwithme.ui.quesitos;
 import android.Manifest;
 import android.app.Activity;
 import android.app.DatePickerDialog;
+import android.content.ClipData;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
@@ -10,6 +11,8 @@ import android.media.MediaPlayer;
 import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.util.Log;
+import android.view.Menu;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
@@ -25,7 +28,9 @@ import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.AppCompatButton;
 import androidx.core.app.ActivityCompat;
 
+import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.textfield.TextInputEditText;
+import com.google.firebase.auth.FirebaseUser;
 
 import org.json.JSONArray;
 import org.json.JSONException;
@@ -57,9 +62,9 @@ public class Quesitos1Activity extends AppCompatActivity {
         //pega informações de uma Analise sendo editada, se for o caso
         Intent i = getIntent();
         Object aux = i.getSerializableExtra("analise");
-        if(aux != null){
-            analise = (Analise)aux;
-        }else{//se não for pra edição, inicia um novo objeto Análise
+        if (aux != null) {
+            analise = (Analise) aux;
+        } else {//se não for pra edição, inicia um novo objeto Análise
             analise = new Analise();
         }
 
@@ -118,7 +123,6 @@ public class Quesitos1Activity extends AppCompatActivity {
     }
 
 
-
     public void onRadioButtonClicked(View view) {
         // Is the button now checked?
         boolean checked = ((RadioButton) view).isChecked();
@@ -155,11 +159,11 @@ public class Quesitos1Activity extends AppCompatActivity {
         super.onActivityResult(requestCode, resultCode, data);
 
         if (requestCode == REQUEST_BARCOCODE_RESULT) {
-            if(resultCode == Activity.RESULT_OK){
-                if(data.hasExtra("isbn")) {
+            if (resultCode == Activity.RESULT_OK) {
+                if (data.hasExtra("isbn")) {
                     String result = data.getStringExtra("isbn");
                     viewHolder.ISBN.setText(result);
-                    if(result != null && result.length() > 0){
+                    if (result != null && result.length() > 0) {
                         buscaDadosISBN(result);
                     }
                 }
@@ -170,13 +174,13 @@ public class Quesitos1Activity extends AppCompatActivity {
         }
     }
 
-    private void buscaDadosISBN(String isbn)  {
+    private void buscaDadosISBN(String isbn) {
         GoogleBooksAPI book = new GoogleBooksAPI(Quesitos1Activity.this);
-        progressBar.setVisibility( View.VISIBLE);
+        progressBar.setVisibility(View.VISIBLE);
 
         JSONObject json = book.doInBackground(isbn);
-        progressBar.setVisibility( View.GONE);
-        if(json != null){
+        progressBar.setVisibility(View.GONE);
+        if (json != null) {
 
             try {
                 viewHolder.q1_1.setText(json.getJSONArray("items").getJSONObject(0).getJSONObject("volumeInfo").get("title").toString());
@@ -185,10 +189,10 @@ public class Quesitos1Activity extends AppCompatActivity {
                 titulos = json.getJSONArray("items").getJSONObject(0).getJSONObject("volumeInfo").getJSONArray("authors");
                 String separador = "";
                 for (int i = 0; i < titulos.length(); i++) {
-                    autores += separador+titulos.get(i).toString();
+                    autores += separador + titulos.get(i).toString();
                     separador = ", ";
                 }
-                if(autores.length() > 0){
+                if (autores.length() > 0) {
                     viewHolder.q1_2.setText(autores);
                 }
             } catch (JSONException e) {
@@ -197,9 +201,13 @@ public class Quesitos1Activity extends AppCompatActivity {
 
 
             //responseJson.getJSONArray("volumeInfo");
-        }else{
+        } else {
             Toast.makeText(this, "Não foi possível acessar os servidores da Google, tente novamente.", Toast.LENGTH_LONG).show();
         }
+    }
+
+    public void impressoesAudioOnClick(MenuItem item) {
+
     }
 
     class ViewHolder {
@@ -229,8 +237,9 @@ public class Quesitos1Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
-                    if(analise.isEncerrar())
+                    if (analise.isEncerrar()) {
                         finish();
+                    }
                 }
 
 
@@ -262,15 +271,13 @@ public class Quesitos1Activity extends AppCompatActivity {
                 @Override
                 public void onClick(View v) {
                     //vai buscar informações do ISBN passado
-                   if((ISBN.getText().toString() != null) && ((ISBN.getText().toString().trim().length() > 0))){
+                    if ((ISBN.getText().toString() != null) && ((ISBN.getText().toString().trim().length() > 0))) {
 
-                           buscaDadosISBN(ISBN.getText().toString().trim());
+                        buscaDadosISBN(ISBN.getText().toString().trim());
 
-                   }
+                    }
                 }
             });
-
-
 
 
             dtInicio = findViewById(R.id.act_quesitos1_date_inicio);
@@ -348,7 +355,7 @@ public class Quesitos1Activity extends AppCompatActivity {
             q1_10.setText(analise.getQ1_10());
 
             q1_11 = analise.getQ1_11();
-            if(q1_11 != null) {
+            if (q1_11 != null) {
                 switch (q1_11) {
                     case Analise.APENAS_ANOTACAOES:
                         ((RadioButton) findViewById(R.id.radio_button_apenas_anotacoes)).setChecked(true);
@@ -369,7 +376,7 @@ public class Quesitos1Activity extends AppCompatActivity {
                     default:
                         ((RadioButton) findViewById(R.id.radio_button_sim)).setChecked(true);//por padrão vai vir checado
                 }
-            }else{
+            } else {
                 ((RadioButton) findViewById(R.id.radio_button_sim)).setChecked(true);//por padrão vai vir checado
             }
         }
@@ -377,6 +384,31 @@ public class Quesitos1Activity extends AppCompatActivity {
 
     }
 
+    @Override
+    public boolean onCreateOptionsMenu(Menu menu) {
+        // Inflate the menu; this adds items to the action bar if it is present.
+        getMenuInflater().inflate(R.menu.menu_quesitos, menu);//cria o menu de opção da direita
+
+        return true;
+    }
+
+    @Override
+    public boolean onOptionsItemSelected(MenuItem item) {
+        // Handle item selection
+        switch (item.getItemId()) {
+            case R.id.menu_action_impressoes_em_audio:
+                Intent intent = new Intent(Quesitos1Activity.this, AudioRecorderActivity.class);
+                intent.putExtra("analise", analise);
+                startActivity(intent);
+                return true;
+//            case R.id.help:
+//                showHelp();
+//                return true;
+//            default:
+//                return super.onOptionsItemSelected(item);
+        }
+        return super.onOptionsItemSelected(item);
+    }
 
     /*********************CONTROLADORES DE SOM******************************/
     private static final String LOG_TAG = "AudioRecorder";
@@ -386,22 +418,22 @@ public class Quesitos1Activity extends AppCompatActivity {
     private RecordButton recordButton = null;
     private MediaRecorder recorder = null;
 
-    private PlayButton   playButton = null;
+    private PlayButton playButton = null;
     private MediaPlayer player = null;
 
     // Requesting permission to RECORD_AUDIO
     private boolean permissionToRecordAccepted = false;
-    private String [] permissions = {Manifest.permission.RECORD_AUDIO};
+    private String[] permissions = {Manifest.permission.RECORD_AUDIO};
 
     @Override
     public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
         super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-        switch (requestCode){
+        switch (requestCode) {
             case REQUEST_RECORD_AUDIO_PERMISSION:
-                permissionToRecordAccepted  = grantResults[0] == PackageManager.PERMISSION_GRANTED;
+                permissionToRecordAccepted = grantResults[0] == PackageManager.PERMISSION_GRANTED;
                 break;
         }
-        if (!permissionToRecordAccepted ) finish();
+        if (!permissionToRecordAccepted) finish();
 
     }
 

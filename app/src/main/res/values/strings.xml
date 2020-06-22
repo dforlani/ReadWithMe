@@ -69,5 +69,7 @@
     <string name="flash_on">On</string>
     <string name="flash_off">Off</string>
     <string name="isbn">ISBN</string>
+    <string name="novo_audio">Novo Áudio</string>
+    <string name="impressoes_em_audio">Impressões em Áudio</string>
     <!-- FIM DAS STRINGS DO QUESITOS 1-->
 </resources>

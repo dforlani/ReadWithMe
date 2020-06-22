@@ -29,6 +29,9 @@ public class Analise extends ModelFirestore implements Serializable {
     public static final String ANALISE_COMPLETA = "analise_completa";
     private static final String ANALISE_COMPLETA_COMPLETO = "Análise completa";
 
+    public static final String COLUMN_AUDIO_NOME = "nome";
+    public static final String COLUMN_AUDIO_DATA = "data";
+
     Map<String, String> mapaQuesitos;
 
     /**
@@ -96,6 +99,8 @@ public class Analise extends ModelFirestore implements Serializable {
      */
     private String q1_11;
 
+    private List<Map<String,String>> audios = new ArrayList<>();
+
     public Analise() {
         generateMap();
     }
@@ -120,6 +125,14 @@ public class Analise extends ModelFirestore implements Serializable {
         }
     }
 
+    public List<Map<String, String>> getAudios() {
+        return audios;
+    }
+
+
+    public void setAudios(List<Map<String, String>> audios) {
+        this.audios = audios;
+    }
 
     public Map<String, String> getMapaQuesitos() {
         return mapaQuesitos;
@@ -258,13 +271,12 @@ public class Analise extends ModelFirestore implements Serializable {
 
             case Analise.ANALISE_COMPLETA:
                 return Analise.ANALISE_COMPLETA_COMPLETO;
-
         }
         return "";
     }
 
     public boolean isEncerrar() {
-        return this.q1_11.equals(Analise.ENCERRAR);
+        return this.q1_11.compareTo(Analise.ENCERRAR) == 0;
     }
 
     @Override
