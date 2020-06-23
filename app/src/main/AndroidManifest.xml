@@ -16,7 +16,7 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".ui.quesitos.Quesitos1Activity"
+            android:name=".ui.quesitos.QuesitosIdentificacaoActivity"
             android:windowSoftInputMode="adjustPan" />
         <activity android:name=".ui.barcode.BarCodeActivity" />
         <activity android:name=".ui.barcode.BarCode2Activity"

@@ -15,7 +15,7 @@ import java.util.List;
 
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
-import br.com.dforlani.readwithme.ui.quesitos.Quesitos1Activity;
+import br.com.dforlani.readwithme.ui.quesitos.QuesitosIdentificacaoActivity;
 
 public class AnaliseAdapter extends RecyclerView.Adapter<AnaliseAdapter.AnaliseViewHolder> {
     private List<Analise> analiseList;
@@ -62,7 +62,7 @@ public class AnaliseAdapter extends RecyclerView.Adapter<AnaliseAdapter.AnaliseV
             card.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(fragment.getContext(), Quesitos1Activity.class);
+                    Intent intent = new Intent(fragment.getContext(), QuesitosIdentificacaoActivity.class);
                     intent.putExtra("analise", analise);
                     fragment.startActivity(intent);
                 }

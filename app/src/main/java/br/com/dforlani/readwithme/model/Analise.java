@@ -300,6 +300,8 @@ public class Analise extends ModelFirestore implements Serializable {
         map.put("q1_10", this.q1_10);
         map.put("q1_11", this.q1_11);
 
+        map.put("audios", this.getAudios());
+
         if (this.id != null && this.id.trim().length() > 0)//edição
         {
             Analise.updateSubDocument(Usuario.COLECAO, email, Analise.COLECAO, this.id, map);

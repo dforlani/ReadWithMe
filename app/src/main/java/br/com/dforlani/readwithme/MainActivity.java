@@ -52,7 +52,7 @@ import java.util.Arrays;
 
 import br.com.dforlani.readwithme.model.Usuario;
 import br.com.dforlani.readwithme.ui.BaseActivity;
-import br.com.dforlani.readwithme.ui.quesitos.Quesitos1Activity;
+import br.com.dforlani.readwithme.ui.quesitos.QuesitosIdentificacaoActivity;
 import br.com.dforlani.readwithme.util.Preferencias;
 
 public class MainActivity extends BaseActivity {
@@ -84,7 +84,7 @@ public class MainActivity extends BaseActivity {
         bttAddAnalise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(MainActivity.this, Quesitos1Activity.class);
+                Intent myIntent = new Intent(MainActivity.this, QuesitosIdentificacaoActivity.class);
                 // myIntent.putExtra("key", value); //Optional parameters
                 startActivity(myIntent);
 //                Mostra uma mensagem na base do aplicativo

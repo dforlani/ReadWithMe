@@ -2,6 +2,7 @@ package br.com.dforlani.readwithme.ui.audiorecorder;
 
 
 import android.Manifest;
+import android.app.Activity;
 import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.media.MediaRecorder;
@@ -25,10 +26,6 @@ import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.ui.adapter.AudioAdapter;
 
-//import android.support.annotation.NonNull;
-//import android.support.v4.app.ActivityCompat;
-//import android.support.v7.app.AppCompatActivity;
-
 public class AudioRecorderActivity extends AppCompatActivity {
 
     private static final String TAG = "AudioRecord";
@@ -36,7 +33,6 @@ public class AudioRecorderActivity extends AppCompatActivity {
     private static final String EXTENSAO = ".3gp";
     private String filename = null;
     private Analise analise = null;
-
 
 
     RecyclerView audioRecycler;
@@ -75,11 +71,9 @@ public class AudioRecorderActivity extends AppCompatActivity {
 
         //pega informações de uma Analise sendo editada, se for o caso
         Intent intent = getIntent();
-        Object aux = intent.getSerializableExtra("analise");
-
-        analise = (Analise) aux;
+        analise = (Analise) intent.getSerializableExtra("analise");
         audioRecycler = findViewById(R.id.audio_recycler_view);
-         audioAdapter = new AudioAdapter(analise.getAudios(), this.getBaseContext(), this);
+        audioAdapter = new AudioAdapter(analise.getAudios(), this.getBaseContext(), this);
         audioRecycler.setAdapter(audioAdapter);
 
     }
@@ -93,7 +87,6 @@ public class AudioRecorderActivity extends AppCompatActivity {
                 break;
         }
         if (!permissionToRecordAccepted) finish();
-
 
     }
 
@@ -133,6 +126,7 @@ public class AudioRecorderActivity extends AppCompatActivity {
                     + "/" + (c.get(Calendar.MONTH) + 1)
                     + "/" + c.get(Calendar.YEAR)
                     + " " + c.get(Calendar.HOUR_OF_DAY)
+                    + ":" + c.get(Calendar.MINUTE)
                     + ":" + c.get(Calendar.SECOND);
 
             adicionarAudioToAnalise(filename, data);
@@ -152,13 +146,20 @@ public class AudioRecorderActivity extends AppCompatActivity {
         }
     }
 
-    public void adicionarAudioToAnalise(String filename, String data){
+    public void adicionarAudioToAnalise(String filename, String data) {
         Map<String, String> audio = new HashMap<>();
         audio.put(Analise.COLUMN_AUDIO_DATA, data);
         audio.put(Analise.COLUMN_AUDIO_NOME, filename);
         analise.getAudios().add(audio);
 
         audioAdapter.notifyDataSetChanged();
+
+        //prepara o retorno, pro caso do usuário fechar a tela
+        Bundle bundle= new Bundle();
+        bundle.putSerializable("analise", analise);
+        Intent returnIntent = new Intent();
+        returnIntent.putExtras(bundle);
+        setResult(Activity.RESULT_OK, returnIntent);
 
     }
 }

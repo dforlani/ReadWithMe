@@ -15,6 +15,7 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.recyclerview.widget.RecyclerView;
 
+import java.io.File;
 import java.io.IOException;
 import java.util.List;
 import java.util.Map;
@@ -98,6 +99,7 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHol
                         public void onClick(DialogInterface dialog, int which) {
                             // continue with delete
                             audios.remove(audio);
+                            removerArquivoAndroid(audio.get(Analise.COLUMN_AUDIO_NOME));
                             notifyDataSetChanged();
                         }
                     });
@@ -115,9 +117,24 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHol
 
         }
 
+        /**
+         * Remove localmente o arquivo de áudio
+         * @param filename
+         */
+        void removerArquivoAndroid(String filename) {
+            try {
+                File file = new File(context.getExternalCacheDir().getAbsolutePath() + filename);
+                if (file.isFile()) {
+                    file.delete();
+                }
+            } catch (Exception e) {
+                Log.d(TAG, "Não foi possível excluir o arquivo");
+            }
+        }
+
         void bind(Map<String, String> audio) {
             this.audio = audio;
-            textDataAudio.setText(audio.get("data"));
+            textDataAudio.setText(audio.get(Analise.COLUMN_AUDIO_DATA));
         }
 
         private void onPlay(boolean start, String filename) {
