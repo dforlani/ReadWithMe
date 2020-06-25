@@ -185,6 +185,12 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                     salvarQuesitos();
                     Intent intent;
                     switch (analise.getQ1_11()) {
+                        case Analise.ConstsIdentificacoes.ANALISE_COMPLETA:
+                            intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosCompleto1Activity.class);
+                            intent.putExtra("analise", analise);
+                            startActivity(intent);
+                            finish();
+                            break;
                         case Analise.ConstsIdentificacoes.APENAS_ANOTACAOES:
                             intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosAnotacoesLivresActivity.class);
                             intent.putExtra("analise", analise);

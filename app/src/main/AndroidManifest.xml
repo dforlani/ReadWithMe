@@ -24,8 +24,8 @@
 <!--            android:windowSoftInputMode="adjustPan" />-->
         <activity
             android:name=".ui.quesitos.QuesitosAnotacoesLivresActivity"/>
-        <activity
-            android:name=".ui.quesitos.QuesitosResumoesCitacoesParafrasesActivity"/>
+        <activity android:name=".ui.quesitos.QuesitosCompleto1Activity" />
+        <activity android:name=".ui.quesitos.QuesitosResumoesCitacoesParafrasesActivity"/>
         <activity android:name=".ui.barcode.BarCodeActivity" />
         <activity android:name=".ui.barcode.BarCode2Activity"
             android:theme="@style/AppTheme.NoActionBar"/>

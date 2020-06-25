@@ -207,6 +207,31 @@ public class Analise extends ModelFirestore implements Serializable {
      */
     private String q4_4;
 
+    /**
+     * Há algo interessante sobre as capas, a orelha ou o título do livro que você queira registrar?
+     */
+    private String q5_1;
+
+    /**
+     * Há algo interessante sobre o projeto gráfico do livro? (formato, papel, cores, ilustrações) - em caso de texto narrativo ilustrado, haverá um guia detalhado para análise posterior.
+     */
+    private String q5_2;
+
+    /**
+     * Há algo interessante a respeito da editora, da série ou coleção a que o livro pertence que você queira registrar?
+     */
+    private String q5_3;
+
+    /**
+     * A edição e a data de publicação do livro são importantes para seu objetivo de leitura? Por quê? Como?
+     */
+    private String q5_4;
+
+    /**
+     * Há apresentação, notas, apêndices? Eles são importantes para compreensão do assunto? Quem escreveu esses textos? O que é importante anotar?
+     */
+    private String q5_5;
+
     private List<Map<String, String>> audios = new ArrayList<>();
 
     public Analise() {
@@ -552,6 +577,46 @@ public class Analise extends ModelFirestore implements Serializable {
         this.q4_4 = q4_4;
     }
 
+    public String getQ5_1() {
+        return q5_1;
+    }
+
+    public void setQ5_1(String q5_1) {
+        this.q5_1 = q5_1;
+    }
+
+    public String getQ5_2() {
+        return q5_2;
+    }
+
+    public void setQ5_2(String q5_2) {
+        this.q5_2 = q5_2;
+    }
+
+    public String getQ5_3() {
+        return q5_3;
+    }
+
+    public void setQ5_3(String q5_3) {
+        this.q5_3 = q5_3;
+    }
+
+    public String getQ5_4() {
+        return q5_4;
+    }
+
+    public void setQ5_4(String q5_4) {
+        this.q5_4 = q5_4;
+    }
+
+    public String getQ5_5() {
+        return q5_5;
+    }
+
+    public void setQ5_5(String q5_5) {
+        this.q5_5 = q5_5;
+    }
+
     public String getTipoAnalise() {
         switch (this.q1_11) {
             case ConstsIdentificacoes.APENAS_ANOTACAOES:
@@ -626,6 +691,12 @@ public class Analise extends ModelFirestore implements Serializable {
         map.put("q4_2", this.q4_2);
         map.put("q4_3", this.q4_3);
         map.put("q4_4", this.q4_4);
+
+        map.put("q5_1", this.q5_1);
+        map.put("q5_2", this.q5_2);
+        map.put("q5_3", this.q5_3);
+        map.put("q5_4", this.q5_4);
+        map.put("q5_5", this.q5_5);
 
 
 
