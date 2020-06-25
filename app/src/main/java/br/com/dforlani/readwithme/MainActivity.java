@@ -75,6 +75,8 @@ public class MainActivity extends BaseActivity {
         //****** FIM DO FIREBASE********/
 
         setContentView(R.layout.activity_main);
+
+
         //  mNameLogin = findViewById(R.id.nameTextFacebook);
 
 

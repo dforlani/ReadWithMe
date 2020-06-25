@@ -46,6 +46,10 @@
             android:name="com.facebook.sdk.ApplicationId"
             android:value="@string/facebook_app_id"
             tools:replace="android:value" />
+        <!-- Sample AdMob App ID:  ID DE teste, substituir apenas na VIEW ca-app-pub-3940256099942544/6300978111-->
+        <meta-data
+            android:name="com.google.android.gms.ads.APPLICATION_ID"
+            android:value="ca-app-pub-2885273018066682~7458062972" />
 
         <activity
             android:name="com.facebook.FacebookActivity"

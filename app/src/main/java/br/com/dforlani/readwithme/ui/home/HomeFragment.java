@@ -14,6 +14,13 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.google.android.gms.ads.AdListener;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.ads.initialization.InitializationStatus;
+import com.google.android.gms.ads.initialization.OnInitializationCompleteListener;
+
 import java.util.ArrayList;
 import java.util.List;
 
@@ -25,6 +32,7 @@ import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.ui.adapter.AnaliseAdapter;
 import br.com.dforlani.readwithme.util.Preferencias;
 
+
 public class HomeFragment extends Fragment {
 
     private HomeViewModel homeViewModel;
@@ -34,12 +42,69 @@ public class HomeFragment extends Fragment {
     private AnaliseAdapter analiseAdapter;
     private AnaliseListViewModel analiseListViewModel;
     private boolean isScrolling;
+    private AdView mAdView;
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
                 ViewModelProviders.of(this).get(HomeViewModel.class);
        root = inflater.inflate(R.layout.fragment_home, container, false);
+
+        //Incializa o ADMob
+        MobileAds.initialize(root.getContext(), new OnInitializationCompleteListener() {
+            @Override
+            public void onInitializationComplete(InitializationStatus initializationStatus) {
+            }
+        });
+        //RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("52A5BC24BE3C2E91266B673DAE167199"));
+        mAdView = root.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().addTestDevice("52A5BC24BE3C2E91266B673DAE167199").build();
+        mAdView.loadAd(adRequest);
+        mAdView.setAdListener(new AdListener() {
+            @Override
+            public void onAdLoaded() {
+                int o = 0;
+                o++;
+                // Code to be executed when an ad finishes loading.
+            }
+
+            @Override
+            public void onAdFailedToLoad(int errorCode) {
+                int o = 0;
+                o++;
+                // Code to be executed when an ad request fails.
+            }
+
+            @Override
+            public void onAdOpened() {
+                int o = 0;
+                o++;
+                // Code to be executed when an ad opens an overlay that
+                // covers the screen.
+            }
+
+            @Override
+            public void onAdClicked() {
+                int o = 0;
+                o++;
+                // Code to be executed when the user clicks on an ad.
+            }
+
+            @Override
+            public void onAdLeftApplication() {
+                int o = 0;
+                o++;
+                // Code to be executed when the user has left the app.
+            }
+
+            @Override
+            public void onAdClosed() {
+                int o = 0;
+                o++;
+                // Code to be executed when the user is about to return
+                // to the app after tapping on an ad.
+            }
+        });
 
         initAnalisesRecyclerView();
         initAnalisesAdapter();
