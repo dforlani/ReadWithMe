@@ -200,7 +200,10 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                             break;
 
                         case Analise.ConstsIdentificacoes.APENAS_RESUMOS:
-                            int oi2 = 1;
+                            intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosResumoesCitacoesParafrasesActivity.class);
+                            intent.putExtra("analise", analise);
+                            startActivity(intent);
+                            finish();
                            break;
 
                         case Analise.ConstsIdentificacoes.ENCERRAR:

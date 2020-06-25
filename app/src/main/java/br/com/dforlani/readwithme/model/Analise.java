@@ -186,6 +186,27 @@ public class Analise extends ModelFirestore implements Serializable {
      */
     private String q3_1;
 
+
+    /**
+     *Resumo geral
+     */
+    private String q4_1;
+
+    /**
+     * Resumo de capítulos
+     */
+    private String q4_2;
+
+    /**
+     * Paráfrases (não esqueça de marcar as páginas!)
+     */
+    private String q4_3;
+
+    /**
+     * Citações diretas (não esqueça de marcar as páginas!)
+     */
+    private String q4_4;
+
     private List<Map<String, String>> audios = new ArrayList<>();
 
     public Analise() {
@@ -499,6 +520,38 @@ public class Analise extends ModelFirestore implements Serializable {
         this.q3_1 = q3_1;
     }
 
+    public String getQ4_1() {
+        return q4_1;
+    }
+
+    public void setQ4_1(String q4_1) {
+        this.q4_1 = q4_1;
+    }
+
+    public String getQ4_2() {
+        return q4_2;
+    }
+
+    public void setQ4_2(String q4_2) {
+        this.q4_2 = q4_2;
+    }
+
+    public String getQ4_3() {
+        return q4_3;
+    }
+
+    public void setQ4_3(String q4_3) {
+        this.q4_3 = q4_3;
+    }
+
+    public String getQ4_4() {
+        return q4_4;
+    }
+
+    public void setQ4_4(String q4_4) {
+        this.q4_4 = q4_4;
+    }
+
     public String getTipoAnalise() {
         switch (this.q1_11) {
             case ConstsIdentificacoes.APENAS_ANOTACAOES:
@@ -566,7 +619,14 @@ public class Analise extends ModelFirestore implements Serializable {
         map.put("q2_17", this.q2_17);
         map.put("q2_18", this.q2_18);
         map.put("q2_19", this.q2_19);
+
         map.put("q3_1", this.q3_1);
+
+        map.put("q4_1", this.q4_1);
+        map.put("q4_2", this.q4_2);
+        map.put("q4_3", this.q4_3);
+        map.put("q4_4", this.q4_4);
+
 
 
         map.put("audios", this.getAudios());
