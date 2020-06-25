@@ -27,36 +27,31 @@
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
                 android:text="@string/text_q_reacoes_1" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="0 = nenhuma vontade de prosseguir, mas sou insistente ou era obrigação"
                 android:textColor="@color/colorBlueText"
-                android:text="0 = nenhuma vontade de prosseguir, mas sou insistente ou era obrigação" />
+                android:textSize="@dimen/text_explicacao_check_box" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="10 = não consegui parar de ler até o final"
                 android:textColor="@color/colorBlueText"
-                android:text="10 = não consegui parar de ler até o final" />
+                android:textSize="@dimen/text_explicacao_check_box" />
 
             <RadioGroup
                 android:id="@+id/act_reacoes_radio_classifica_interesse"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1.2">
+                android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_0"
+                        android:id="@+id/act_reacoes_radio_classifica_interesse_0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -67,7 +62,7 @@
                         android:text="0" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_1"
+                        android:id="@+id/act_reacoes_radio_classifica_interesse_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -78,7 +73,7 @@
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_2"
+                        android:id="@+id/act_reacoes_radio_classifica_interesse_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -89,7 +84,6 @@
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -100,7 +94,6 @@
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -111,7 +104,6 @@
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -120,17 +112,9 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="5" />
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -141,7 +125,6 @@
                         android:text="6" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -152,7 +135,6 @@
                         android:text="7" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -163,7 +145,6 @@
                         android:text="8" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -174,7 +155,6 @@
                         android:text="9" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -183,7 +163,7 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="10" />
-                </LinearLayout>
+
             </RadioGroup>
 
 
@@ -198,8 +178,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_bottom_edit_text"
-               >
+                android:layout_marginBottom="@dimen/margin_bottom_edit_text">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/act_reacoes_input_2"
@@ -217,36 +196,30 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="0 = abandonei"
                 android:textColor="@color/colorBlueText"
-                android:text="0 = abandonei" />
+                android:textSize="@dimen/text_explicacao_check_box" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="10 = nem vi passar de tão delícia que foi esse texto!"
                 android:textColor="@color/colorBlueText"
-                android:text="10 = nem vi passar de tão delícia que foi esse texto!" />
+                android:textSize="@dimen/text_explicacao_check_box" />
 
             <RadioGroup
+                android:id="@+id/act_reacoes_radio_sentia"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/act_reacoes_radio_sentia"
-                android:orientation="vertical">
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1.2">
+                android:orientation="horizontal">
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -257,7 +230,6 @@
                         android:text="0" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -268,7 +240,6 @@
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -279,7 +250,6 @@
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -290,7 +260,6 @@
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -301,7 +270,6 @@
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -310,17 +278,9 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="5" />
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -331,7 +291,6 @@
                         android:text="6" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -342,7 +301,6 @@
                         android:text="7" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -353,7 +311,6 @@
                         android:text="8" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -364,7 +321,6 @@
                         android:text="9" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -373,7 +329,7 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="10" />
-                </LinearLayout>
+
             </RadioGroup>
 
             <TextView
@@ -413,36 +369,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="0 = tão divertido quanto chupar picolé de chuchu em missa de sétimo dia"
                 android:textColor="@color/colorBlueText"
-                android:text="0 = tão divertido quanto chupar picolé de chuchu em missa de sétimo dia" />
+                android:textSize="@dimen/text_explicacao_check_box" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="10 = o texto mais legal que já li, único de sua categoria"
                 android:textColor="@color/colorBlueText"
-                android:text="10 = o texto mais legal que já li, único de sua categoria" />
+                android:textSize="@dimen/text_explicacao_check_box" />
 
             <RadioGroup
+                android:id="@+id/act_reacoes_radio_classifica_prazer"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/act_reacoes_radio_classifica_prazer"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1.2">
+
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -453,7 +405,6 @@
                         android:text="0" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -464,7 +415,6 @@
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -475,7 +425,6 @@
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -486,7 +435,6 @@
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -497,7 +445,6 @@
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -506,17 +453,9 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="5" />
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -527,7 +466,6 @@
                         android:text="6" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -538,7 +476,6 @@
                         android:text="7" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -549,7 +486,6 @@
                         android:text="8" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -560,7 +496,6 @@
                         android:text="9" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -569,7 +504,7 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="10" />
-                </LinearLayout>
+
             </RadioGroup>
 
             <TextView
@@ -609,36 +544,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="0 = A leitura não cumpriu o objetivo de maneira nenhuma"
                 android:textColor="@color/colorBlueText"
-                android:text="0 = A leitura não cumpriu o objetivo de maneira nenhuma" />
+                android:textSize="@dimen/text_explicacao_check_box" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="10 = Superou as expectativas"
                 android:textColor="@color/colorBlueText"
-                android:text="10 = Superou as expectativas" />
+                android:textSize="@dimen/text_explicacao_check_box" />
 
             <RadioGroup
+                android:id="@+id/act_reacoes_radio_objetivo_ao_ler"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/act_reacoes_radio_objetivo_ao_ler"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1.2">
+
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -649,7 +580,6 @@
                         android:text="0" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -660,7 +590,6 @@
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -671,7 +600,6 @@
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -682,7 +610,6 @@
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -693,7 +620,6 @@
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -702,17 +628,9 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="5" />
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -723,7 +641,6 @@
                         android:text="6" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -734,7 +651,6 @@
                         android:text="7" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -745,7 +661,6 @@
                         android:text="8" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -756,7 +671,6 @@
                         android:text="9" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -765,11 +679,10 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="10" />
-                </LinearLayout>
+
             </RadioGroup>
 
             <TextView
-
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
@@ -783,6 +696,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_avaliei_mal"
                 android:text="@string/check_reacoes_avaliei_mal" />
 
             <CheckBox
@@ -790,6 +704,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_texto_nao_cumpre"
                 android:text="@string/check_reacoes_texto_nao_cumpre" />
 
             <CheckBox
@@ -797,6 +712,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_texto_nao_cumpre_quem_recomendou"
                 android:text="@string/check_texto_nao_cumpre_quem_recomendou" />
 
             <CheckBox
@@ -804,12 +720,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_profundidade_maior_menor"
                 android:text="@string/check_texto_profundidade_maior_menor" />
+
             <CheckBox
                 android:id="@+id/act_reacoes_check_outra_coisa"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_outra_coisa"
                 android:text="@string/check_texto_outra_coisa" />
 
 
@@ -818,71 +737,60 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:text="@string/text_q_reacoes_9"
-       />
+                android:text="@string/text_q_reacoes_9" />
 
 
+            <com.google.android.material.textfield.TextInputLayout
+                android:id="@+id/input_text_q_reacoes_9"
+                style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="@dimen/margin_bottom_edit_text"
+                android:layout_weight="0.2"
+                app:endIconDrawable="@drawable/ic_arrow_forward_black_24dp">
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_text_q_reacoes_9"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <com.google.android.material.textfield.TextInputEditText
+                    android:id="@+id/act_reacoes_input_9"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_bottom_edit_text"
-                    android:layout_weight="0.2"
-                    app:endIconDrawable="@drawable/ic_arrow_forward_black_24dp"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@+id/text_q1_8">
+                   />
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/act_reacoes_input_9"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:focusable="false" />
-
-                </com.google.android.material.textfield.TextInputLayout>
+            </com.google.android.material.textfield.TextInputLayout>
 
 
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:clickable="false"
                 android:inputType="none"
-                android:text="@string/text_q_reacoes_10"
-                />
+                android:text="@string/text_q_reacoes_10" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="0 = que imbecil, não faz sentido nada do que ele diz, um completo idiota"
                 android:textColor="@color/colorBlueText"
-                android:text="0 = que imbecil, não faz sentido nada do que ele diz, um completo idiota" />
+                android:textSize="@dimen/text_explicacao_check_box" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="10 = aprendi muito, é realmente tudo o que eu sempre imaginei encontrar a esse respeito, superou expectativas"
                 android:textColor="@color/colorBlueText"
-                android:text="10 = aprendi muito, é realmente tudo o que eu sempre imaginei encontrar a esse respeito, superou expectativas" />
+                android:textSize="@dimen/text_explicacao_check_box" />
 
 
             <RadioGroup
+                android:id="@+id/act_reacoes_radio_ideias_autor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/act_reacoes_radio_ideias_autor"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1.2">
+
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -893,7 +801,6 @@
                         android:text="0" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -904,7 +811,6 @@
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -915,7 +821,6 @@
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -926,7 +831,6 @@
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -937,7 +841,6 @@
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -946,17 +849,9 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="5" />
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -967,7 +862,6 @@
                         android:text="6" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -978,7 +872,6 @@
                         android:text="7" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -989,7 +882,6 @@
                         android:text="8" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1000,7 +892,6 @@
                         android:text="9" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1009,9 +900,8 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="10" />
-                </LinearLayout>
-            </RadioGroup>
 
+            </RadioGroup>
 
 
             <TextView
@@ -1029,8 +919,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:layout_marginBottom="@dimen/margin_bottom_edit_text"
-                >
+                android:layout_marginBottom="@dimen/margin_bottom_edit_text">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/act_reacoes_input_11"
@@ -1076,36 +965,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="0 = nem um pouco!"
                 android:textColor="@color/colorBlueText"
-                android:text="0 = nem um pouco!" />
+                android:textSize="@dimen/text_explicacao_check_box" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="10 = muito!"
                 android:textColor="@color/colorBlueText"
-                android:text="10 = muito!" />
+                android:textSize="@dimen/text_explicacao_check_box" />
 
             <RadioGroup
+                android:id="@+id/act_reacoes_radio_estilo_autor"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/act_reacoes_radio_estilo_autor"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1.2">
+
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1116,7 +1001,6 @@
                         android:text="0" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1127,7 +1011,6 @@
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1138,7 +1021,6 @@
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1149,7 +1031,6 @@
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1160,7 +1041,6 @@
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1169,17 +1049,9 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="5" />
-                </LinearLayout>
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1190,7 +1062,6 @@
                         android:text="6" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1201,7 +1072,6 @@
                         android:text="7" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1212,7 +1082,6 @@
                         android:text="8" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1223,7 +1092,6 @@
                         android:text="9" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1232,7 +1100,7 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="10" />
-                </LinearLayout>
+
             </RadioGroup>
 
             <TextView
@@ -1272,36 +1140,32 @@
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintStart_toStartOf="parent"
                 app:layout_constraintTop_toTopOf="parent" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="0 = nem um pouco!"
                 android:textColor="@color/colorBlueText"
-                android:text="0 = nem um pouco!" />
+                android:textSize="@dimen/text_explicacao_check_box" />
+
             <TextView
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
-                android:textSize="@dimen/text_explicacao_check_box"
+                android:text="10 = muito!"
                 android:textColor="@color/colorBlueText"
-                android:text="10 = muito!" />
+                android:textSize="@dimen/text_explicacao_check_box" />
 
             <RadioGroup
+                android:id="@+id/act_reacoes_radio_genero_agrada"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:id="@+id/act_reacoes_radio_genero_agrada"
-                android:orientation="vertical">
+                android:orientation="horizontal">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1.2">
+
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_0"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1312,7 +1176,6 @@
                         android:text="0" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_1"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1323,7 +1186,6 @@
                         android:text="1" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_2"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1334,7 +1196,6 @@
                         android:text="2" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_3"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1345,7 +1206,6 @@
                         android:text="3" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_4"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1356,7 +1216,6 @@
                         android:text="4" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_5"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1365,17 +1224,8 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="5" />
-                </LinearLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:gravity="center"
-                    android:orientation="horizontal"
-                    android:weightSum="1">
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_6"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1386,7 +1236,6 @@
                         android:text="6" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_7"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1397,7 +1246,6 @@
                         android:text="7" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_8"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1408,7 +1256,6 @@
                         android:text="8" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_9"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1419,7 +1266,6 @@
                         android:text="9" />
 
                     <RadioButton
-                        android:id="@+id/radio_btt_interesse_10"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_weight="0.2"
@@ -1428,7 +1274,7 @@
                         android:gravity="center"
                         android:onClick="onRadioButtonClicked"
                         android:text="10" />
-                </LinearLayout>
+
             </RadioGroup>
 
             <TextView
@@ -1474,6 +1320,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_vida_academica"
                 android:text="@string/check_reacoes_vida_academica" />
 
             <CheckBox
@@ -1481,6 +1328,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_prazer_e_diversao"
                 android:text="@string/check_prazer_e_diversao" />
 
             <CheckBox
@@ -1488,6 +1336,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_minha_pesquisa_atual"
                 android:text="@string/check_reacoes_minha_pesquisa_atual" />
 
             <CheckBox
@@ -1495,12 +1344,15 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_pesquisas_futuras"
                 android:text="@string/check_reacoes_pesquisas_futuras_reas_em_que_quero_me_especializar_no_futuro" />
+
             <CheckBox
                 android:id="@+id/act_reacoes_check_vida_profissional"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_vida_profissional"
                 android:text="@string/check_reacoes_minha_vida_profissional" />
 
             <CheckBox
@@ -1508,6 +1360,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_pratica_leitura"
                 android:text="@string/check_reacoes_pratica_leitura" />
 
             <CheckBox
@@ -1515,6 +1368,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_producao_textos"
                 android:text="@string/check_reacoes_producao_textos" />
 
             <CheckBox
@@ -1522,6 +1376,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_vida_pessoal"
                 android:text="@string/check_reacoes_vida_pessoal" />
 
             <CheckBox
@@ -1529,6 +1384,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_conhecimento_mundo"
                 android:text="@string/check_reacoes_conhecimento_mundo" />
 
             <CheckBox
@@ -1536,6 +1392,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:tag="act_reacoes_check_gosto_muito"
                 android:text="@string/check_reacoes_gosto_muito" />
 
             <TextView
@@ -1553,9 +1410,7 @@
                 style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-
-                android:layout_marginBottom="@dimen/margin_bottom_edit_text"
-          >
+                android:layout_marginBottom="@dimen/margin_bottom_edit_text">
 
                 <com.google.android.material.textfield.TextInputEditText
                     android:id="@+id/act_reacoes_input_18"
@@ -1601,7 +1456,7 @@
                 app:layout_constraintTop_toBottomOf="@+id/text_q1_11">
 
                 <Button
-                    android:id="@+id/act_quesitos1_btt_voltar"
+                    android:id="@+id/act_quesitos_reacoes_btt_voltar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginRight="5dp"
@@ -1609,7 +1464,7 @@
                     android:text="@string/voltar" />
 
                 <Button
-                    android:id="@+id/act_quesitos1_btt_continuar"
+                    android:id="@+id/act_quesitos_reacoes_btt_continuar"
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_marginStart="5dp"

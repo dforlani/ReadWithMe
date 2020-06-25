@@ -80,25 +80,25 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
         switch (view.getId()) {
             case R.id.radio_button_apenas_anotacoes:
                 if (checked)
-                    viewHolder.q1_11 = Analise.APENAS_ANOTACAOES;
+                    viewHolder.q1_11 = Analise.ConstsIdentificacoes.APENAS_ANOTACAOES;
                 break;
             case R.id.radio_button_apenas_reacoes:
                 if (checked)
-                    viewHolder.q1_11 = Analise.APENAS_REACOES;
+                    viewHolder.q1_11 = Analise.ConstsIdentificacoes.APENAS_REACOES;
 
                 break;
             case R.id.radio_button_apenas_resumos:
                 if (checked)
-                    viewHolder.q1_11 = Analise.APENAS_RESUMOS;
+                    viewHolder.q1_11 = Analise.ConstsIdentificacoes.APENAS_RESUMOS;
 
                 break;
             case R.id.radio_button_encerrar:
                 if (checked)
-                    viewHolder.q1_11 = Analise.ENCERRAR;
+                    viewHolder.q1_11 = Analise.ConstsIdentificacoes.ENCERRAR;
                 break;
             case R.id.radio_button_sim:
                 if (checked)
-                    viewHolder.q1_11 = Analise.ANALISE_COMPLETA;
+                    viewHolder.q1_11 = Analise.ConstsIdentificacoes.ANALISE_COMPLETA;
                 break;
         }
     }
@@ -156,7 +156,6 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
     }
 
 
-
     class ViewHolder {
         DatePickerDialog picker;
         ImageButton dtInicio;
@@ -184,8 +183,27 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
-                    if (analise.isEncerrar()) {
-                        finish();
+                    switch (analise.getQ1_11()) {
+                        case Analise.ConstsIdentificacoes.APENAS_ANOTACAOES:
+                            int oi1 = 2;
+                            break;
+
+                        case Analise.ConstsIdentificacoes.APENAS_REACOES:
+                            Intent intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosReacoesActivity.class);
+                            intent.putExtra("analise", analise);
+                            startActivity(intent);
+                            finish();
+                            break;
+
+                        case Analise.ConstsIdentificacoes.APENAS_RESUMOS:
+                            int oi2 = 1;
+                           break;
+
+                        case Analise.ConstsIdentificacoes.ENCERRAR:
+                            finish();
+                            break;
+
+
                     }
                 }
 
@@ -303,19 +321,19 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
             q1_11 = analise.getQ1_11();
             if (q1_11 != null) {
                 switch (q1_11) {
-                    case Analise.APENAS_ANOTACAOES:
+                    case Analise.ConstsIdentificacoes.APENAS_ANOTACAOES:
                         ((RadioButton) findViewById(R.id.radio_button_apenas_anotacoes)).setChecked(true);
                         break;
 
-                    case Analise.APENAS_REACOES:
+                    case Analise.ConstsIdentificacoes.APENAS_REACOES:
                         ((RadioButton) findViewById(R.id.radio_button_apenas_reacoes)).setChecked(true);
                         break;
 
-                    case Analise.APENAS_RESUMOS:
+                    case Analise.ConstsIdentificacoes.APENAS_RESUMOS:
                         ((RadioButton) findViewById(R.id.radio_button_apenas_resumos)).setChecked(true);
                         break;
 
-                    case Analise.ENCERRAR:
+                    case Analise.ConstsIdentificacoes.ENCERRAR:
                         ((RadioButton) findViewById(R.id.radio_button_encerrar)).setChecked(true);
                         break;
 
