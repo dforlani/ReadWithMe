@@ -1,9 +1,8 @@
-package br.com.dforlani.readwithme;
+package br.com.dforlani.readwithme.ui;
 
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
-import android.view.Menu;
 import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
@@ -11,12 +10,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.appcompat.widget.Toolbar;
-import androidx.drawerlayout.widget.DrawerLayout;
-import androidx.navigation.NavController;
-import androidx.navigation.Navigation;
 import androidx.navigation.ui.AppBarConfiguration;
-import androidx.navigation.ui.NavigationUI;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -35,8 +29,6 @@ import com.google.android.gms.common.SignInButton;
 import com.google.android.gms.common.api.ApiException;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.navigation.NavigationView;
 import com.google.android.material.snackbar.Snackbar;
 import com.google.firebase.auth.AuthCredential;
 import com.google.firebase.auth.AuthResult;
@@ -50,68 +42,69 @@ import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Arrays;
 
+import br.com.dforlani.readwithme.MainActivity;
+import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Usuario;
-import br.com.dforlani.readwithme.ui.BaseActivity;
-import br.com.dforlani.readwithme.ui.quesitos.QuesitosIdentificacaoActivity;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class MainActivity extends BaseActivity {
+public class LoginActivity extends BaseActivity {
 
+    private static final int RC_GOOGLE_SIGN_IN = 9001;
+    private static String TAG = "LoginActivity";
     private AppBarConfiguration mAppBarConfiguration;
     private FirebaseAuth mAuth;
-    private static String TAG = "MainActivity";
     private TextView mNameLogin;
     private Button mBttDisconect;
-    View headerView;
+    /*********************************FACEBOOK**************************/
 
+    private LoginButton mBttLoginFacebook;
+    private ImageView mImageLogin;
+    private CallbackManager callbackManager;
+
+
+    /***********************FIREBASE********************/
+    /**********************LOGIN GOOGLE**********************/
+    private SignInButton bttLoginGoogle;
+
+
+    /*******************FIM DO FIREBASE*****************/
+    private GoogleSignInClient mGoogleSignInClient;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        //******FIREBASE********/
+        setContentView(R.layout.activity_login);
+
+
         mAuth = FirebaseAuth.getInstance();
         iniciarFirebase();
-        //****** FIM DO FIREBASE********/
 
-        setContentView(R.layout.activity_main);
+        mImageLogin = findViewById(R.id.act_login_image_user);
+        setProgressBar(R.id.progressBar);
+        mNameLogin = findViewById(R.id.act_login_name_user);
+        mBttDisconect = findViewById(R.id.act_login_btt_disconect);
 
-
-        //  mNameLogin = findViewById(R.id.nameTextFacebook);
-
-
-        Toolbar toolbar = findViewById(R.id.toolbar);
-        setSupportActionBar(toolbar);
-        FloatingActionButton bttAddAnalise = findViewById(R.id.btt_add_analise);
-        bttAddAnalise.setOnClickListener(new View.OnClickListener() {
+        mBttDisconect.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent myIntent = new Intent(MainActivity.this, QuesitosIdentificacaoActivity.class);
-                // myIntent.putExtra("key", value); //Optional parameters
-                startActivity(myIntent);
-//                Mostra uma mensagem na base do aplicativo
-//                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-//                        .setAction("Action", null).show();
+            public void onClick(View v) {
+                signOut();
             }
         });
-        DrawerLayout drawer = findViewById(R.id.drawer_layout);
-        NavigationView navigationView = findViewById(R.id.nav_view);
-        // Passing each menu ID as a set of Ids because each
-        // menu should be considered as top level destinations.
-        mAppBarConfiguration = new AppBarConfiguration.Builder(
-                R.id.nav_home, R.id.nav_gallery, R.id.nav_slideshow)
-                .setDrawerLayout(drawer)
-                .build();
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        NavigationUI.setupActionBarWithNavController(this, navController, mAppBarConfiguration);
-        NavigationUI.setupWithNavController(navigationView, navController);
 
-
-        Log.d(TAG, "create");
-
-
+        mountGoogleLoginInterface();
+        FirebaseUser currentUser = mAuth.getCurrentUser();
+        updateUI(currentUser);
     }
 
+    /**
+     * Se tiver logado, redireciona para a tela de login
+     */
+    public void goToMainActivity() {
+        Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+        startActivity(intent);
+        finish();
+    }
 
     private void iniciarFirebase() {
         FirebaseInstanceId.getInstance().getInstanceId().addOnCompleteListener(new OnCompleteListener<InstanceIdResult>() {
@@ -127,11 +120,18 @@ public class MainActivity extends BaseActivity {
         FirebaseMessaging.getInstance().setAutoInitEnabled(true);
     }
 
-
+    /**
+     * Recebe os retornas da activitys de Login do Face e do Google
+     *
+     * @param requestCode
+     * @param resultCode
+     * @param data
+     */
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         //facebook login
-        callbackManager.onActivityResult(requestCode, resultCode, data);
+        if (callbackManager != null)
+            callbackManager.onActivityResult(requestCode, resultCode, data);
 
         super.onActivityResult(requestCode, resultCode, data);
 
@@ -153,48 +153,8 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
+    /*************FIM DO FACEBOOK**************************/
 
-        // Inflate the menu; this adds items to the action bar if it is present.
-
-        getMenuInflater().inflate(R.menu.main, menu);//cria o menu de opção da direita
-
-        // Obtém a referência do layout de navegação
-        NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
-
-        // Obtém a referência da view de cabeçalho
-        headerView = navigationView.getHeaderView(0);
-
-        mNameLogin = headerView.findViewById(R.id.act_login_name_user);
-        mBttDisconect = headerView.findViewById(R.id.act_login_btt_disconect);
-
-        mBttDisconect.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                signOut();
-            }
-        });
-
-
-        mountFacebookLoginInterface();
-        mountGoogleLoginInterface();
-
-
-        FirebaseUser currentUser = mAuth.getCurrentUser();
-        updateUI(currentUser);
-        return true;
-    }
-
-
-    @Override
-    public boolean onSupportNavigateUp() {
-        NavController navController = Navigation.findNavController(this, R.id.nav_host_fragment);
-        return NavigationUI.navigateUp(navController, mAppBarConfiguration)
-                || super.onSupportNavigateUp();
-    }
-
-    /***********************FIREBASE********************/
     /**
      * Depois que o usuário fizer login pelo Facebook, faz um login no Firebase também
      *
@@ -217,19 +177,13 @@ public class MainActivity extends BaseActivity {
                         } else {
                             // If sign in fails, display a message to the user.
                             Log.w(TAG, "signInWithCredential:failure", task.getException());
-                            Toast.makeText(MainActivity.this, "Authentication failed.",
+                            Toast.makeText(LoginActivity.this, "Erro na autenticação.",
                                     Toast.LENGTH_SHORT).show();
                             updateUI(null);
                         }
-
-
                     }
                 });
-
     }
-
-
-    /*******************FIM DO FIREBASE*****************/
 
     /**
      * Sempre que faz o login, tenta criar o usuário na tabela usuário
@@ -238,17 +192,9 @@ public class MainActivity extends BaseActivity {
         Usuario.crieUsuarioIfNotExist(email);
     }
 
-
-    /*********************************FACEBOOK**************************/
-
-    private LoginButton mBttLoginFacebook;
-    private ImageView mImageLogin;
-    private CallbackManager callbackManager;
-
     private void mountFacebookLoginInterface() {
-
         mBttLoginFacebook = null;// headerView.findViewById(R.id.act_login_button_facebook);
-        mImageLogin = headerView.findViewById(R.id.act_login_image_user);
+
 
         callbackManager = CallbackManager.Factory.create();
 
@@ -276,20 +222,11 @@ public class MainActivity extends BaseActivity {
         }
     }
 
-    /*************FIM DO FACEBOOK**************************/
-
-    /**********************LOGIN GOOGLE**********************/
-    private SignInButton bttLoginGoogle;
-    private GoogleSignInClient mGoogleSignInClient;
-    private static final int RC_GOOGLE_SIGN_IN = 9001;
-
-
     private void mountGoogleLoginInterface() {
-        setProgressBar(R.id.progressBar);
 
         // Button listeners
 
-        bttLoginGoogle = headerView.findViewById(R.id.act_login_button_google);
+        bttLoginGoogle = findViewById(R.id.act_login_button_google);
         if (bttLoginGoogle != null) {
             bttLoginGoogle.setOnClickListener(new View.OnClickListener() {
                 @Override
@@ -396,7 +333,7 @@ public class MainActivity extends BaseActivity {
 
             mNameLogin.setText(user.getDisplayName());
             //arredonda a imagem
-            Glide.with(MainActivity.this).load(user.getPhotoUrl()).apply(RequestOptions.circleCropTransform()).into(mImageLogin);
+            Glide.with(LoginActivity.this).load(user.getPhotoUrl()).apply(RequestOptions.circleCropTransform()).into(mImageLogin);
 
             mNameLogin.setVisibility(View.VISIBLE);
             mImageLogin.setVisibility(View.VISIBLE);
@@ -405,6 +342,8 @@ public class MainActivity extends BaseActivity {
             if (mBttLoginFacebook != null)
                 mBttLoginFacebook.setVisibility(View.GONE);
             mBttDisconect.setVisibility(View.VISIBLE);
+
+            goToMainActivity();
 
         } else {
             mNameLogin.setVisibility(View.GONE);
@@ -420,5 +359,4 @@ public class MainActivity extends BaseActivity {
 
 
 /*****************FIM LOGIN GOOGLE*********************************/
-
 }
