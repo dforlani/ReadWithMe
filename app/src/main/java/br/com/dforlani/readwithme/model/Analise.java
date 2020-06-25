@@ -181,6 +181,10 @@ public class Analise extends ModelFirestore implements Serializable {
      */
     private String q2_19;
 
+    /**
+     * Anotações Livres
+     */
+    private String q3_1;
 
     private List<Map<String, String>> audios = new ArrayList<>();
 
@@ -487,6 +491,14 @@ public class Analise extends ModelFirestore implements Serializable {
         this.q2_19 = q2_19;
     }
 
+    public String getQ3_1() {
+        return q3_1;
+    }
+
+    public void setQ3_1(String q3_1) {
+        this.q3_1 = q3_1;
+    }
+
     public String getTipoAnalise() {
         switch (this.q1_11) {
             case ConstsIdentificacoes.APENAS_ANOTACAOES:
@@ -554,6 +566,7 @@ public class Analise extends ModelFirestore implements Serializable {
         map.put("q2_17", this.q2_17);
         map.put("q2_18", this.q2_18);
         map.put("q2_19", this.q2_19);
+        map.put("q3_1", this.q3_1);
 
 
         map.put("audios", this.getAudios());

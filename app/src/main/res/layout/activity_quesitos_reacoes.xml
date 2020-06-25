@@ -58,7 +58,6 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
                         android:text="0" />
 
                     <RadioButton
@@ -69,7 +68,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="1" />
 
                     <RadioButton
@@ -80,7 +79,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="2" />
 
                     <RadioButton
@@ -90,7 +89,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="3" />
 
                     <RadioButton
@@ -100,7 +99,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="4" />
 
                     <RadioButton
@@ -110,7 +109,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="5" />
 
 
@@ -121,7 +120,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="6" />
 
                     <RadioButton
@@ -131,7 +130,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="7" />
 
                     <RadioButton
@@ -141,7 +140,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="8" />
 
                     <RadioButton
@@ -151,7 +150,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="9" />
 
                     <RadioButton
@@ -161,7 +160,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="10" />
 
             </RadioGroup>
@@ -226,7 +225,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="0" />
 
                     <RadioButton
@@ -236,7 +235,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="1" />
 
                     <RadioButton
@@ -246,7 +245,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="2" />
 
                     <RadioButton
@@ -256,7 +255,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="3" />
 
                     <RadioButton
@@ -266,7 +265,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="4" />
 
                     <RadioButton
@@ -276,7 +275,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="5" />
 
 
@@ -287,7 +286,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="6" />
 
                     <RadioButton
@@ -297,7 +296,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="7" />
 
                     <RadioButton
@@ -307,7 +306,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="8" />
 
                     <RadioButton
@@ -317,7 +316,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="9" />
 
                     <RadioButton
@@ -327,7 +326,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="10" />
 
             </RadioGroup>
@@ -401,7 +400,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="0" />
 
                     <RadioButton
@@ -411,7 +410,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="1" />
 
                     <RadioButton
@@ -421,7 +420,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="2" />
 
                     <RadioButton
@@ -431,7 +430,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="3" />
 
                     <RadioButton
@@ -441,7 +440,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="4" />
 
                     <RadioButton
@@ -451,7 +450,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="5" />
 
 
@@ -462,7 +461,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="6" />
 
                     <RadioButton
@@ -472,7 +471,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="7" />
 
                     <RadioButton
@@ -482,7 +481,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="8" />
 
                     <RadioButton
@@ -492,7 +491,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="9" />
 
                     <RadioButton
@@ -502,7 +501,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="10" />
 
             </RadioGroup>
@@ -576,7 +575,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="0" />
 
                     <RadioButton
@@ -586,7 +585,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="1" />
 
                     <RadioButton
@@ -596,7 +595,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="2" />
 
                     <RadioButton
@@ -606,7 +605,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="3" />
 
                     <RadioButton
@@ -616,7 +615,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="4" />
 
                     <RadioButton
@@ -626,7 +625,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="5" />
 
 
@@ -637,7 +636,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="6" />
 
                     <RadioButton
@@ -647,7 +646,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="7" />
 
                     <RadioButton
@@ -657,7 +656,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="8" />
 
                     <RadioButton
@@ -667,7 +666,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="9" />
 
                     <RadioButton
@@ -677,7 +676,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="10" />
 
             </RadioGroup>
@@ -797,7 +796,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="0" />
 
                     <RadioButton
@@ -807,7 +806,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="1" />
 
                     <RadioButton
@@ -817,7 +816,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="2" />
 
                     <RadioButton
@@ -827,7 +826,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="3" />
 
                     <RadioButton
@@ -837,7 +836,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="4" />
 
                     <RadioButton
@@ -847,7 +846,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="5" />
 
 
@@ -858,7 +857,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="6" />
 
                     <RadioButton
@@ -868,7 +867,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="7" />
 
                     <RadioButton
@@ -878,7 +877,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="8" />
 
                     <RadioButton
@@ -888,7 +887,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="9" />
 
                     <RadioButton
@@ -898,7 +897,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="10" />
 
             </RadioGroup>
@@ -997,7 +996,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="0" />
 
                     <RadioButton
@@ -1007,7 +1006,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="1" />
 
                     <RadioButton
@@ -1017,7 +1016,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="2" />
 
                     <RadioButton
@@ -1027,7 +1026,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="3" />
 
                     <RadioButton
@@ -1037,7 +1036,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="4" />
 
                     <RadioButton
@@ -1047,7 +1046,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="5" />
 
 
@@ -1058,7 +1057,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="6" />
 
                     <RadioButton
@@ -1068,7 +1067,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="7" />
 
                     <RadioButton
@@ -1078,7 +1077,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="8" />
 
                     <RadioButton
@@ -1088,7 +1087,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="9" />
 
                     <RadioButton
@@ -1098,7 +1097,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="10" />
 
             </RadioGroup>
@@ -1172,7 +1171,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="0" />
 
                     <RadioButton
@@ -1182,7 +1181,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="1" />
 
                     <RadioButton
@@ -1192,7 +1191,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="2" />
 
                     <RadioButton
@@ -1202,7 +1201,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="3" />
 
                     <RadioButton
@@ -1212,7 +1211,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="4" />
 
                     <RadioButton
@@ -1222,7 +1221,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="5" />
 
                     <RadioButton
@@ -1232,7 +1231,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="6" />
 
                     <RadioButton
@@ -1242,7 +1241,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="7" />
 
                     <RadioButton
@@ -1252,7 +1251,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="8" />
 
                     <RadioButton
@@ -1262,7 +1261,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="9" />
 
                     <RadioButton
@@ -1272,7 +1271,7 @@
                         android:button="@null"
                         android:drawableBottom="@android:drawable/btn_radio"
                         android:gravity="center"
-                        android:onClick="onRadioButtonClicked"
+
                         android:text="10" />
 
             </RadioGroup>

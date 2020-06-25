@@ -183,13 +183,17 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
+                    Intent intent;
                     switch (analise.getQ1_11()) {
                         case Analise.ConstsIdentificacoes.APENAS_ANOTACAOES:
-                            int oi1 = 2;
+                            intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosAnotacoesLivresActivity.class);
+                            intent.putExtra("analise", analise);
+                            startActivity(intent);
+                            finish();
                             break;
 
                         case Analise.ConstsIdentificacoes.APENAS_REACOES:
-                            Intent intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosReacoesActivity.class);
+                            intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosReacoesActivity.class);
                             intent.putExtra("analise", analise);
                             startActivity(intent);
                             finish();

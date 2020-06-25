@@ -108,5 +108,7 @@
     <string name="check_reacoes_vida_pessoal">minha vida pessoal</string>
     <string name="check_reacoes_conhecimento_mundo">meu conhecimento do mundo</string>
     <string name="check_reacoes_gosto_muito">conhecimento sobre algo que gosto muito</string>
+    <string name="title_anotacoes_livres">Anotações livres</string>
+    <string name="text_q_anotacoes_livres_q3_1">Vai fundo</string>
     <!-- FIM DAS STRINGS DO QUESITOS 1-->
 </resources>

@@ -89,16 +89,6 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
         }
     }
 
-
-
-
-    public void onRadioButtonClicked(View view) {
-        // Is the button now checked?
-        boolean checked = ((RadioButton) view).isChecked();
-
-
-    }
-
     class ViewHolder {
         Button continuar;
         Button voltar;
