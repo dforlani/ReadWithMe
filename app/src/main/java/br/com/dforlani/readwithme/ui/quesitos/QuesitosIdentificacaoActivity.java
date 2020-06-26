@@ -13,10 +13,6 @@ import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.Calendar;
 
 import br.com.dforlani.readwithme.R;
@@ -124,35 +120,35 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
     }
 
     private void buscaDadosISBN(String isbn) {
-        GoogleBooksAPI book = new GoogleBooksAPI(QuesitosIdentificacaoActivity.this);
+        GoogleBooksAPI book = new GoogleBooksAPI(QuesitosIdentificacaoActivity.this, viewHolder.q1_1, viewHolder.q1_2, progressBar, this);
         progressBar.setVisibility(View.VISIBLE);
 
-        JSONObject json = book.doInBackground(isbn);
-        progressBar.setVisibility(View.GONE);
-        if (json != null) {
-
-            try {
-                viewHolder.q1_1.setText(json.getJSONArray("items").getJSONObject(0).getJSONObject("volumeInfo").get("title").toString());
-                String autores = "";
-                JSONArray titulos = null;
-                titulos = json.getJSONArray("items").getJSONObject(0).getJSONObject("volumeInfo").getJSONArray("authors");
-                String separador = "";
-                for (int i = 0; i < titulos.length(); i++) {
-                    autores += separador + titulos.get(i).toString();
-                    separador = ", ";
-                }
-                if (autores.length() > 0) {
-                    viewHolder.q1_2.setText(autores);
-                }
-            } catch (JSONException e) {
-                e.printStackTrace();
-            }
-
-
-            //responseJson.getJSONArray("volumeInfo");
-        } else {
-            Toast.makeText(this, "Não foi possível acessar os servidores da Google, tente novamente.", Toast.LENGTH_LONG).show();
-        }
+        book.execute(isbn);
+//
+//        if (json != null) {
+//
+//            try {
+//                viewHolder.q1_1.setText(json.getJSONArray("items").getJSONObject(0).getJSONObject("volumeInfo").get("title").toString());
+//                String autores = "";
+//                JSONArray titulos = null;
+//                titulos = json.getJSONArray("items").getJSONObject(0).getJSONObject("volumeInfo").getJSONArray("authors");
+//                String separador = "";
+//                for (int i = 0; i < titulos.length(); i++) {
+//                    autores += separador + titulos.get(i).toString();
+//                    separador = ", ";
+//                }
+//                if (autores.length() > 0) {
+//                    viewHolder.q1_2.setText(autores);
+//                }
+//            } catch (JSONException e) {
+//                e.printStackTrace();
+//            }
+//
+//
+//            //responseJson.getJSONArray("volumeInfo");
+//        } else {
+//            Toast.makeText(this, "Não foi possível acessar os servidores da Google, tente novamente.", Toast.LENGTH_LONG).show();
+//        }
     }
 
 

@@ -1,13 +1,17 @@
 package br.com.dforlani.readwithme.util;
 
+import android.app.Activity;
 import android.content.Context;
 import android.net.ConnectivityManager;
 import android.net.NetworkInfo;
 import android.os.AsyncTask;
-import android.os.StrictMode;
 import android.util.Log;
+import android.view.View;
+import android.widget.EditText;
+import android.widget.ProgressBar;
 import android.widget.Toast;
 
+import org.json.JSONArray;
 import org.json.JSONException;
 import org.json.JSONObject;
 
@@ -24,9 +28,16 @@ public class GoogleBooksAPI extends AsyncTask<String, Object, JSONObject> {
 
     ConnectivityManager mConnectivityManager;
     Context context;
+    EditText titulo, autores;
+    ProgressBar progressBar;
+    Activity act;
 
-    public GoogleBooksAPI(Context context) {
+    public GoogleBooksAPI(Context context, EditText titulo, EditText autores, ProgressBar progressBar, Activity act) {
+        this.act = act;
+        this.titulo = titulo;
+        this.autores = autores;
         this.context = context;
+        this.progressBar = progressBar;
     }
 
     @Override
@@ -35,6 +46,8 @@ public class GoogleBooksAPI extends AsyncTask<String, Object, JSONObject> {
         if (isNetworkConnected() == false) {
             // Cancel request.
             Log.i(getClass().getName(), "Not connected to the internet");
+            Toast.makeText(this.context, "Não foi possível buscar, pois não foi detectada conexão com a Internet.", Toast.LENGTH_LONG).show();
+            encerraProgressBar();
             cancel(true);
             return;
         }
@@ -42,8 +55,10 @@ public class GoogleBooksAPI extends AsyncTask<String, Object, JSONObject> {
 
     @Override
     public JSONObject doInBackground(String... isbns) {
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+
+        //StrictMode detexta problemas e avisa ao desenvolvedor, deve ser utilizado apenas em desenvolvimento
+//        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
+//        StrictMode.setThreadPolicy(policy);
 
         // Stop if cancelled
         if (isCancelled()) {
@@ -87,6 +102,8 @@ public class GoogleBooksAPI extends AsyncTask<String, Object, JSONObject> {
             JSONObject responseJson = new JSONObject(responseString);
             // Close connection and return response code.
             connection.disconnect();
+
+            atualizaUI(responseJson);
             return responseJson;
         } catch (SocketTimeoutException e) {
             Log.w(getClass().getName(), "Connection timed out. Returning null");
@@ -102,8 +119,51 @@ public class GoogleBooksAPI extends AsyncTask<String, Object, JSONObject> {
         }
     }
 
+    private void encerraProgressBar() {
+        act.runOnUiThread(new Runnable() {
+
+            @Override
+            public void run() {
+
+                progressBar.setVisibility(View.GONE);
+            }
+        });
+    }
+
+    public void atualizaUI(final JSONObject json) {
+        encerraProgressBar();
+        act.runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                try {
+                    if (json != null && ((Integer) json.get("totalItems")) > 0) {
+
+                        titulo.setText(json.getJSONArray("items").getJSONObject(0).getJSONObject("volumeInfo").get("title").toString());
+                        String autoresText = "";
+                        JSONArray titulos = null;
+                        titulos = json.getJSONArray("items").getJSONObject(0).getJSONObject("volumeInfo").getJSONArray("authors");
+                        String separador = "";
+                        for (int i = 0; i < titulos.length(); i++) {
+                            autoresText += separador + titulos.get(i).toString();
+                            separador = ", ";
+                        }
+                        if (autoresText.length() > 0) {
+                            autores.setText(autoresText);
+                        }
+
+                    } else
+                        Toast.makeText(context, "Não foi encontrado nenhum livro para esse ISBN", Toast.LENGTH_LONG).show();
+                } catch (JSONException e) {
+                    Toast.makeText(context, "Não foi encontrado nenhum livro para esse ISBN", Toast.LENGTH_LONG).show();
+                    e.printStackTrace();
+                }
+            }
+        });
+    }
+
     @Override
     protected void onPostExecute(JSONObject responseJson) {
+
         if (isCancelled()) {
             // Request was cancelled due to no network connection.
             Toast.makeText(this.context, "Cancelado", Toast.LENGTH_LONG);
@@ -112,6 +172,7 @@ public class GoogleBooksAPI extends AsyncTask<String, Object, JSONObject> {
         } else {
             // All went well. Do something with your new JSONObject.
         }
+        encerraProgressBar();
     }
 
 
