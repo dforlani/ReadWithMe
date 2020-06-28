@@ -29,21 +29,46 @@
         <activity
             android:name=".MainActivity"
             android:label="@string/app_name"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" />
 
-        <activity android:name=".ui.quesitos.QuesitosIdentificacaoActivity" /> <!-- android:windowSoftInputMode="adjustPan" /> -->
-        <activity android:name=".ui.quesitos.QuesitosReacoesActivity" /> <!-- android:windowSoftInputMode="adjustPan" /> -->
-        <activity android:name=".ui.quesitos.QuesitosAnotacoesLivresActivity" />
-        <activity android:name=".ui.quesitos.QuesitosCompleto1Activity" />
-        <activity android:name=".ui.quesitos.QuesitosResumoesCitacoesParafrasesActivity" />
+        <activity
+            android:name=".ui.quesitos.QuesitosIdentificacaoActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
+        <activity
+            android:name=".ui.quesitos.QuesitosReacoesActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.quesitos.QuesitosAnotacoesLivresActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.quesitos.QuesitosCompleto1Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.quesitos.QuesitosResumoesCitacoesParafrasesActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.barcode.BarCodeActivity" />
         <activity
             android:name=".ui.barcode.BarCode2Activity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".ui.audiorecorder.AudioRecorderActivity" />
+
+        <activity
+            android:name=".ui.audiorecorder.AudioRecorderActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
 
 
+        <activity
+            android:name="com.facebook.CustomTabActivity"
+            android:exported="true">
+            <intent-filter>
+                <action android:name="android.intent.action.VIEW" />
+
+                <category android:name="android.intent.category.DEFAULT" />
+                <category android:name="android.intent.category.BROWSABLE" />
+
+                <data android:scheme="@string/fb_login_protocol_scheme" />
+            </intent-filter>
+        </activity>
 
         <meta-data
             android:name="com.facebook.sdk.ApplicationId"
@@ -59,18 +84,7 @@
             android:label="@string/app_name" />
 
 
-        <activity
-            android:name="com.facebook.CustomTabActivity"
-            android:exported="true">
-            <intent-filter>
-                <action android:name="android.intent.action.VIEW" />
 
-                <category android:name="android.intent.category.DEFAULT" />
-                <category android:name="android.intent.category.BROWSABLE" />
-
-                <data android:scheme="@string/fb_login_protocol_scheme" />
-            </intent-filter>
-        </activity>
 
         <service
             android:name=".firebase.PushMessageService"

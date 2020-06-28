@@ -1,65 +1,45 @@
 package br.com.dforlani.readwithme.ui.quesitos;
 
-import android.Manifest;
 import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.media.MediaPlayer;
-import android.media.MediaRecorder;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-import android.view.ViewGroup;
-import android.widget.Button;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
-import android.widget.ImageButton;
-import android.widget.LinearLayout;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.AppCompatButton;
-import androidx.core.app.ActivityCompat;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.content.ContextCompat;
 
-import com.google.android.material.textfield.TextInputEditText;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
-import java.io.IOException;
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.ui.audiorecorder.AudioRecorderActivity;
-import br.com.dforlani.readwithme.ui.barcode.BarCodeActivity;
-import br.com.dforlani.readwithme.util.GoogleBooksAPI;
-import br.com.dforlani.readwithme.util.Preferencias;
 
 public class QuesitosBaseActivity extends AppCompatActivity {
 
     private static final String TAG = "QuesitosBase.class";
-    private static final int REQUEST_AUDIO_RECORDER =  255;
+    private static final int REQUEST_AUDIO_RECORDER = 255;
 
 
-   // ViewHolder viewHolder;
+    // ViewHolder viewHolder;
     protected Analise analise;
     protected ProgressBar progressBar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+
 
         //pega informações de uma Analise sendo editada, se for o caso
         Intent i = getIntent();
@@ -69,22 +49,56 @@ public class QuesitosBaseActivity extends AppCompatActivity {
         } else {//se não for pra edição, inicia um novo objeto Análise
             analise = new Analise();
         }
+
+        //alterrar a cor da barra superior do Android
+        Window window = this.getWindow();
+// clear FLAG_TRANSLUCENT_STATUS flag:
+        window.clearFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
+// add FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS flag to the window
+        window.addFlags(WindowManager.LayoutParams.FLAG_DRAWS_SYSTEM_BAR_BACKGROUNDS);
+// finally change the color
+        window.setStatusBarColor(ContextCompat.getColor(this, R.color.colorPrimaryDark));
     }
 
     @Override
     protected void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
 
-            //retornando a lista de áudios nova
-            if(resultCode == Activity.RESULT_OK && requestCode == QuesitosBaseActivity.REQUEST_AUDIO_RECORDER){
-                if(data.hasExtra("analise")){
-                    Analise aux = (Analise) data.getSerializableExtra("analise");
-                    analise.setAudios(aux.getAudios());
-                }
+        //retornando a lista de áudios nova
+        if (resultCode == Activity.RESULT_OK && requestCode == QuesitosBaseActivity.REQUEST_AUDIO_RECORDER) {
+            if (data.hasExtra("analise")) {
+                Analise aux = (Analise) data.getSerializableExtra("analise");
+                analise.setAudios(aux.getAudios());
             }
+        }
 
     }
 
+    protected void inflateMenu() {
+        Toolbar toolbar = findViewById(R.id.toolbar_quesitos);
+        // setSupportActionBar(toolbar);
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Toast.makeText(QuesitosBaseActivity.this, "Erro nos menus", Toast.LENGTH_LONG).show();
+            }
+        });
+        toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
+            @Override
+            public boolean onMenuItemClick(MenuItem item) {
+                switch (item.getItemId()) {
+                    case R.id.menu_action_impressoes_em_audio:
+                        Intent intent = new Intent(QuesitosBaseActivity.this, AudioRecorderActivity.class);
+                        intent.putExtra("analise", analise);
+                        startActivityForResult(intent, QuesitosBaseActivity.REQUEST_AUDIO_RECORDER);
+                        return true;
+                }
+                return false;
+            }
+        });
+
+        //toolbar.inflateMenu(R.menu.menu_quesitos);
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -109,6 +123,7 @@ public class QuesitosBaseActivity extends AppCompatActivity {
 
     /**
      * Seta os ckeckbox que possuem uma das tags da lista de tags
+     *
      * @param tagsList
      * @param identificadoresList
      */
@@ -129,6 +144,7 @@ public class QuesitosBaseActivity extends AppCompatActivity {
 
     /**
      * A partir de um RadioGroup, localiza o que está na posição certa e o seta
+     *
      * @param group
      * @param posicao
      */

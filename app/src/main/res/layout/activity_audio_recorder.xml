@@ -5,25 +5,31 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:layout_margin="5dp"
     android:orientation="vertical"
     tools:context=".ui.audiorecorder.AudioRecorderActivity">
 
-    <Button
-        android:id="@+id/act_audio_btt_novo_audio"
+
+    <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_gravity="center"
-        android:text="@string/novo_audio" />
+        android:orientation="vertical"
+        android:padding="10dp">
 
-    <androidx.recyclerview.widget.RecyclerView
+        <Button
+            android:id="@+id/act_audio_btt_novo_audio"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:text="@string/novo_audio" />
 
-        android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:id="@+id/audio_recycler_view"
-        tools:listitem="@layout/adapter_item_audio"
-        app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
+        <androidx.recyclerview.widget.RecyclerView
+
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:id="@+id/audio_recycler_view"
+            tools:listitem="@layout/adapter_item_audio"
+            app:layoutManager="androidx.recyclerview.widget.LinearLayoutManager"/>
 
 
-
+    </LinearLayout>
 </LinearLayout>

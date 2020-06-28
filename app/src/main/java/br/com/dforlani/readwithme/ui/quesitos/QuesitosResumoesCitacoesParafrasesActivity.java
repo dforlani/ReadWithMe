@@ -3,6 +3,7 @@ package br.com.dforlani.readwithme.ui.quesitos;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -22,7 +23,10 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quesitos_resumoes_citacoes_parafrases);
 
-        this.setTitle("Resumos, citações e paráfrases");
+
+        TextView title = findViewById(R.id.title_app_bar_quesitos);
+        title.setText(R.string.title_resumos_citacoes_parafrase);
+
         viewHolder = new ViewHolder();
     }
 

@@ -45,7 +45,7 @@
     <string name="continuar">Continuar</string>
 
     <!--STRINGS DO QUESITOS 1-->
-    <string name="title_q1">Informações importantes sobre o texto</string>
+    <string name="title_idenficacao">Informações importantes sobre o texto</string>
     <string name="q1_1">Título do texto</string>
     <string name="q1_2">Autor ou autores</string>
     <string name="q1_3">Você já conhecia o autor do texto? Já leu outros textos dele? O que achou? O que é importante registrar?</string>
@@ -110,5 +110,7 @@
     <string name="check_reacoes_gosto_muito">conhecimento sobre algo que gosto muito</string>
     <string name="title_anotacoes_livres">Anotações livres</string>
     <string name="text_q_anotacoes_livres_q3_1">Vai fundo</string>
-    <!-- FIM DAS STRINGS DO QUESITOS 1-->
+    <string name="title_elementos_exteriores_ao_texto">Elementos exteriores ao texto</string>
+    <string name="title_resumos_citacoes_parafrase">Resumos, citações e paráfrases</string>
+
 </resources>

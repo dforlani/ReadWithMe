@@ -1,33 +1,19 @@
 package br.com.dforlani.readwithme.ui.quesitos;
 
-import android.app.Activity;
-import android.app.DatePickerDialog;
-import android.content.Intent;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.CheckBox;
-import android.widget.DatePicker;
-import android.widget.ImageButton;
-import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
 
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
-
 import java.util.ArrayList;
-import java.util.Calendar;
 import java.util.List;
 
 import br.com.dforlani.readwithme.R;
-import br.com.dforlani.readwithme.model.Analise;
-import br.com.dforlani.readwithme.ui.barcode.BarCodeActivity;
-import br.com.dforlani.readwithme.util.GoogleBooksAPI;
 import br.com.dforlani.readwithme.util.Preferencias;
 
 public class QuesitosReacoesActivity extends QuesitosBaseActivity {
@@ -42,7 +28,9 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quesitos_reacoes);
 
-        this.setTitle(getString(R.string.title_apenas_reacoes));
+        TextView title = findViewById(R.id.title_app_bar_quesitos);
+        title.setText(R.string.title_apenas_reacoes);
+
         viewHolder = new ViewHolder();
     }
 

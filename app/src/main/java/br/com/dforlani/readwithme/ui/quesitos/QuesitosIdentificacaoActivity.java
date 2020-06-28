@@ -9,6 +9,7 @@ import android.widget.Button;
 import android.widget.DatePicker;
 import android.widget.ImageButton;
 import android.widget.RadioButton;
+import android.widget.TextView;
 import android.widget.Toast;
 
 import com.google.android.material.textfield.TextInputEditText;
@@ -33,8 +34,10 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_quesitos_identificacao);
+        inflateMenu();
 
-        this.setTitle(R.string.title_q1);
+        TextView title = findViewById(R.id.title_app_bar_quesitos);
+        title.setText(R.string.title_idenficacao);
         viewHolder = new ViewHolder();
 
         progressBar = findViewById(R.id.activity_quesitos1_progressBar);

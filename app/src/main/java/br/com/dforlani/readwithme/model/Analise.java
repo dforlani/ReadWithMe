@@ -188,7 +188,7 @@ public class Analise extends ModelFirestore implements Serializable {
 
 
     /**
-     *Resumo geral
+     * Resumo geral
      */
     private String q4_1;
 
@@ -618,22 +618,23 @@ public class Analise extends ModelFirestore implements Serializable {
     }
 
     public String getTipoAnalise() {
-        switch (this.q1_11) {
-            case ConstsIdentificacoes.APENAS_ANOTACAOES:
-                return ConstsIdentificacoes.APENAS_ANOTACAOES_COMPLETE;
+        if (this.q1_11 != null)
+            switch (this.q1_11) {
+                case ConstsIdentificacoes.APENAS_ANOTACAOES:
+                    return ConstsIdentificacoes.APENAS_ANOTACAOES_COMPLETE;
 
-            case ConstsIdentificacoes.APENAS_REACOES:
-                return ConstsIdentificacoes.APENAS_REACOES_COMPLETE;
+                case ConstsIdentificacoes.APENAS_REACOES:
+                    return ConstsIdentificacoes.APENAS_REACOES_COMPLETE;
 
-            case ConstsIdentificacoes.APENAS_RESUMOS:
-                return ConstsIdentificacoes.APENAS_RESUMOS_COMPLETE;
+                case ConstsIdentificacoes.APENAS_RESUMOS:
+                    return ConstsIdentificacoes.APENAS_RESUMOS_COMPLETE;
 
-            case ConstsIdentificacoes.ENCERRAR:
-                return ConstsIdentificacoes.ENCERRAR_COMPLETO;
+                case ConstsIdentificacoes.ENCERRAR:
+                    return ConstsIdentificacoes.ENCERRAR_COMPLETO;
 
-            case ConstsIdentificacoes.ANALISE_COMPLETA:
-                return ConstsIdentificacoes.ANALISE_COMPLETA_COMPLETO;
-        }
+                case ConstsIdentificacoes.ANALISE_COMPLETA:
+                    return ConstsIdentificacoes.ANALISE_COMPLETA_COMPLETO;
+            }
         return "";
     }
 
@@ -697,7 +698,6 @@ public class Analise extends ModelFirestore implements Serializable {
         map.put("q5_3", this.q5_3);
         map.put("q5_4", this.q5_4);
         map.put("q5_5", this.q5_5);
-
 
 
         map.put("audios", this.getAudios());
