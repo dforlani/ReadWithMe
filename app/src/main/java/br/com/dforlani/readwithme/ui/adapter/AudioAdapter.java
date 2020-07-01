@@ -9,6 +9,7 @@ import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageButton;
+import android.widget.ProgressBar;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
@@ -22,6 +23,8 @@ import java.util.Map;
 
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
+import br.com.dforlani.readwithme.storage.FirebaseStorageApp;
+import br.com.dforlani.readwithme.util.Preferencias;
 
 public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHolder> {
     public List<Map<String, String>> audios;
@@ -57,12 +60,17 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHol
     }
 
 
+    public interface OnDataReceiveCallback {
+        void onDataReceived();
+    }
+
     class AudioViewHolder extends RecyclerView.ViewHolder {
         TextView textDataAudio;
         View itemView;
-        ImageButton bttStartStop, bttDelete;
+        ImageButton bttStartStop, bttDelete, bttDownload;
         Map<String, String> audio;
         boolean mStartPlaying = true;
+        ProgressBar progressBar;
 
 
         AudioViewHolder(final View itemView) {
@@ -115,10 +123,31 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHol
                 }
             });
 
+            bttDownload = itemView.findViewById(R.id.adapter_item_audio_download);
+            bttDownload.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    //dialog de confirmação para remoção
+                    downloadAudio(audio.get(Analise.COLUMN_AUDIO_NOME));
+
+
+                }
+            });
+
+            progressBar = itemView.findViewById(R.id.adapter_item_progress_bar);
+
+
         }
+
+        private boolean existFile(String filename) {
+            File file = new File(getPah(), filename);
+            return file.isFile();
+        }
+
 
         /**
          * Remove localmente o arquivo de áudio
+         *
          * @param filename
          */
         void removerArquivoAndroid(String filename) {
@@ -135,6 +164,15 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHol
         void bind(Map<String, String> audio) {
             this.audio = audio;
             textDataAudio.setText(audio.get(Analise.COLUMN_AUDIO_DATA));
+
+            if (existFile(audio.get(Analise.COLUMN_AUDIO_NOME))) {
+                bttDownload.setVisibility(View.INVISIBLE);
+                bttStartStop.setVisibility(View.VISIBLE);
+            } else {
+                bttDownload.setVisibility(View.VISIBLE);
+                bttStartStop.setVisibility(View.INVISIBLE);
+            }
+
         }
 
         private void onPlay(boolean start, String filename) {
@@ -143,6 +181,31 @@ public class AudioAdapter extends RecyclerView.Adapter<AudioAdapter.AudioViewHol
             } else {
                 stopPlaying();
             }
+        }
+
+        private void downloadAudio(String filename) {
+            Preferencias pref = new Preferencias(context);
+            String email = pref.getEmail();
+
+            String prefix = filename.substring(1, filename.indexOf("."));
+            String sufix = filename.substring(filename.indexOf(".") + 1);
+
+            progressBar.setVisibility(View.VISIBLE);
+            bttDownload.setVisibility(View.INVISIBLE);
+
+            OnDataReceiveCallback callback = new OnDataReceiveCallback() {
+                public void onDataReceived() {
+                    bttStartStop.setVisibility(View.VISIBLE);
+                    progressBar.setVisibility(View.INVISIBLE);
+                    // do something
+                }
+            };
+            FirebaseStorageApp firebaseStorageApp = new FirebaseStorageApp();
+            firebaseStorageApp.download(email, getPah(), prefix, sufix, callback);
+        }
+
+        private String getPah() {
+            return context.getExternalCacheDir().getAbsolutePath();
         }
 
         private void startPlaying(String fileName) {

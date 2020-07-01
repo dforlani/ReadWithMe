@@ -67,7 +67,7 @@ public class QuesitosAnotacoesLivresActivity extends QuesitosBaseActivity {
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
-                    finish();
+
                 }
 
 

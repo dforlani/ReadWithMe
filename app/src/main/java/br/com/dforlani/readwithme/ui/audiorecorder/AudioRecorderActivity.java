@@ -27,7 +27,9 @@ import java.util.UUID;
 
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
+import br.com.dforlani.readwithme.storage.FirebaseStorageApp;
 import br.com.dforlani.readwithme.ui.adapter.AudioAdapter;
+import br.com.dforlani.readwithme.util.Preferencias;
 
 public class AudioRecorderActivity extends AppCompatActivity {
 
@@ -49,6 +51,10 @@ public class AudioRecorderActivity extends AppCompatActivity {
     private String[] permissions = {Manifest.permission.RECORD_AUDIO};
     private Button bttNovoAudio;
     boolean mStartRecording = true;
+
+    private FirebaseStorageApp storage;
+
+
 
     @Override
     public void onCreate(Bundle icicle) {
@@ -88,6 +94,8 @@ public class AudioRecorderActivity extends AppCompatActivity {
         audioAdapter = new AudioAdapter(analise.getAudios(), this.getBaseContext(), this);
         audioRecycler.setAdapter(audioAdapter);
 
+
+        storage = new FirebaseStorageApp();
     }
 
     @Override
@@ -111,13 +119,17 @@ public class AudioRecorderActivity extends AppCompatActivity {
     }
 
 
+    private String getPah() {
+        return getExternalCacheDir().getAbsolutePath();
+    }
+
     private void startRecording() {
         recorder = new MediaRecorder();
         recorder.setAudioSource(MediaRecorder.AudioSource.MIC);
         recorder.setOutputFormat(MediaRecorder.OutputFormat.THREE_GPP);
         filename = "/" + UUID.randomUUID().toString() + EXTENSAO;
-        String path = getExternalCacheDir().getAbsolutePath();
-        recorder.setOutputFile(path + filename);
+
+        recorder.setOutputFile(getPah() + filename);
         recorder.setAudioEncoder(MediaRecorder.AudioEncoder.AMR_NB);
 
         try {
@@ -142,6 +154,10 @@ public class AudioRecorderActivity extends AppCompatActivity {
                     + ":" + c.get(Calendar.SECOND);
 
             adicionarAudioToAnalise(filename, data);
+            Preferencias pref = new Preferencias(this.getBaseContext());
+            String email = pref.getEmail();
+            storage.upload(email, getPah(), filename);
+
         } catch (Exception e) {
             Log.d(TAG, "Impossível parar");
         }
@@ -174,4 +190,6 @@ public class AudioRecorderActivity extends AppCompatActivity {
         setResult(Activity.RESULT_OK, returnIntent);
 
     }
+
+
 }
