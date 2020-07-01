@@ -25,6 +25,7 @@ import java.util.List;
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.ui.audiorecorder.AudioRecorderActivity;
+import br.com.dforlani.readwithme.util.Preferencias;
 
 public class QuesitosBaseActivity extends AppCompatActivity {
 
@@ -87,10 +88,14 @@ public class QuesitosBaseActivity extends AppCompatActivity {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
                 switch (item.getItemId()) {
-                    case R.id.menu_action_impressoes_em_audio:
+                    case R.id.menu_quesitos_impressoes_em_audio:
                         Intent intent = new Intent(QuesitosBaseActivity.this, AudioRecorderActivity.class);
                         intent.putExtra("analise", analise);
                         startActivityForResult(intent, QuesitosBaseActivity.REQUEST_AUDIO_RECORDER);
+                        return true;
+                    case R.id.menu_quesitos_excluir:
+                        removerAnalise();
+                        finish();
                         return true;
                 }
                 return false;
@@ -98,6 +103,13 @@ public class QuesitosBaseActivity extends AppCompatActivity {
         });
 
         //toolbar.inflateMenu(R.menu.menu_quesitos);
+    }
+
+    private void removerAnalise() {
+        Preferencias pref = new Preferencias(this.getBaseContext());
+        String email = pref.getEmail();
+        this.analise.remover(email, QuesitosBaseActivity.this);
+
     }
 
     @Override
@@ -112,7 +124,7 @@ public class QuesitosBaseActivity extends AppCompatActivity {
     public boolean onOptionsItemSelected(MenuItem item) {
         // Handle item selection
         switch (item.getItemId()) {
-            case R.id.menu_action_impressoes_em_audio:
+            case R.id.menu_quesitos_impressoes_em_audio:
                 Intent intent = new Intent(QuesitosBaseActivity.this, AudioRecorderActivity.class);
                 intent.putExtra("analise", analise);
                 startActivityForResult(intent, QuesitosBaseActivity.REQUEST_AUDIO_RECORDER);

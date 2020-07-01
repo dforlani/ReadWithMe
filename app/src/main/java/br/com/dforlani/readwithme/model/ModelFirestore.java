@@ -1,6 +1,8 @@
 package br.com.dforlani.readwithme.model;
 
+import android.content.Context;
 import android.util.Log;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 
@@ -252,7 +254,7 @@ public class ModelFirestore {
                 });
     }
 
-    public static void updateSubDocument(String colecaoParent, String documentIdParent, String colecaoSon,String documentIdSon, Map<String, Object> data) {
+    public static void updateSubDocument(String colecaoParent, String documentIdParent, String colecaoSon, String documentIdSon, Map<String, Object> data) {
 
         DocumentReference doc = db.collection(colecaoParent).document(documentIdParent).collection(colecaoSon).document(documentIdSon);
 
@@ -263,5 +265,28 @@ public class ModelFirestore {
                         Log.d(TAG, "Alteração enviada com sucesso ");
                     }
                 });
+    }
+
+    public void deleteSubDocument(String colecaoParent, String documentIdParent, String colecaoSon, String documentIdSon, final Context context) {
+
+        DocumentReference col = db.collection(colecaoParent).document(documentIdParent).collection(colecaoSon).document(documentIdSon);
+        // [START delete_document]
+        col
+                .delete()
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Toast.makeText(context, "Análise removida com sucesso", Toast.LENGTH_LONG).show();
+                        Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                    }
+                })
+                .addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(context, "Ocorreu um erro e não foi possível remover essa análise.", Toast.LENGTH_LONG).show();
+                        Log.w(TAG, "Error deleting document", e);
+                    }
+                });
+        // [END delete_document]
     }
 }

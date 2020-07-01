@@ -1,5 +1,7 @@
 package br.com.dforlani.readwithme.model;
 
+import android.content.Context;
+
 import androidx.annotation.Nullable;
 
 import com.google.firebase.Timestamp;
@@ -722,5 +724,9 @@ public class Analise extends ModelFirestore implements Serializable {
         private static final String ENCERRAR_COMPLETO = "Análise simples";
         public static final String ANALISE_COMPLETA = "analise_completa";
         private static final String ANALISE_COMPLETA_COMPLETO = "Análise completa";
+    }
+
+    public void remover(String email, Context context) {
+        this.deleteSubDocument(Usuario.COLECAO, email, Analise.COLECAO, this.id, context);
     }
 }

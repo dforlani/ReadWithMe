@@ -3,13 +3,13 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     android:id="@+id/menu_quesitos">
     <item
-        android:id="@+id/menu_action_impressoes_em_audio"
+        android:id="@+id/menu_quesitos_impressoes_em_audio"
         android:title="@string/impressoes_em_audio"
         app:showAsAction="never"
 
         />
     <item
-        android:id="@+id/menu_teste"
-        android:title="@string/impressoes_em_audio"
+        android:id="@+id/menu_quesitos_excluir"
+        android:title="Remover Análise"
         app:showAsAction="never" />
 </menu>
