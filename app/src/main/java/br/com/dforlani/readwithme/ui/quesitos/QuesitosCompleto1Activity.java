@@ -51,6 +51,18 @@ public class QuesitosCompleto1Activity extends QuesitosBaseActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        voltarActIdentificacao();
+    }
+
+    private void voltarActIdentificacao() {
+        Intent intent = new Intent(QuesitosCompleto1Activity.this, QuesitosIdentificacaoActivity.class);
+        intent.putExtra("analise", analise);
+        startActivity(intent);
+        finish();
+    }
+
     class ViewHolder {
         Button continuar;
         Button voltar;
@@ -95,15 +107,10 @@ public class QuesitosCompleto1Activity extends QuesitosBaseActivity {
             voltar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(QuesitosCompleto1Activity.this, QuesitosIdentificacaoActivity.class);
-                    intent.putExtra("analise", analise);
-                    startActivity(intent);
-                    finish();
+                    voltarActIdentificacao();
                 }
 
             });
         }
-
-
     }
 }

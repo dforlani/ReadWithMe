@@ -51,9 +51,17 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
     }
 
 
+    @Override
+    public void onBackPressed() {
+        voltarActIdentificacao();
+    }
 
-
-
+    private void voltarActIdentificacao() {
+        Intent intent = new Intent(QuesitosResumoesCitacoesParafrasesActivity.this, QuesitosIdentificacaoActivity.class);
+        intent.putExtra("analise", analise);
+        startActivity(intent);
+        finish();
+    }
 
     class ViewHolder {
         Button continuar;
@@ -95,14 +103,9 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
             voltar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(QuesitosResumoesCitacoesParafrasesActivity.this, QuesitosIdentificacaoActivity.class);
-                    intent.putExtra("analise", analise);
-                    startActivity(intent);
-                    finish();
+                    voltarActIdentificacao();
                 }
             });
         }
-
-
     }
 }

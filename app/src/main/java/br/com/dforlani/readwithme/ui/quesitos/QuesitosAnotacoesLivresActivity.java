@@ -47,9 +47,17 @@ public class QuesitosAnotacoesLivresActivity extends QuesitosBaseActivity {
     }
 
 
+    @Override
+    public void onBackPressed() {
+        voltarActIdentificacao();
+    }
 
-
-
+    private void voltarActIdentificacao() {
+        Intent intent = new Intent(QuesitosAnotacoesLivresActivity.this, QuesitosIdentificacaoActivity.class);
+        intent.putExtra("analise", analise);
+        startActivity(intent);
+        finish();
+    }
 
     class ViewHolder {
         Button continuar;
@@ -68,6 +76,7 @@ public class QuesitosAnotacoesLivresActivity extends QuesitosBaseActivity {
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
+                    finish();
 
                 }
 
@@ -78,15 +87,10 @@ public class QuesitosAnotacoesLivresActivity extends QuesitosBaseActivity {
             voltar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Intent intent = new Intent(QuesitosAnotacoesLivresActivity.this, QuesitosIdentificacaoActivity.class);
-                    intent.putExtra("analise", analise);
-                    startActivity(intent);
-                    finish();
+                    voltarActIdentificacao();
                 }
 
             });
         }
-
-
     }
 }
