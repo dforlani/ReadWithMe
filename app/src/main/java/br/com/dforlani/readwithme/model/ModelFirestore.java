@@ -269,24 +269,26 @@ public class ModelFirestore {
 
     public void deleteSubDocument(String colecaoParent, String documentIdParent, String colecaoSon, String documentIdSon, final Context context) {
 
-        DocumentReference col = db.collection(colecaoParent).document(documentIdParent).collection(colecaoSon).document(documentIdSon);
-        // [START delete_document]
-        col
-                .delete()
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Toast.makeText(context, "Análise removida com sucesso", Toast.LENGTH_LONG).show();
-                        Log.d(TAG, "DocumentSnapshot successfully deleted!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Toast.makeText(context, "Ocorreu um erro e não foi possível remover essa análise.", Toast.LENGTH_LONG).show();
-                        Log.w(TAG, "Error deleting document", e);
-                    }
-                });
-        // [END delete_document]
+        if (colecaoParent != null && documentIdParent != null && colecaoSon != null && documentIdSon != null) {
+            DocumentReference col = db.collection(colecaoParent).document(documentIdParent).collection(colecaoSon).document(documentIdSon);
+            // [START delete_document]
+            col
+                    .delete()
+                    .addOnSuccessListener(new OnSuccessListener<Void>() {
+                        @Override
+                        public void onSuccess(Void aVoid) {
+                            Toast.makeText(context, "Análise removida com sucesso", Toast.LENGTH_LONG).show();
+                            Log.d(TAG, "DocumentSnapshot successfully deleted!");
+                        }
+                    })
+                    .addOnFailureListener(new OnFailureListener() {
+                        @Override
+                        public void onFailure(@NonNull Exception e) {
+                            Toast.makeText(context, "Ocorreu um erro e não foi possível remover essa análise.", Toast.LENGTH_LONG).show();
+                            Log.w(TAG, "Error deleting document", e);
+                        }
+                    });
+            // [END delete_document]
+        }
     }
 }

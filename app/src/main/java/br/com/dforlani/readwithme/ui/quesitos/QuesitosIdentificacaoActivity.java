@@ -181,45 +181,48 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
             continuar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    salvarQuesitos();
+
                     Intent intent;
-                    switch (analise.getQ1_11()) {
-                        case Analise.ConstsIdentificacoes.ANALISE_COMPLETA:
-                            intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosCompleto1Activity.class);
-                            intent.putExtra("analise", analise);
-                            startActivity(intent);
-                            finish();
-                            break;
-                        case Analise.ConstsIdentificacoes.APENAS_ANOTACAOES:
-                            intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosAnotacoesLivresActivity.class);
-                            intent.putExtra("analise", analise);
-                            startActivity(intent);
-                            finish();
-                            break;
+                    if (analise.getQ1_11() != null) {
+                        salvarQuesitos();
+                        switch (analise.getQ1_11()) {
+                            case Analise.ConstsIdentificacoes.ANALISE_COMPLETA:
+                                intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosCompleto1Activity.class);
+                                intent.putExtra("analise", analise);
+                                startActivity(intent);
+                                finish();
+                                break;
+                            case Analise.ConstsIdentificacoes.APENAS_ANOTACAOES:
+                                intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosAnotacoesLivresActivity.class);
+                                intent.putExtra("analise", analise);
+                                startActivity(intent);
+                                finish();
+                                break;
 
-                        case Analise.ConstsIdentificacoes.APENAS_REACOES:
-                            intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosReacoesActivity.class);
-                            intent.putExtra("analise", analise);
-                            startActivity(intent);
-                            finish();
-                            break;
+                            case Analise.ConstsIdentificacoes.APENAS_REACOES:
+                                intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosReacoesActivity.class);
+                                intent.putExtra("analise", analise);
+                                startActivity(intent);
+                                finish();
+                                break;
 
-                        case Analise.ConstsIdentificacoes.APENAS_RESUMOS:
-                            intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosResumoesCitacoesParafrasesActivity.class);
-                            intent.putExtra("analise", analise);
-                            startActivity(intent);
-                            finish();
-                           break;
+                            case Analise.ConstsIdentificacoes.APENAS_RESUMOS:
+                                intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosResumoesCitacoesParafrasesActivity.class);
+                                intent.putExtra("analise", analise);
+                                startActivity(intent);
+                                finish();
+                                break;
 
-                        case Analise.ConstsIdentificacoes.ENCERRAR:
-                            finish();
-                            break;
+                            case Analise.ConstsIdentificacoes.ENCERRAR:
+                                finish();
+                                break;
 
 
+                        }
+                    } else {
+                        Toast.makeText(QuesitosIdentificacaoActivity.this, "Selecione um tipo de análise ou a opção encerrar", Toast.LENGTH_LONG).show();
                     }
                 }
-
-
             });
 
             voltar = findViewById(R.id.act_quesitos1_btt_voltar);

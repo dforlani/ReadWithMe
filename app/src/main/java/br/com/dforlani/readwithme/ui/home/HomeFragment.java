@@ -7,6 +7,8 @@ import android.view.ViewGroup;
 import android.widget.AbsListView;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
+import androidx.core.app.SharedElementCallback;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -109,7 +111,7 @@ public class HomeFragment extends Fragment {
         initAnalisesRecyclerView();
         initAnalisesAdapter();
         initAnaliseListViewModel();
-        getAnalises();
+
         initRecyclerViewOnScrollListener();
 
         return root;
@@ -135,6 +137,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void getAnalises() {
+        analiseArrayList.clear();
         AnaliseListLiveData analiseListLiveData = analiseListViewModel.getAnaliseListLiveData();
         if (analiseListLiveData != null) {
             analiseListLiveData.observe(getViewLifecycleOwner(), new Observer<Operation>() {
@@ -158,8 +161,12 @@ public class HomeFragment extends Fragment {
                     analiseAdapter.notifyDataSetChanged();
                 }
             });
-
         }
+    }
+
+    @Override
+    public void setEnterSharedElementCallback(@Nullable SharedElementCallback callback) {
+        super.setEnterSharedElementCallback(callback);
     }
 
     private void addAnalise(Analise analise) {
@@ -197,6 +204,14 @@ public class HomeFragment extends Fragment {
             }
         }
     }
+
+    @Override
+    public void onStart() {
+        super.onStart();
+        getAnalises();
+
+    }
+
 
     private void initRecyclerViewOnScrollListener() {
         RecyclerView.OnScrollListener onScrollListener = new RecyclerView.OnScrollListener() {
