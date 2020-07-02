@@ -49,18 +49,7 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
         Preferencias pref = new Preferencias(this.getBaseContext());
         email = pref.getEmail();
         if (email != null) {
-            analise.setISBN(viewHolder.ISBN.getText().toString());
-            analise.setQ1_1(viewHolder.q1_1.getText().toString());
-            analise.setQ1_2(viewHolder.q1_2.getText().toString());
-            analise.setQ1_3(viewHolder.q1_3.getText().toString());
-            analise.setQ1_4(viewHolder.q1_4.getText().toString());
-            analise.setQ1_5(viewHolder.q1_5.getText().toString());
-            analise.setQ1_6(viewHolder.q1_6.getText().toString());
-            analise.setQ1_7(viewHolder.q1_7.getText().toString());
-            analise.setQ1_8(viewHolder.q1_8.getText().toString());
-            analise.setQ1_9(viewHolder.q1_9.getText().toString());
-            analise.setQ1_10(viewHolder.q1_10.getText().toString());
-            analise.setQ1_11(viewHolder.q1_11);
+
 
             analise.save(email);
 
@@ -68,6 +57,21 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
             Toast.makeText(QuesitosIdentificacaoActivity.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
+    }
+
+    private void bindAnalise() {
+        analise.setISBN(viewHolder.ISBN.getText().toString());
+        analise.setQ1_1(viewHolder.q1_1.getText().toString());
+        analise.setQ1_2(viewHolder.q1_2.getText().toString());
+        analise.setQ1_3(viewHolder.q1_3.getText().toString());
+        analise.setQ1_4(viewHolder.q1_4.getText().toString());
+        analise.setQ1_5(viewHolder.q1_5.getText().toString());
+        analise.setQ1_6(viewHolder.q1_6.getText().toString());
+        analise.setQ1_7(viewHolder.q1_7.getText().toString());
+        analise.setQ1_8(viewHolder.q1_8.getText().toString());
+        analise.setQ1_9(viewHolder.q1_9.getText().toString());
+        analise.setQ1_10(viewHolder.q1_10.getText().toString());
+        analise.setQ1_11(viewHolder.q1_11);
     }
 
 
@@ -127,31 +131,6 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
         progressBar.setVisibility(View.VISIBLE);
 
         book.execute(isbn);
-//
-//        if (json != null) {
-//
-//            try {
-//                viewHolder.q1_1.setText(json.getJSONArray("items").getJSONObject(0).getJSONObject("volumeInfo").get("title").toString());
-//                String autores = "";
-//                JSONArray titulos = null;
-//                titulos = json.getJSONArray("items").getJSONObject(0).getJSONObject("volumeInfo").getJSONArray("authors");
-//                String separador = "";
-//                for (int i = 0; i < titulos.length(); i++) {
-//                    autores += separador + titulos.get(i).toString();
-//                    separador = ", ";
-//                }
-//                if (autores.length() > 0) {
-//                    viewHolder.q1_2.setText(autores);
-//                }
-//            } catch (JSONException e) {
-//                e.printStackTrace();
-//            }
-//
-//
-//            //responseJson.getJSONArray("volumeInfo");
-//        } else {
-//            Toast.makeText(this, "Não foi possível acessar os servidores da Google, tente novamente.", Toast.LENGTH_LONG).show();
-//        }
     }
 
 
@@ -183,6 +162,7 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                 public void onClick(View v) {
 
                     Intent intent;
+                    bindAnalise();
                     if (analise.getQ1_11() != null) {
                         salvarQuesitos();
                         switch (analise.getQ1_11()) {
@@ -334,6 +314,10 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
             q1_10.setText(analise.getQ1_10());
 
             q1_11 = analise.getQ1_11();
+            if (q1_11 == null) {
+                q1_11 = Analise.ConstsIdentificacoes.ANALISE_COMPLETA;
+            }
+
             if (q1_11 != null) {
                 switch (q1_11) {
                     case Analise.ConstsIdentificacoes.APENAS_ANOTACAOES:

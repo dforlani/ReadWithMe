@@ -1,6 +1,7 @@
 package br.com.dforlani.readwithme.ui.quesitos;
 
 import android.app.Activity;
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
@@ -15,6 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -95,7 +97,7 @@ public class QuesitosBaseActivity extends AppCompatActivity {
                         return true;
                     case R.id.menu_quesitos_excluir:
                         removerAnalise();
-                        finish();
+
                         return true;
                 }
                 return false;
@@ -106,10 +108,27 @@ public class QuesitosBaseActivity extends AppCompatActivity {
     }
 
     private void removerAnalise() {
-        Preferencias pref = new Preferencias(this.getBaseContext());
-        String email = pref.getEmail();
-        this.analise.remover(email, QuesitosBaseActivity.this);
+        //dialog de confirmação para remoção
+        AlertDialog.Builder alert = new AlertDialog.Builder(QuesitosBaseActivity.this);
+        alert.setTitle("Remover Análise");
+        alert.setMessage("Deseja realmente remover esta análise?");
+        alert.setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
 
+            public void onClick(DialogInterface dialog, int which) {
+                // continue with delete
+                Preferencias pref = new Preferencias(QuesitosBaseActivity.this);
+                String email = pref.getEmail();
+                analise.remover(email, QuesitosBaseActivity.this);
+                finish();
+            }
+        });
+        alert.setNegativeButton(R.string.nao, new DialogInterface.OnClickListener() {
+            public void onClick(DialogInterface dialog, int which) {
+                // close dialog
+                dialog.cancel();
+            }
+        });
+        alert.show();
     }
 
     @Override
