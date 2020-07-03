@@ -1,8 +1,8 @@
 package br.com.dforlani.readwithme.ui.quesitos;
 
 import android.app.Activity;
-import android.content.DialogInterface;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
@@ -16,7 +16,7 @@ import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.Toast;
 
-import androidx.appcompat.app.AlertDialog;
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
 import androidx.core.content.ContextCompat;
@@ -27,7 +27,6 @@ import java.util.List;
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.ui.audiorecorder.AudioRecorderActivity;
-import br.com.dforlani.readwithme.util.Preferencias;
 
 public class QuesitosBaseActivity extends AppCompatActivity {
 
@@ -39,6 +38,7 @@ public class QuesitosBaseActivity extends AppCompatActivity {
     protected Analise analise;
     protected ProgressBar progressBar;
 
+    @RequiresApi(api = Build.VERSION_CODES.LOLLIPOP)
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -95,40 +95,12 @@ public class QuesitosBaseActivity extends AppCompatActivity {
                         intent.putExtra("analise", analise);
                         startActivityForResult(intent, QuesitosBaseActivity.REQUEST_AUDIO_RECORDER);
                         return true;
-                    case R.id.menu_quesitos_excluir:
-                        removerAnalise();
-
-                        return true;
                 }
                 return false;
             }
         });
 
-        //toolbar.inflateMenu(R.menu.menu_quesitos);
-    }
 
-    private void removerAnalise() {
-        //dialog de confirmação para remoção
-        AlertDialog.Builder alert = new AlertDialog.Builder(QuesitosBaseActivity.this);
-        alert.setTitle("Remover Análise");
-        alert.setMessage("Deseja realmente remover esta análise?");
-        alert.setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
-
-            public void onClick(DialogInterface dialog, int which) {
-                // continue with delete
-                Preferencias pref = new Preferencias(QuesitosBaseActivity.this);
-                String email = pref.getEmail();
-                analise.remover(email, QuesitosBaseActivity.this);
-                finish();
-            }
-        });
-        alert.setNegativeButton(R.string.nao, new DialogInterface.OnClickListener() {
-            public void onClick(DialogInterface dialog, int which) {
-                // close dialog
-                dialog.cancel();
-            }
-        });
-        alert.show();
     }
 
 

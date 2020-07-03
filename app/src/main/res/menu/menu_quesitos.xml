@@ -8,8 +8,5 @@
         app:showAsAction="never"
 
         />
-    <item
-        android:id="@+id/menu_quesitos_excluir"
-        android:title="Remover Análise"
-        app:showAsAction="never" />
+
 </menu>

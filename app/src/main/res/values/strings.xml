@@ -112,5 +112,6 @@
     <string name="text_q_anotacoes_livres_q3_1">Vai fundo</string>
     <string name="title_elementos_exteriores_ao_texto">Elementos exteriores ao texto</string>
     <string name="title_resumos_citacoes_parafrase">Resumos, citações e paráfrases</string>
+    <string name="delete">Remover Análise</string>
 
 </resources>

@@ -233,18 +233,13 @@ public class ModelFirestore {
         // [END add_document]
     }
 
-    public static void addSubDocument(String colecaoParent, String documentIdParent, String colecaoSon, Map<String, Object> data) {
+    public void addSubDocument(Analise analise, String colecaoParent, String documentIdParent, String colecaoSon, Map<String, Object> data) {
 
         CollectionReference col = db.collection(colecaoParent).document(documentIdParent).collection(colecaoSon);
+        OnSuccessListener onSuccessListener = new OnSucessListenerAnalise(analise);
 
         col.add(data)
-                .addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-                    @Override
-                    public void onSuccess(DocumentReference documentReference) {
-                        Log.d(TAG, "DocumentSnapshot written with ID: " + documentReference.getId());
-
-                    }
-                })
+                .addOnSuccessListener(onSuccessListener)
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
@@ -254,7 +249,7 @@ public class ModelFirestore {
                 });
     }
 
-    public static void updateSubDocument(String colecaoParent, String documentIdParent, String colecaoSon, String documentIdSon, Map<String, Object> data) {
+    public void updateSubDocument(String colecaoParent, String documentIdParent, String colecaoSon, String documentIdSon, Map<String, Object> data) {
 
         DocumentReference doc = db.collection(colecaoParent).document(documentIdParent).collection(colecaoSon).document(documentIdSon);
 
@@ -265,6 +260,20 @@ public class ModelFirestore {
                         Log.d(TAG, "Alteração enviada com sucesso ");
                     }
                 });
+    }
+
+    class OnSucessListenerAnalise implements OnSuccessListener<DocumentReference> {
+        private Analise analise;
+
+        public OnSucessListenerAnalise(Analise analise) {
+            super();
+            this.analise = analise;
+        }
+
+        @Override
+        public void onSuccess(DocumentReference documentReference) {
+            analise.setId(documentReference.getId());
+        }
     }
 
     public void deleteSubDocument(String colecaoParent, String documentIdParent, String colecaoSon, String documentIdSon, final Context context) {

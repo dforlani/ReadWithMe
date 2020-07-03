@@ -49,10 +49,8 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
         Preferencias pref = new Preferencias(this.getBaseContext());
         email = pref.getEmail();
         if (email != null) {
-
-
+            bindAnalise();
             analise.save(email);
-
         } else {
             Toast.makeText(QuesitosIdentificacaoActivity.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();

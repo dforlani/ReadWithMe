@@ -2,13 +2,14 @@ package br.com.dforlani.readwithme.ui.home;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.MenuItem;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.AbsListView;
+import android.widget.AdapterView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
-import androidx.core.app.SharedElementCallback;
 import androidx.fragment.app.Fragment;
 import androidx.lifecycle.Observer;
 import androidx.lifecycle.ViewModelProvider;
@@ -52,6 +53,41 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
        root = inflater.inflate(R.layout.fragment_home, container, false);
 
+
+        initADMOB();
+
+        initAnalisesRecyclerView();
+        initAnalisesAdapter();
+        initAnaliseListViewModel();
+        initRecyclerViewOnScrollListener();
+
+        return root;
+    }
+
+
+    //    @Override
+//    public void onCreateContextMenu(ContextMenu menu, View v,
+//                                    ContextMenu.ContextMenuInfo menuInfo) {
+//        super.onCreateContextMenu(menu, v, menuInfo);
+//        MenuInflater inflater = this.getActivity().getMenuInflater();
+//        inflater.inflate(R.menu.context_menu, menu);
+//    }
+//
+    @Override
+    public boolean onContextItemSelected(MenuItem item) {
+        AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
+        switch (item.getItemId()) {
+
+            case R.id.delete:
+                Toast.makeText(this.getContext(), "zica", Toast.LENGTH_LONG).show();
+                // deleteNote(info.id);
+                return true;
+            default:
+                return super.onContextItemSelected(item);
+        }
+    }
+
+    public void initADMOB() {
         //Incializa o ADMob
         MobileAds.initialize(root.getContext(), new OnInitializationCompleteListener() {
             @Override
@@ -107,15 +143,11 @@ public class HomeFragment extends Fragment {
                 // to the app after tapping on an ad.
             }
         });
-
-        initAnalisesRecyclerView();
-        initAnalisesAdapter();
-        initAnaliseListViewModel();
-
-        initRecyclerViewOnScrollListener();
-
-        return root;
+        /*********FIMM DO ABMOB********/
     }
+
+
+
 
 
 
@@ -137,7 +169,7 @@ public class HomeFragment extends Fragment {
     }
 
     private void getAnalises() {
-        analiseArrayList.clear();
+        //analiseArrayList.clear();
         AnaliseListLiveData analiseListLiveData = analiseListViewModel.getAnaliseListLiveData();
         if (analiseListLiveData != null) {
             analiseListLiveData.observe(getViewLifecycleOwner(), new Observer<Operation>() {
@@ -162,11 +194,6 @@ public class HomeFragment extends Fragment {
                 }
             });
         }
-    }
-
-    @Override
-    public void setEnterSharedElementCallback(@Nullable SharedElementCallback callback) {
-        super.setEnterSharedElementCallback(callback);
     }
 
     private void addAnalise(Analise analise) {
@@ -242,7 +269,4 @@ public class HomeFragment extends Fragment {
         };
         analiseRecyclerView.addOnScrollListener(onScrollListener);
     }
-
-
-
 }
