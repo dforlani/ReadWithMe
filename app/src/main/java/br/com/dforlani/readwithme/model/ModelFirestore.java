@@ -259,7 +259,30 @@ public class ModelFirestore {
                     public void onSuccess(Void aVoid) {
                         Log.d(TAG, "Alteração enviada com sucesso ");
                     }
-                });
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, "Não foi possível salvar ");
+            }
+        });
+    }
+
+    public void setSubDocument(String colecaoParent, String documentIdParent, String colecaoSon, String documentIdSon, Map<String, Object> data) {
+
+        DocumentReference doc = db.collection(colecaoParent).document(documentIdParent).collection(colecaoSon).document(documentIdSon);
+
+        doc.set(data)
+                .addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void aVoid) {
+                        Log.d(TAG, "Alteração enviada com sucesso ");
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+            @Override
+            public void onFailure(@NonNull Exception e) {
+                Log.d(TAG, "Não foi possível salvar ");
+            }
+        });
     }
 
     class OnSucessListenerAnalise implements OnSuccessListener<DocumentReference> {

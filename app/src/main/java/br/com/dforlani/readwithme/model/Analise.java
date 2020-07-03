@@ -655,7 +655,10 @@ public class Analise extends ModelFirestore implements Serializable {
 
     public void save(String email) {
         Map<String, Object> map = new HashMap<>();
+        map.put("id", this.getId());
+
         map.put("ISBN", this.getISBN());
+
         map.put("q1_1", this.q1_1);
         map.put("q1_2", this.q1_2);
         map.put("q1_3", this.q1_3);
@@ -704,12 +707,8 @@ public class Analise extends ModelFirestore implements Serializable {
 
         map.put("audios", this.getAudios());
 
-        if (this.id != null && this.id.trim().length() > 0)//edição
-        {
-            this.updateSubDocument(Usuario.COLECAO, email, Analise.COLECAO, this.id, map);
-        } else {//salvar um novo
-            this.addSubDocument(this, Usuario.COLECAO, email, Analise.COLECAO, map);
-        }
+        this.setSubDocument(Usuario.COLECAO, email, Analise.COLECAO, this.id, map);
+
 
     }
 

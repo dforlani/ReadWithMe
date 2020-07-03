@@ -23,6 +23,7 @@ import androidx.core.content.ContextCompat;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.UUID;
 
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
@@ -51,6 +52,9 @@ public class QuesitosBaseActivity extends AppCompatActivity {
             analise = (Analise) aux;
         } else {//se não for pra edição, inicia um novo objeto Análise
             analise = new Analise();
+            //adicionada uma ID randomica pois o sistema estava se perdendo sem saber se uma análise era pra alteração ou era nova
+            //uma vez que a ID do Firebase só retorna depois de ter salvo e de forma assíncrona
+            analise.setId(UUID.randomUUID().toString());
         }
 
         //alterrar a cor da barra superior do Android
