@@ -49,7 +49,7 @@ public class AnaliseListLiveData extends LiveData<Operation> implements EventLis
                 case ADDED:
                     Analise addedAnalise = documentChange.getDocument().toObject(Analise.class);
                     //adiciona o ID única para permitir a comparação quando ocorre uma alteração no banco
-                    addedAnalise.setId(documentChange.getDocument().getId());
+                    // addedAnalise.setId(documentChange.getDocument().getId());
                     Operation addOperation = new Operation(addedAnalise, R.string.added);
                     setValue(addOperation);
                     break;
@@ -57,7 +57,7 @@ public class AnaliseListLiveData extends LiveData<Operation> implements EventLis
                 case MODIFIED:
                     Analise modifiedAnalise = documentChange.getDocument().toObject(Analise.class);
                     //adiciona o ID única para permitir a comparação quando ocorre uma alteração no banco
-                    modifiedAnalise.setId(documentChange.getDocument().getId());
+                    /// modifiedAnalise.setId(documentChange.getDocument().getId());
                     Operation modifyOperation = new Operation(modifiedAnalise, R.string.modified);
                     setValue(modifyOperation);
                     break;
@@ -65,7 +65,7 @@ public class AnaliseListLiveData extends LiveData<Operation> implements EventLis
                 case REMOVED:
                     Analise removedAnalise = documentChange.getDocument().toObject(Analise.class);
                     //adiciona o ID única para permitir a comparação quando ocorre uma alteração no banco
-                    removedAnalise.setId(documentChange.getDocument().getId());
+                    // removedAnalise.setId(documentChange.getDocument().getId());
                     Operation removeOperation = new Operation(removedAnalise, R.string.removed);
                     setValue(removeOperation);
             }
