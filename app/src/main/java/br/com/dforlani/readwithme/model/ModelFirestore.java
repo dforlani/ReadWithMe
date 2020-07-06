@@ -18,7 +18,6 @@ import com.google.firebase.firestore.QuerySnapshot;
 import com.google.firebase.storage.FirebaseStorage;
 
 import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -172,34 +171,6 @@ public class ModelFirestore {
         // [END add_document]
     }
 
-    public static void teste() {
-        Map<String, Object> city = new HashMap<>();
-        city.put("name", "Los Angeles");
-        city.put("state", "CA");
-        city.put("country", "USA");
-
-        db.collection("cities").document("LA")
-                .set(city)
-                .addOnSuccessListener(new OnSuccessListener<Void>() {
-                    @Override
-                    public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "DocumentSnapshot successfully written!");
-                    }
-                })
-                .addOnFailureListener(new OnFailureListener() {
-                    @Override
-                    public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error writing document", e);
-                    }
-                });
-        // [END set_document]
-
-        Map<String, Object> data = new HashMap<>();
-
-        // [START set_with_id]
-        db.collection("cities").document("new-city-id").set(data);
-        // [END set_with_id]
-    }
 
     /**
      * Insere um novo documento na base de dados com uma dada ID
@@ -219,14 +190,14 @@ public class ModelFirestore {
                 .addOnSuccessListener(new OnSuccessListener<Void>() {
                     @Override
                     public void onSuccess(Void aVoid) {
-                        Log.d(TAG, "DocumentSnapshot successfully written!");
+                        Log.d(TAG, "Usuário salvo com sucesso!");
 
                     }
                 })
                 .addOnFailureListener(new OnFailureListener() {
                     @Override
                     public void onFailure(@NonNull Exception e) {
-                        Log.w(TAG, "Error adding document", e);
+                        Log.w(TAG, "Erro ao adicionar usuário", e);
 
                     }
                 });

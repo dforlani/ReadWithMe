@@ -36,11 +36,13 @@ import com.google.firebase.auth.FacebookAuthProvider;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.auth.FirebaseUser;
 import com.google.firebase.auth.GoogleAuthProvider;
+import com.google.firebase.auth.UserInfo;
 import com.google.firebase.iid.FirebaseInstanceId;
 import com.google.firebase.iid.InstanceIdResult;
 import com.google.firebase.messaging.FirebaseMessaging;
 
 import java.util.Arrays;
+import java.util.List;
 
 import br.com.dforlani.readwithme.MainActivity;
 import br.com.dforlani.readwithme.R;
@@ -326,10 +328,20 @@ public class LoginActivity extends BaseActivity {
         hideProgressBar();
         if (user != null) {
             //cria o usuário no sistema, caso ele ainda não exista
-            criaUsuario(user.getEmail());
+            //esse getEmail funciona pro login no Facebook, mas não está funcionando pro Login no Google
+            String email = user.getEmail();
+            if (email == null || email.trim().length() == 0) {
+                List<? extends UserInfo> providerData = user.getProviderData();
+                if (providerData.size() > 0) {
+                    email = providerData.get(1).getEmail();
+                }
+            }
+
+            criaUsuario(email);
+
             //salva o e-mail num arquivo compartilhado, para posterior acesso em outras activities
             Preferencias pref = new Preferencias(this.getBaseContext());
-            pref.salvaEmail(user.getEmail());
+            pref.salvaEmail(email);
 
             mNameLogin.setText(user.getDisplayName());
             //arredonda a imagem

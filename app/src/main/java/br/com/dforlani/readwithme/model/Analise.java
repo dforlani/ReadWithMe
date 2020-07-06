@@ -708,8 +708,6 @@ public class Analise extends ModelFirestore implements Serializable {
         map.put("audios", this.getAudios());
 
         this.setSubDocument(Usuario.COLECAO, email, Analise.COLECAO, this.id, map);
-
-
     }
 
     public class ConstsIdentificacoes {

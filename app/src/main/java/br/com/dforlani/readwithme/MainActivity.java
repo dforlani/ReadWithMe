@@ -165,6 +165,7 @@ public class MainActivity extends BaseActivity {
                 signOut();
                 Intent intent = new Intent(MainActivity.this, LoginActivity.class);
                 startActivity(intent);
+                finish();
             }
         });
 

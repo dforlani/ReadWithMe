@@ -59,37 +59,15 @@ public class Usuario extends ModelFirestore {
      * @param email
      * @return
      */
-    public static Usuario crieUsuarioIfNotExist(String email) {
-        // [START listen_state]
-        final Usuario[] auxUser = {null};
-        final String EMAIL = email;
+    public static void crieUsuarioIfNotExist(String email) {
+
         if(email != null && email.trim().length() > 0) {
             //se não tiver criado, o sistema cria uma nova coleção pra esse email
             Map<String, Object> data = new HashMap<>();
-            data.put("email", EMAIL);
+            data.put("email", email);
             Usuario.addDocument(COLECAO, data, email);
-//            db.collection(COLECAO)
-//                    .whereEqualTo(CAMPO_EMAIL, email)
-//                    .get()
-//                    .addOnCompleteListener(new OnCompleteListener<QuerySnapshot>() {
-//                        @Override
-//                        public void onComplete(@NonNull Task<QuerySnapshot> task) {
-//                            if (task.isSuccessful()) {
-//                                for (QueryDocumentSnapshot document : task.getResult()) {
-//                                    Log.d(TAG, "Usuario existente: "+document.getId() + " => " + document.getData());
-//                                    auxUser[0] = document.toObject(Usuario.class);
-//                                }
-//                                if(auxUser[0] == null) {
-//                                    Log.d(TAG, "Criando um usuario, pq ele não existe: ", task.getException());
-//                                    Map<String, Object> data = new HashMap<>();
-//                                    data.put("email", EMAIL);
-//                                    Usuario.addDocument(COLECAO, data);
-//                                }
-//                            }
-//                        }
-//                    });
+
         }
-        return auxUser[0];
-        // [END listen_state]
+
     }
 }
