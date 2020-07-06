@@ -30,21 +30,22 @@ public class FirestoreAnaliseListRepositoryCallback implements AnaliseListViewMo
     public void setQueryEmailDocument(String email){
         if(email != null && email.trim().length() > 0) {
             analisesRef = firebaseFirestore.collection(Usuario.COLECAO).document(email).collection(Analise.COLECAO);
-            query = analisesRef.limit(Constants.LIMIT);
         }else{
             analisesRef = firebaseFirestore.collection(Usuario.COLECAO).document("naoexiste9955*").collection(Analise.COLECAO);
-            query = analisesRef.limit(Constants.LIMIT);
         }
+        query = analisesRef.orderBy(Analise.COLUMN_DT_CRIACAO).limit(Constants.LIMIT);
     }
 
     @Override
     public AnaliseListLiveData getAnaliseListLiveData() {
-        if (isLastAnaliseReached) {
-            return null;
-        }
-        if (lastVisibleAnalise != null) {
-            query = query.startAfter(lastVisibleAnalise);
-        }
+//        só executa nova consustase se não chegou no último
+//        if (isLastAnaliseReached) {
+//            return null;
+//        }
+        //executa consultas após o limitador
+//        if (lastVisibleAnalise != null) {
+//            query = query.startAfter(lastVisibleAnalise);
+//        }
         return new AnaliseListLiveData(query, this, this);
     }
 

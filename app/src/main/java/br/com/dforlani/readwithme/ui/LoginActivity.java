@@ -44,7 +44,6 @@ import com.google.firebase.messaging.FirebaseMessaging;
 import java.util.Arrays;
 import java.util.List;
 
-import br.com.dforlani.readwithme.MainActivity;
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Usuario;
 import br.com.dforlani.readwithme.util.Preferencias;

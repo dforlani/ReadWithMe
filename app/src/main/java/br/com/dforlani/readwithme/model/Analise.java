@@ -9,6 +9,7 @@ import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.io.Serializable;
 import java.util.ArrayList;
+import java.util.Date;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -19,6 +20,7 @@ public class Analise extends ModelFirestore implements Serializable {
 
     public static final String COLUMN_AUDIO_NOME = "nome";
     public static final String COLUMN_AUDIO_DATA = "data";
+    public static final String COLUMN_DT_CRIACAO = "dt_criacao";
 
     Map<String, String> mapaQuesitos;
 
@@ -29,7 +31,7 @@ public class Analise extends ModelFirestore implements Serializable {
 
     private String ISBN;
 
-    Timestamp dt_criacao;
+
     //tela 1
     //Informações importantes sobre o texto
     /**
@@ -233,6 +235,11 @@ public class Analise extends ModelFirestore implements Serializable {
      * Há apresentação, notas, apêndices? Eles são importantes para compreensão do assunto? Quem escreveu esses textos? O que é importante anotar?
      */
     private String q5_5;
+
+    /**
+     * Data de criação da análise, vai ser atribuído automaticamente
+     */
+    public Timestamp dt_criacao;
 
     private List<Map<String, String>> audios = new ArrayList<>();
 
@@ -706,6 +713,9 @@ public class Analise extends ModelFirestore implements Serializable {
 
 
         map.put("audios", this.getAudios());
+
+        if (this.dt_criacao == null)
+            map.put("dt_criacao", new Timestamp(new Date()));
 
         this.setSubDocument(Usuario.COLECAO, email, Analise.COLECAO, this.id, map);
     }

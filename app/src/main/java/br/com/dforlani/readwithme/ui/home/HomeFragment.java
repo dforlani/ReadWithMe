@@ -51,7 +51,7 @@ public class HomeFragment extends Fragment {
 
         root = inflater.inflate(R.layout.fragment_home, container, false);
 
-        setRetainInstance(true);//mantêm a Lista apresentável, senão ela some ao rotacionar
+        //setRetainInstance(true);//mantêm a Lista apresentável, senão ela some ao rotacionar
         initADMOB();
 
         initAnalisesRecyclerView();
@@ -63,14 +63,6 @@ public class HomeFragment extends Fragment {
     }
 
 
-    //    @Override
-//    public void onCreateContextMenu(ContextMenu menu, View v,
-//                                    ContextMenu.ContextMenuInfo menuInfo) {
-//        super.onCreateContextMenu(menu, v, menuInfo);
-//        MenuInflater inflater = this.getActivity().getMenuInflater();
-//        inflater.inflate(R.menu.context_menu, menu);
-//    }
-//
     @Override
     public boolean onContextItemSelected(MenuItem item) {
         AdapterView.AdapterContextMenuInfo info = (AdapterView.AdapterContextMenuInfo) item.getMenuInfo();
@@ -154,8 +146,8 @@ public class HomeFragment extends Fragment {
     }
 
     private void initAnalisesAdapter() {
-        analiseAdapter = new AnaliseAdapter(analiseArrayList, this);
-        analiseRecyclerView.setAdapter(analiseAdapter);
+        /// analiseAdapter = new AnaliseAdapter(analiseArrayList, this);
+        // analiseRecyclerView.setAdapter(analiseAdapter);
     }
 
     private void initAnaliseListViewModel() {

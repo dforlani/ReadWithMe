@@ -1,5 +1,7 @@
 package br.com.dforlani.readwithme.ui.adapter;
 
+import android.app.Activity;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.Intent;
 import android.view.ActionMode;
@@ -14,7 +16,6 @@ import android.widget.TextView;
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.AlertDialog;
 import androidx.cardview.widget.CardView;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.RecyclerView;
 
 import java.util.List;
@@ -26,12 +27,15 @@ import br.com.dforlani.readwithme.util.Preferencias;
 
 public class AnaliseAdapter extends RecyclerView.Adapter<AnaliseAdapter.AnaliseViewHolder> {
     private List<Analise> analiseList;
-    private Fragment fragment;
+    Context context;
     private ActionMode actionMode;
+    private Activity act;
+    private View teste;
 
-    public AnaliseAdapter(List<Analise> productList, Fragment fragment) {
+    public AnaliseAdapter(List<Analise> productList, Activity act, Context context) {
         this.analiseList = productList;
-        this.fragment = fragment;
+        this.act = act;
+        this.context = context;
     }
 
     @NonNull
@@ -73,9 +77,9 @@ public class AnaliseAdapter extends RecyclerView.Adapter<AnaliseAdapter.AnaliseV
                 public void onClick(View v) {
 
 
-                    Intent intent = new Intent(fragment.getContext(), QuesitosIdentificacaoActivity.class);
+                    Intent intent = new Intent(act.getBaseContext(), QuesitosIdentificacaoActivity.class);
                     intent.putExtra("analise", analise);
-                    fragment.startActivity(intent);
+                    act.startActivity(intent);
                 }
             });
 //            card.setOnLongClickListener(new View.OnLongClickListener() {
@@ -99,7 +103,7 @@ public class AnaliseAdapter extends RecyclerView.Adapter<AnaliseAdapter.AnaliseV
             card.setOnCreateContextMenuListener(new View.OnCreateContextMenuListener() {
                 @Override
                 public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
-                    MenuInflater inflater = fragment.getActivity().getMenuInflater();
+                    MenuInflater inflater = act.getMenuInflater();
                     inflater.inflate(R.menu.context_menu, menu);
                     MenuItem item = menu.findItem(R.id.menu_context_delete_analise);
                     item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
@@ -118,16 +122,16 @@ public class AnaliseAdapter extends RecyclerView.Adapter<AnaliseAdapter.AnaliseV
 
         private void removerAnalise() {
             //dialog de confirmação para remoção
-            AlertDialog.Builder alert = new AlertDialog.Builder(fragment.getContext());
+            AlertDialog.Builder alert = new AlertDialog.Builder(context);
             alert.setTitle("Remover Análise");
             alert.setMessage("Deseja realmente remover esta análise?");
             alert.setPositiveButton(R.string.sim, new DialogInterface.OnClickListener() {
 
                 public void onClick(DialogInterface dialog, int which) {
                     // continue with delete
-                    Preferencias pref = new Preferencias(fragment.getContext());
+                    Preferencias pref = new Preferencias(act.getBaseContext());
                     String email = pref.getEmail();
-                    analise.remover(email, fragment.getContext());
+                    analise.remover(email, act.getBaseContext());
 
                 }
             });
