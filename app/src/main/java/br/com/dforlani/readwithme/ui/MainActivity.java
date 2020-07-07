@@ -197,7 +197,6 @@ public class MainActivity extends BaseActivity {
     }
 
     private void getAnalises() {
-        //analiseArrayList.clear();
         AnaliseListLiveData analiseListLiveData = analiseListViewModel.getAnaliseListLiveData();
 
         if (analiseListLiveData != null) {

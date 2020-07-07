@@ -4,7 +4,6 @@ import android.content.Context;
 
 import androidx.annotation.Nullable;
 
-import com.google.firebase.Timestamp;
 import com.google.firebase.firestore.QueryDocumentSnapshot;
 
 import java.io.Serializable;
@@ -239,7 +238,7 @@ public class Analise extends ModelFirestore implements Serializable {
     /**
      * Data de criação da análise, vai ser atribuído automaticamente
      */
-    public Timestamp dt_criacao;
+    public Date dt_criacao;
 
     private List<Map<String, String>> audios = new ArrayList<>();
 
@@ -290,11 +289,11 @@ public class Analise extends ModelFirestore implements Serializable {
         this.id = id;
     }
 
-    public Timestamp getDt_criacao() {
+    public Date getDt_criacao() {
         return dt_criacao;
     }
 
-    public void setDt_criacao(Timestamp dt_criacao) {
+    public void setDt_criacao(Date dt_criacao) {
         this.dt_criacao = dt_criacao;
     }
 
@@ -715,8 +714,9 @@ public class Analise extends ModelFirestore implements Serializable {
         map.put("audios", this.getAudios());
 
         if (this.dt_criacao == null)
-            map.put("dt_criacao", new Timestamp(new Date()));
-
+            map.put("dt_criacao", new Date());
+        else
+            map.put("dt_criacao", this.dt_criacao);
         this.setSubDocument(Usuario.COLECAO, email, Analise.COLECAO, this.id, map);
     }
 
