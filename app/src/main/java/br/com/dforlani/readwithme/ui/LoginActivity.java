@@ -189,8 +189,8 @@ public class LoginActivity extends BaseActivity {
     /**
      * Sempre que faz o login, tenta criar o usuário na tabela usuário
      */
-    private void criaUsuario(String email) {
-        Usuario.crieUsuarioIfNotExist(email);
+    private void criaUsuario(String email, String google_id) {
+        Usuario.crieUsuarioIfNotExist(email, google_id);
     }
 
     private void mountFacebookLoginInterface() {
@@ -336,7 +336,7 @@ public class LoginActivity extends BaseActivity {
                 }
             }
 
-            criaUsuario(email);
+            criaUsuario(email, user.getUid());
 
             //salva o e-mail num arquivo compartilhado, para posterior acesso em outras activities
             Preferencias pref = new Preferencias(this.getBaseContext());

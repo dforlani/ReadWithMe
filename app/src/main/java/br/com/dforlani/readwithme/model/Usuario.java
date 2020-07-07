@@ -14,18 +14,42 @@ public class Usuario extends ModelFirestore {
 
     private String id;
     private String email;
+    private String google_uid;
 
     public Usuario(String id, String email) {
         this.id = id;
         this.email = email;
     }
 
+    public Usuario() {
+
+    }
+
+    /**
+     * Cria um usuário para o email passado caso ele não exista
+     *
+     * @param email
+     * @return
+     */
+    public static void crieUsuarioIfNotExist(String email, String google_uid) {
+
+        if (email != null && email.trim().length() > 0) {
+            //se não tiver criado, o sistema cria uma nova coleção pra esse email
+            Map<String, Object> data = new HashMap<>();
+            data.put("email", email);
+            data.put("google_uid", google_uid);
+            Usuario.addDocument(COLECAO, data, email);
+
+        }
+
+    }
+
     public Usuario(String email) {
         this.email = email;
     }
 
-    public Usuario() {
-        this.email = email;
+    public String getGoogle_uid() {
+        return google_uid;
     }
 
     public String getId() {
@@ -54,20 +78,7 @@ public class Usuario extends ModelFirestore {
         }
     }
 
-    /**
-     * Cria um usuário para o email passado caso ele não exista
-     * @param email
-     * @return
-     */
-    public static void crieUsuarioIfNotExist(String email) {
-
-        if(email != null && email.trim().length() > 0) {
-            //se não tiver criado, o sistema cria uma nova coleção pra esse email
-            Map<String, Object> data = new HashMap<>();
-            data.put("email", email);
-            Usuario.addDocument(COLECAO, data, email);
-
-        }
-
+    public void setGoogle_uid(String google_id) {
+        this.google_uid = google_id;
     }
 }
