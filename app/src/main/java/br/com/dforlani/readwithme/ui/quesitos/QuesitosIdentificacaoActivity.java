@@ -44,7 +44,8 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
 
     }
 
-    private void salvarQuesitos() {
+    @Override
+    protected void salvarQuesitos() {
         String email = "";
         Preferencias pref = new Preferencias(this.getBaseContext());
         email = pref.getEmail();

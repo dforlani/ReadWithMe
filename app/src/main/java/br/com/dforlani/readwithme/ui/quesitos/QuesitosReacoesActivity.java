@@ -35,7 +35,8 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
     }
 
 
-    private void salvarQuesitos() {
+    @Override
+    protected void salvarQuesitos() {
         String email = "";
         Preferencias pref = new Preferencias(this.getBaseContext());
         email = pref.getEmail();
@@ -83,8 +84,7 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
     }
 
     private void voltarActIdentificacao() {
-        salvarQuesitos();
-        voltarAnaliseActAnteriorAndFinish();
+        salvarVoltarAnaliseActAnteriorAndFinish();
     }
 
     class ViewHolder {

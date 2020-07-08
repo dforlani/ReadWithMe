@@ -29,7 +29,7 @@ import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.ui.MainActivity;
 import br.com.dforlani.readwithme.ui.audiorecorder.AudioRecorderActivity;
 
-public class QuesitosBaseActivity extends AppCompatActivity {
+public abstract class QuesitosBaseActivity extends AppCompatActivity {
 
     private static final String TAG = "QuesitosBase.class";
     private static final int REQUEST_AUDIO_RECORDER = 255;
@@ -217,11 +217,17 @@ public class QuesitosBaseActivity extends AppCompatActivity {
         return tags;
     }
 
-    protected void voltarAnaliseActAnteriorAndFinish() {
+    /**
+     * Salva os quesitos e retorna para a activity anterior
+     */
+    protected void salvarVoltarAnaliseActAnteriorAndFinish() {
+        salvarQuesitos();
         Intent intent = new Intent();
         intent.putExtra("analise", analise);
         setResult(RESULT_OK, intent);
         finish();
     }
+
+    protected abstract void salvarQuesitos();
 
 }

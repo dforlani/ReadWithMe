@@ -31,7 +31,8 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
     }
 
 
-    private void salvarQuesitos() {
+    @Override
+    protected void salvarQuesitos() {
         String email = "";
         Preferencias pref = new Preferencias(this.getBaseContext());
         email = pref.getEmail();
@@ -47,18 +48,15 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
             Toast.makeText(QuesitosResumoesCitacoesParafrasesActivity.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
+
     }
 
 
     @Override
     public void onBackPressed() {
-        voltarActIdentificacao();
+        salvarVoltarAnaliseActAnteriorAndFinish();
     }
 
-    private void voltarActIdentificacao() {
-        salvarQuesitos();
-        voltarAnaliseActAnteriorAndFinish();
-    }
 
     class ViewHolder {
         Button continuar;
@@ -98,7 +96,7 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
             voltar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    voltarActIdentificacao();
+                    salvarVoltarAnaliseActAnteriorAndFinish();
                 }
             });
         }

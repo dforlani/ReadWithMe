@@ -29,8 +29,8 @@ public class QuesitosAnotacoesLivresActivity extends QuesitosBaseActivity {
         viewHolder = new ViewHolder();
     }
 
-
-    private void salvarQuesitos() {
+    @Override
+    protected void salvarQuesitos() {
         String email = "";
         Preferencias pref = new Preferencias(this.getBaseContext());
         email = pref.getEmail();
@@ -52,8 +52,7 @@ public class QuesitosAnotacoesLivresActivity extends QuesitosBaseActivity {
     }
 
     private void voltarActIdentificacao() {
-        salvarQuesitos();
-        voltarAnaliseActAnteriorAndFinish();
+        salvarVoltarAnaliseActAnteriorAndFinish();
     }
 
     class ViewHolder {
