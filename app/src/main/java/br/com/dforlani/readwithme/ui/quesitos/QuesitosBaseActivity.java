@@ -1,20 +1,19 @@
 package br.com.dforlani.readwithme.ui.quesitos;
 
 import android.app.Activity;
+import android.content.Context;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
-import android.widget.Toast;
 
 import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
@@ -27,13 +26,14 @@ import java.util.UUID;
 
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
+import br.com.dforlani.readwithme.ui.MainActivity;
 import br.com.dforlani.readwithme.ui.audiorecorder.AudioRecorderActivity;
 
 public class QuesitosBaseActivity extends AppCompatActivity {
 
     private static final String TAG = "QuesitosBase.class";
     private static final int REQUEST_AUDIO_RECORDER = 255;
-
+    protected static final int RETURN_FROM_INNER_QUESITOS_ACTIVITY = 143;
 
     // ViewHolder viewHolder;
     protected Analise analise;
@@ -78,18 +78,29 @@ public class QuesitosBaseActivity extends AppCompatActivity {
                 analise.setAudios(aux.getAudios());
             }
         }
+    }
 
+    /**
+     * Limpa a pilha de activities e retona para a MainActivity
+     *
+     * @param context
+     */
+    protected void voltarToMainActivity(Context context) {
+        Intent newIntent = new Intent(context, MainActivity.class);
+        newIntent.addFlags(Intent.FLAG_ACTIVITY_CLEAR_TOP);
+        newIntent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
+        startActivity(newIntent);
     }
 
     protected void inflateMenu() {
         Toolbar toolbar = findViewById(R.id.toolbar_quesitos);
         // setSupportActionBar(toolbar);
-        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                Toast.makeText(QuesitosBaseActivity.this, "Erro nos menus", Toast.LENGTH_LONG).show();
-            }
-        });
+        // toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+        //    @Override
+        //   public void onClick(View v) {
+        //      Toast.makeText(QuesitosBaseActivity.this, "Erro nos menus", Toast.LENGTH_LONG).show();
+        // }
+        //});
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -204,6 +215,13 @@ public class QuesitosBaseActivity extends AppCompatActivity {
             }
         }
         return tags;
+    }
+
+    protected void voltarAnaliseActAnteriorAndFinish() {
+        Intent intent = new Intent();
+        intent.putExtra("analise", analise);
+        setResult(RESULT_OK, intent);
+        finish();
     }
 
 }

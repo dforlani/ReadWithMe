@@ -1,6 +1,5 @@
 package br.com.dforlani.readwithme.ui.quesitos;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -57,11 +56,10 @@ public class QuesitosCompleto1Activity extends QuesitosBaseActivity {
     }
 
     private void voltarActIdentificacao() {
-        Intent intent = new Intent(QuesitosCompleto1Activity.this, QuesitosIdentificacaoActivity.class);
-        intent.putExtra("analise", analise);
-        startActivity(intent);
-        finish();
+        salvarQuesitos();
+        voltarAnaliseActAnteriorAndFinish();
     }
+
 
     class ViewHolder {
         Button continuar;
@@ -97,7 +95,7 @@ public class QuesitosCompleto1Activity extends QuesitosBaseActivity {
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
-                    finish();
+                    voltarToMainActivity(QuesitosCompleto1Activity.this);
                 }
 
 

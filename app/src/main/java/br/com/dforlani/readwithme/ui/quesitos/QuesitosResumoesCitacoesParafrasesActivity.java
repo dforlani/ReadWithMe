@@ -1,6 +1,5 @@
 package br.com.dforlani.readwithme.ui.quesitos;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -57,10 +56,8 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
     }
 
     private void voltarActIdentificacao() {
-        Intent intent = new Intent(QuesitosResumoesCitacoesParafrasesActivity.this, QuesitosIdentificacaoActivity.class);
-        intent.putExtra("analise", analise);
-        startActivity(intent);
-        finish();
+        salvarQuesitos();
+        voltarAnaliseActAnteriorAndFinish();
     }
 
     class ViewHolder {
@@ -93,10 +90,8 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
-                    finish();
+                    voltarToMainActivity(QuesitosResumoesCitacoesParafrasesActivity.this);
                 }
-
-
             });
 
             voltar = findViewById(R.id.act_quesitos_reacoes_btt_voltar);

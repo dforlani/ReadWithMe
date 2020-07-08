@@ -118,8 +118,12 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                     }
                 }
             }
-            if (resultCode == Activity.RESULT_CANCELED) {
-                //Write your code if there's no result
+        }
+
+        //retornando de uma activity de quesitos interna, precisa atualizar o objeto analise
+        if (requestCode == RETURN_FROM_INNER_QUESITOS_ACTIVITY) {
+            if (data != null && data.hasExtra("analise")) {
+                analise = (Analise) data.getSerializableExtra("analise");
             }
         }
     }
@@ -131,6 +135,16 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
         book.execute(isbn);
     }
 
+    @Override
+    public void onBackPressed() {
+        salvaEFecha();
+    }
+
+    private void salvaEFecha() {
+        bindAnalise();
+        salvarQuesitos();
+        finish();
+    }
 
     class ViewHolder {
         DatePickerDialog picker;
@@ -167,28 +181,26 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                             case Analise.ConstsIdentificacoes.ANALISE_COMPLETA:
                                 intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosCompleto1Activity.class);
                                 intent.putExtra("analise", analise);
-                                startActivity(intent);
-                                finish();
+                                startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                                 break;
                             case Analise.ConstsIdentificacoes.APENAS_ANOTACAOES:
                                 intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosAnotacoesLivresActivity.class);
                                 intent.putExtra("analise", analise);
-                                startActivity(intent);
-                                finish();
+                                startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
+
                                 break;
 
                             case Analise.ConstsIdentificacoes.APENAS_REACOES:
                                 intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosReacoesActivity.class);
                                 intent.putExtra("analise", analise);
-                                startActivity(intent);
-                                finish();
+                                startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
+
                                 break;
 
                             case Analise.ConstsIdentificacoes.APENAS_RESUMOS:
                                 intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosResumoesCitacoesParafrasesActivity.class);
                                 intent.putExtra("analise", analise);
-                                startActivity(intent);
-                                finish();
+                                startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                                 break;
 
                             case Analise.ConstsIdentificacoes.ENCERRAR:
@@ -207,7 +219,7 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
             voltar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    finish();
+                    salvaEFecha();
                 }
 
 
