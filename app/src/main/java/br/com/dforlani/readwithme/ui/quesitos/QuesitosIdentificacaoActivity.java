@@ -207,8 +207,6 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                             case Analise.ConstsIdentificacoes.ENCERRAR:
                                 finish();
                                 break;
-
-
                         }
                     } else {
                         Toast.makeText(QuesitosIdentificacaoActivity.this, "Selecione um tipo de análise ou a opção encerrar", Toast.LENGTH_LONG).show();

@@ -722,11 +722,11 @@ public class Analise extends ModelFirestore implements Serializable {
 
     public class ConstsIdentificacoes {
         public static final String APENAS_ANOTACAOES = "apenas_anotacoes";
-        private static final String APENAS_ANOTACAOES_COMPLETE = "Apenas anotações livres";
+        private static final String APENAS_ANOTACAOES_COMPLETE = "Anotações livres";
         public static final String APENAS_REACOES = "apenas_reacoes";
-        private static final String APENAS_REACOES_COMPLETE = "Apenas reações";
+        private static final String APENAS_REACOES_COMPLETE = "Reações";
         public static final String APENAS_RESUMOS = "apenas_resumos";
-        private static final String APENAS_RESUMOS_COMPLETE = "Apenas resumos, citações e paráfrases";
+        private static final String APENAS_RESUMOS_COMPLETE = "Resumos, citações e paráfrases";
         public static final String ENCERRAR = "encerrar";
         private static final String ENCERRAR_COMPLETO = "Análise simples";
         public static final String ANALISE_COMPLETA = "analise_completa";
