@@ -4,10 +4,12 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical"
+    android:fitsSystemWindows="true"
     android:focusable="true"
     android:focusableInTouchMode="true"
-    tools:context=".ui.quesitos.QuesitosCompleto1Activity">
+    android:orientation="vertical"
+    tools:context=".ui.quesitos.QuesitosCompleto2Activity"
+    tools:openDrawer="start">
 
     <include
         layout="@layout/app_bar_quesitos"
@@ -17,8 +19,7 @@
     <LinearLayout
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:orientation="vertical"
-        android:padding="10dp">
+        android:orientation="vertical">
 
         <ScrollView
             android:layout_width="match_parent"
@@ -29,26 +30,27 @@
             tools:layout_editor_absoluteX="1dp">
 
             <LinearLayout
-                android:layout_width="match_parent"
+                android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:orientation="vertical">
+                android:orientation="vertical"
+                android:padding="10dp">
 
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Há algo interessante sobre as capas, a orelha ou o título do livro que você queira registrar?" />
+                    android:text="Qual o assunto principal do texto? Sintetize e/ou registre trechos importantes" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_act_text_completo_input_q5_1"
+                    android:id="@+id/input_act_q7_1"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_bottom_edit_text">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/act_text_completo_input_q5_1"
+                        android:id="@+id/act_input_act_q7_1"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
@@ -56,19 +58,79 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Há algo interessante sobre o projeto gráfico do livro? (formato, papel, cores, ilustrações) - em caso de texto narrativo ilustrado, haverá um guia detalhado para análise posterior." />
+                    android:text="Há ilustrações, tabelas ou gráficos acompanhando o texto? São importantes? Há algo a registrar sobre elas?" />
 
                 <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_act_act_text_completo_input_q5_2"
+                    android:id="@+id/input_act_q7_2"
                     style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
                     android:layout_marginBottom="@dimen/margin_bottom_edit_text">
 
                     <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/act_text_completo_input_q5_2"
+                        android:id="@+id/act_input_act_q7_2"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Quais as fontes utilizadas? Elas são confiáveis? É possível resgatá-las e lê-las no original?" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_act_q7_3"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom_edit_text">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/act_input_act_q7_3"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="As informações estão completas? Há lacunas?" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_act_q7_4"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom_edit_text">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/act_input_act_q7_4"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content" />
+
+                </com.google.android.material.textfield.TextInputLayout>
+
+                <TextView
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"
+                    android:text="Ficaram questões a ser compreendidas?" />
+
+                <com.google.android.material.textfield.TextInputLayout
+                    android:id="@+id/input_act_q7_5"
+                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="@dimen/margin_bottom_edit_text">
+
+                    <com.google.android.material.textfield.TextInputEditText
+                        android:id="@+id/act_input_act_q7_5"
                         android:layout_width="match_parent"
                         android:layout_height="wrap_content" />
 
@@ -77,95 +139,47 @@
 
                 <TextView
                     android:layout_width="match_parent"
-                    android:layout_height="0dp"
+                    android:layout_height="wrap_content"
                     android:layout_weight="1"
-                    android:text="Há algo interessante a respeito da editora, da série ou coleção a que o livro pertence que você queira registrar?" />
+                    android:text="Há pontos importantes a anotar sobre a bibliografia utilizada pelo autor? *"
+                    app:layout_constraintEnd_toEndOf="parent"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
 
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_act_text_act_text_completo_input_q5_3"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
+                <RadioGroup
                     android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_bottom_edit_text">
+                    android:layout_height="match_parent"
+                    android:layout_weight="1">
 
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/act_text_completo_input_q5_3"
+
+                    <RadioButton
+                        android:id="@+id/radio_button_completo_texto_informativo_sim"
                         android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="A edição e a data de publicação do livro são importantes para seu objetivo de leitura? Por quê? Como?" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_act_text_act_text_completo_input_q5_4"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_bottom_edit_text">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/act_text_completo_input_q5_4"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <TextView
-                    android:layout_width="match_parent"
-                    android:layout_height="0dp"
-                    android:layout_weight="1"
-                    android:text="Há apresentação, notas, apêndices? Eles são importantes para compreensão do assunto? Quem escreveu esses textos? O que é importante anotar?" />
-
-                <com.google.android.material.textfield.TextInputLayout
-                    android:id="@+id/input_act_text_act_text_completo_input_q5_5"
-                    style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:layout_marginBottom="@dimen/margin_bottom_edit_text">
-
-                    <com.google.android.material.textfield.TextInputEditText
-                        android:id="@+id/act_text_completo_input_q5_5"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content" />
-
-                </com.google.android.material.textfield.TextInputLayout>
-
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="horizontal"
-                    android:weightSum="1"
-                    app:layout_constraintTop_toBottomOf="@+id/text_q1_11">
-
-                    <Button
-                        android:id="@+id/act_quesitos_reacoes_btt_voltar"
-                        android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
-                        android:layout_marginRight="5dp"
-                        android:layout_weight="0.5"
-                        android:text="@string/voltar" />
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Sim" />
 
-                    <Button
-                        android:id="@+id/act_quesitos_reacoes_btt_continuar"
-                        android:layout_width="wrap_content"
+                    <RadioButton
+                        android:id="@+id/radio_button_completo_texto_informativo_nao"
+                        android:layout_width="match_parent"
                         android:layout_height="wrap_content"
-                        android:layout_marginStart="5dp"
-                        android:layout_weight="0.5"
-                        android:text="@string/continuar" />
-                </LinearLayout>
+                        android:layout_weight="1"
+                        android:onClick="onRadioButtonClicked"
+                        android:text="Não" />
 
+
+                </RadioGroup>
+
+                <include
+                    layout="@layout/buttons_voltar_continuar"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content" />
 
             </LinearLayout>
-
         </ScrollView>
     </LinearLayout>
-
-
 </LinearLayout>
+
+
 

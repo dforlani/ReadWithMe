@@ -46,6 +46,22 @@
             android:name=".ui.quesitos.QuesitosCompleto1Activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".ui.quesitos.QuesitosCompleto2Activity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.quesitos.QuesitosCompletoTextoInformativo"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+        <activity
+            android:name=".ui.quesitos.QuesitosCompletoTextoArgumentativo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.quesitos.QuesitosCompletoTextoPoesia"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.quesitos.QuesitosCompletoTextoNarrativo"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ui.quesitos.QuesitosResumoesCitacoesParafrasesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity android:name=".ui.barcode.BarCodeActivity" />

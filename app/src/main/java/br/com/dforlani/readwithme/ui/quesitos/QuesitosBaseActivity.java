@@ -8,8 +8,10 @@ import android.os.Bundle;
 import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 import android.view.WindowManager;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.ProgressBar;
 import android.widget.RadioButton;
@@ -78,6 +80,23 @@ public abstract class QuesitosBaseActivity extends AppCompatActivity {
                 analise.setAudios(aux.getAudios());
             }
         }
+
+        //retornando de uma activity de quesitos interna, precisa atualizar o objeto analise
+        if (requestCode == RETURN_FROM_INNER_QUESITOS_ACTIVITY) {
+            if (data != null && data.hasExtra("analise")) {
+                analise = (Analise) data.getSerializableExtra("analise");
+            }
+        }
+    }
+
+    protected void salvaEFecha() {
+        salvarQuesitos();
+        finish();
+    }
+
+    @Override
+    public void onBackPressed() {
+        salvarVoltarAnaliseActAnteriorAndFinish();
     }
 
     /**
@@ -94,13 +113,7 @@ public abstract class QuesitosBaseActivity extends AppCompatActivity {
 
     protected void inflateMenu() {
         Toolbar toolbar = findViewById(R.id.toolbar_quesitos);
-        // setSupportActionBar(toolbar);
-        // toolbar.setNavigationOnClickListener(new View.OnClickListener() {
-        //    @Override
-        //   public void onClick(View v) {
-        //      Toast.makeText(QuesitosBaseActivity.this, "Erro nos menus", Toast.LENGTH_LONG).show();
-        // }
-        //});
+
         toolbar.setOnMenuItemClickListener(new Toolbar.OnMenuItemClickListener() {
             @Override
             public boolean onMenuItemClick(MenuItem item) {
@@ -117,6 +130,7 @@ public abstract class QuesitosBaseActivity extends AppCompatActivity {
 
 
     }
+
 
 
     @Override
@@ -228,6 +242,43 @@ public abstract class QuesitosBaseActivity extends AppCompatActivity {
         finish();
     }
 
+    /**
+     * Salva os quesitos e retorna para a activity anterior
+     */
+    protected void salvarContinuarPraProximaActivity() {
+        salvarQuesitos();
+        Intent intent = new Intent(QuesitosBaseActivity.this, getNextActivity());
+        intent.putExtra("analise", analise);
+        startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
+    }
+
+    protected abstract Class getNextActivity();
+
+
     protected abstract void salvarQuesitos();
 
+    public abstract class ViewHolder {
+        Button voltar;
+        Button continuar;
+
+        ViewHolder() {
+            continuar = findViewById(R.id.act_buttons_continuar);
+            continuar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    salvarContinuarPraProximaActivity();
+                }
+            });
+
+            voltar = findViewById(R.id.act_buttons_voltar);
+            voltar.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    salvarVoltarAnaliseActAnteriorAndFinish();
+                }
+            });
+        }
+
+
+    }
 }

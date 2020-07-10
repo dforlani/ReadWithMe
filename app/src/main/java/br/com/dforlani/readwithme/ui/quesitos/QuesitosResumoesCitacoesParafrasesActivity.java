@@ -57,6 +57,11 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
         salvarVoltarAnaliseActAnteriorAndFinish();
     }
 
+    @Override
+    protected Class getNextActivity() {
+        return null;
+    }
+
 
     class ViewHolder {
         Button continuar;

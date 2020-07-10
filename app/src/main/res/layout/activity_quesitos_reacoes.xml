@@ -36,13 +36,12 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
                     android:text="@string/text_q_reacoes_1" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="0 = nenhuma vontade de prosseguir, mas sou insistente ou era obrigação"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -50,7 +49,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="10 = não consegui parar de ler até o final"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -180,7 +179,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_2" />
 
                 <com.google.android.material.textfield.TextInputLayout
@@ -201,7 +200,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_3"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -210,7 +209,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="0 = abandonei"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -218,7 +217,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="10 = nem vi passar de tão delícia que foi esse texto!"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -346,7 +345,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_4"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -374,7 +373,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_5"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -383,7 +382,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="0 = tão divertido quanto chupar picolé de chuchu em missa de sétimo dia"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -391,7 +390,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="10 = o texto mais legal que já li, único de sua categoria"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -519,7 +518,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_6"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -548,7 +547,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_7"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -557,7 +556,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="0 = A leitura não cumpriu o objetivo de maneira nenhuma"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -565,7 +564,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="10 = Superou as expectativas"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -693,7 +692,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_8"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -703,7 +702,7 @@
                     android:id="@+id/act_reacoes_check_avaliei_mal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:tag="act_reacoes_check_avaliei_mal"
                     android:text="@string/check_reacoes_avaliei_mal" />
 
@@ -744,7 +743,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_9" />
 
 
@@ -768,14 +767,14 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:inputType="none"
                     android:text="@string/text_q_reacoes_10" />
 
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="0 = que imbecil, não faz sentido nada do que ele diz, um completo idiota"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -783,7 +782,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="10 = aprendi muito, é realmente tudo o que eu sempre imaginei encontrar a esse respeito, superou expectativas"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -914,7 +913,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_11"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -938,7 +937,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_12"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -966,7 +965,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_13"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -975,7 +974,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="0 = nem um pouco!"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -983,7 +982,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="10 = muito!"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -1112,7 +1111,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_14"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1140,7 +1139,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_15"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1149,7 +1148,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="0 = nem um pouco!"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -1157,7 +1156,7 @@
                 <TextView
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="10 = muito!"
                     android:textColor="@color/colorBlueText"
                     android:textSize="@dimen/text_explicacao_check_box" />
@@ -1285,7 +1284,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_16"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1313,7 +1312,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_17"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
@@ -1427,7 +1426,7 @@
 
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-                    android:layout_weight="1"
+
                     android:text="@string/text_q_reacoes_19"
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"

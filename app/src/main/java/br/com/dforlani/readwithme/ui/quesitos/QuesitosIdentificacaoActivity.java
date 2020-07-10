@@ -120,13 +120,6 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                 }
             }
         }
-
-        //retornando de uma activity de quesitos interna, precisa atualizar o objeto analise
-        if (requestCode == RETURN_FROM_INNER_QUESITOS_ACTIVITY) {
-            if (data != null && data.hasExtra("analise")) {
-                analise = (Analise) data.getSerializableExtra("analise");
-            }
-        }
     }
 
     private void buscaDadosISBN(String isbn) {
@@ -136,15 +129,17 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
         book.execute(isbn);
     }
 
-    @Override
-    public void onBackPressed() {
-        salvaEFecha();
-    }
 
-    private void salvaEFecha() {
+    @Override
+    protected void salvaEFecha() {
         bindAnalise();
         salvarQuesitos();
         finish();
+    }
+
+    @Override
+    protected Class getNextActivity() {
+        return null;
     }
 
     class ViewHolder {

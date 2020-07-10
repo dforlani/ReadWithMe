@@ -83,6 +83,11 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
         voltarActIdentificacao();
     }
 
+    @Override
+    protected Class getNextActivity() {
+        return null;
+    }
+
     private void voltarActIdentificacao() {
         salvarVoltarAnaliseActAnteriorAndFinish();
     }
@@ -192,8 +197,8 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
 
             q2_16 = findViewById(R.id.act_reacoes_input_16);
             q2_16.setText(analise.getQ2_16());
-            setCheckBox(analise.getQ2_17(), getIdentificadoresCheckQ2_17());
 
+            setCheckBox(analise.getQ2_17(), getIdentificadoresCheckQ2_17());
             checkVidaAcademicaQ2_17 = findViewById(R.id.act_reacoes_check_vida_academica);
             checkPrazerDiversaoQ2_17 = findViewById(R.id.act_reacoes_check_prazer_e_diversao);
             checkMinhaPesquisaAtualQ2_17 = findViewById(R.id.act_reacoes_check_minha_pesquisa_atual);

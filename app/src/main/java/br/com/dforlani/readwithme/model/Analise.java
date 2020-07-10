@@ -30,6 +30,11 @@ public class Analise extends ModelFirestore implements Serializable {
 
     private String ISBN;
 
+    /**
+     * Data de criação da análise, vai ser atribuído automaticamente
+     */
+    public Date dt_criacao;
+
 
     //tela 1
     //Informações importantes sobre o texto
@@ -236,11 +241,233 @@ public class Analise extends ModelFirestore implements Serializable {
     private String q5_5;
 
     /**
-     * Data de criação da análise, vai ser atribuído automaticamente
+     * Qual tipo de texto você está lendo?
      */
-    public Date dt_criacao;
+    private String q6_1;
+
+
+    //******TELA Pontos importantes do texto informativo *******/
+
+    /**
+     * Qual o assunto principal do texto? Sintetize e/ou registre trechos importantes
+     */
+    private String q7_1;
+
+    /**
+     * Qual o assunto principal do texto? Sintetize e/ou registre trechos importantes
+     */
+    private String q7_2;
+
+
+    /**
+     * Quais as fontes utilizadas? Elas são confiáveis? É possível resgatá-las e lê-las no original?
+     */
+    private String q7_3;
+
+    /**
+     * As informações estão completas? Há lacunas?
+     */
+    private String q7_4;
+
+    /**
+     * Ficaram questões a ser compreendidas?
+     */
+    private String q7_5;
+
+    /**
+     * Há pontos importantes a anotar sobre a bibliografia utilizada pelo autor? *
+     */
+    private String q7_6;
+
+    /**
+     * Qual a tese central do texto? Sintetize e/ou registre trechos importantes
+     */
+    private String q8_1;
+
+    /**
+     * Quais os argumentos utilizados? Sintetize e/ou registre trechos importantes
+     */
+    private String q8_2;
+
+    /**
+     * Há ilustrações, tabelas ou gráficos acompanhando o texto? São importantes? Há algo a registrar sobre elas?
+     */
+    private String q8_3;
+
+    /**
+     * Há outros pontos importantes a ser registrados?
+     */
+    private String q8_4;
+
+    /**
+     * Você concorda ou não com a tese? Por quê?
+     */
+    private String q8_5;
+
+    /**
+     * Os argumentos utilizados são verdadeiros? Há fontes? Você confia nas fontes apresentadas? Você pode apresentar fontes ou argumentos contrários?
+     */
+    private String q8_6;
+
+    /**
+     * Os argumentos estão bem construídos e concatenados? Eles suportam a tese ou não tem relação com ela?
+     */
+    private String q8_7;
+
+    /**
+     * Há pontos importantes a anotar sobre a bibliografia utilizada pelo autor?
+     */
+    private String q8_8;
+
+    /**
+     * A leitura foi prazerosa e interessante? Qual a impressão mais vívida provocada pela leitura?
+     */
+    private String q9_1;
+
+    /**
+     * Há um tema central no(s) poema(s)? Em caso de coletânea, há um eixo temático que amarre os poemas entre si? Isso é importante?
+     */
+    private String q9_2;
+
+    /**
+     * Como é a rima do poema?
+     */
+    private String q9_3;
+
+    /**
+     * Como é a métrica do poema?
+     */
+    private String q9_4;
+
+    /**
+     * O eu lírico se apresenta de alguma forma? Há algo a relatar?
+     */
+    private String q9_5;
+
+    /**
+     * Questões de linguagem que podem aparecer no texto:
+     */
+    private List<String> q9_6;
+
+    /**
+     * Quais figuras de linguagem estão presentes no poema?
+     */
+    private String q9_7;
+
+    /**
+     * Descreva de forma mais detalhada o que lhe chamou atenção na questão anterior, fazendo citações
+     */
+    private String q9_8;
+
+    /**
+     * A forma como o poema se distribui na página é importante? É um poema concreto?
+     */
+    private String q9_9;
+
+    /**
+     * O texto é um poema épico ou narrativo? Você gostaria de analisar também a história existente no poema? *
+     */
+    private String q9_10;
+
+
+    /**
+     * A leitura foi prazerosa e interessante? Qual a impressão mais vívida provocada pela leitura?
+     */
+    private String q10_1;
+
+    /**
+     * O que acontece na história? Qual o enredo?
+     */
+    private String q10_2;
+
+    /**
+     * Quem são os personagens, como são, como se relacionam? Quais são mais importantes para a história, quais são coadjuvantes?
+     */
+    private String q10_3;
+
+    /**
+     * O que se pode registrar sobre o espaço da narrativa? Algum elemento espacial se apresenta com mais destaque?
+     */
+    private String q10_4;
+
+    /**
+     * O que se pode registrar sobre a sequência temporal dos acontecimentos narrados? O tempo é cronológico, psicológico? Os fatos são narrados na sequência em que acontecem? Há algo específico sobre o tempo que seja interessante registrar?
+     */
+    private String q10_5;
+
+    /**
+     * Há descrições? Como são?
+     */
+    private String q10_6;
+
+    /**
+     * Qual o gênero literário escolhido? Isso é importante?
+     */
+    private String q10_7;
+
+    /**
+     * Qual o tipo do narrador? Isso é importante?
+     */
+    private String q10_8;
+
+    /**
+     * Qual o foco narrativo predominante: mostrar ou contar? Isso é importante?
+     */
+    private String q10_9;
+
+    /**
+     * Questões de linguagem que podem aparecer no texto:
+     */
+    private List<String> q10_10;
+
+    /**
+     * Descreva de forma mais detalhada o que lhe chamou atenção na questão anterior, fazendo citações
+     */
+    private String q10_11;
+
+    /**
+     * Há ilustrações acompanhando o texto? Como se relacionam com o texto? São importantes? Há algo a registrar sobre elas?
+     */
+    private String q10_12;
+
+    /**
+     * Você gostaria de analisar as ilustrações e o projeto do gráfico mais detalhadamente? *
+     */
+    private String q10_13;
+
+
+    /**
+     * Você conhece alguma obra relacionada?
+     */
+    private String q11_1;
+
+    /**
+     * São obras atuais?
+     */
+    private String q11_2;
+
+    /**
+     * Você conhece alguma obra relacionada?
+     */
+    private String q11_3;
+
+    /**
+     * Você considera a bibliografia adequada ao assunto do texto?
+     */
+    private String q11_4;
+
+    /**
+     * Qual lacuna? Qual a relevância dessa lacuna para seu objetivo em ler o texto?
+     */
+    private String q11_5;
+
+    /**
+     * Pode-se perceber algum enfoque político a partir dessas obras?
+     */
+    private String q11_6;
 
     private List<Map<String, String>> audios = new ArrayList<>();
+
 
     public Analise() {
         generateMap();
@@ -305,6 +532,54 @@ public class Analise extends ModelFirestore implements Serializable {
         this.q1_1 = q1_1;
     }
 
+    public String getQ11_1() {
+        return q11_1;
+    }
+
+    public void setQ11_1(String q11_1) {
+        this.q11_1 = q11_1;
+    }
+
+    public String getQ11_2() {
+        return q11_2;
+    }
+
+    public void setQ11_2(String q11_2) {
+        this.q11_2 = q11_2;
+    }
+
+    public String getQ11_3() {
+        return q11_3;
+    }
+
+    public void setQ11_3(String q11_3) {
+        this.q11_3 = q11_3;
+    }
+
+    public String getQ11_4() {
+        return q11_4;
+    }
+
+    public void setQ11_4(String q11_4) {
+        this.q11_4 = q11_4;
+    }
+
+    public String getQ11_5() {
+        return q11_5;
+    }
+
+    public void setQ11_5(String q11_5) {
+        this.q11_5 = q11_5;
+    }
+
+    public String getQ11_6() {
+        return q11_6;
+    }
+
+    public void setQ11_6(String q11_6) {
+        this.q11_6 = q11_6;
+    }
+
     public String getQ1_2() {
         return q1_2;
     }
@@ -315,6 +590,198 @@ public class Analise extends ModelFirestore implements Serializable {
 
     public String getQ1_3() {
         return q1_3;
+    }
+
+    public String getQ7_1() {
+        return q7_1;
+    }
+
+    public void setQ7_1(String q7_1) {
+        this.q7_1 = q7_1;
+    }
+
+    public String getQ7_2() {
+        return q7_2;
+    }
+
+    public void setQ7_2(String q7_2) {
+        this.q7_2 = q7_2;
+    }
+
+    public String getQ7_3() {
+        return q7_3;
+    }
+
+    public void setQ7_3(String q7_3) {
+        this.q7_3 = q7_3;
+    }
+
+    public String getQ8_1() {
+        return q8_1;
+    }
+
+    public void setQ8_1(String q8_1) {
+        this.q8_1 = q8_1;
+    }
+
+    public String getQ8_2() {
+        return q8_2;
+    }
+
+    public void setQ8_2(String q8_2) {
+        this.q8_2 = q8_2;
+    }
+
+    public String getQ9_1() {
+        return q9_1;
+    }
+
+    public void setQ9_1(String q9_1) {
+        this.q9_1 = q9_1;
+    }
+
+    public String getQ9_2() {
+        return q9_2;
+    }
+
+    public void setQ9_2(String q9_2) {
+        this.q9_2 = q9_2;
+    }
+
+    public String getQ9_3() {
+        return q9_3;
+    }
+
+    public void setQ9_3(String q9_3) {
+        this.q9_3 = q9_3;
+    }
+
+    public String getQ9_4() {
+        return q9_4;
+    }
+
+    public void setQ9_4(String q9_4) {
+        this.q9_4 = q9_4;
+    }
+
+    public String getQ9_5() {
+        return q9_5;
+    }
+
+    public void setQ9_5(String q9_5) {
+        this.q9_5 = q9_5;
+    }
+
+    public List<String> getQ9_6() {
+        return q9_6;
+    }
+
+    public void setQ9_6(List<String> q9_6) {
+        this.q9_6 = q9_6;
+    }
+
+    public String getQ9_7() {
+        return q9_7;
+    }
+
+    public void setQ9_7(String q9_7) {
+        this.q9_7 = q9_7;
+    }
+
+    public String getQ9_8() {
+        return q9_8;
+    }
+
+    public void setQ9_8(String q9_8) {
+        this.q9_8 = q9_8;
+    }
+
+    public String getQ9_9() {
+        return q9_9;
+    }
+
+    public void setQ9_9(String q9_9) {
+        this.q9_9 = q9_9;
+    }
+
+    public String getQ9_10() {
+        return q9_10;
+    }
+
+    public void setQ9_10(String q9_10) {
+        this.q9_10 = q9_10;
+    }
+
+    public String getQ8_3() {
+        return q8_3;
+    }
+
+    public void setQ8_3(String q8_3) {
+        this.q8_3 = q8_3;
+    }
+
+    public String getQ8_4() {
+        return q8_4;
+    }
+
+    public void setQ8_4(String q8_4) {
+        this.q8_4 = q8_4;
+    }
+
+    public String getQ8_5() {
+        return q8_5;
+    }
+
+    public void setQ8_5(String q8_5) {
+        this.q8_5 = q8_5;
+    }
+
+    public String getQ8_6() {
+        return q8_6;
+    }
+
+    public void setQ8_6(String q8_6) {
+        this.q8_6 = q8_6;
+    }
+
+    public String getQ8_7() {
+        return q8_7;
+    }
+
+    public void setQ8_7(String q8_7) {
+        this.q8_7 = q8_7;
+    }
+
+    public String getQ8_8() {
+        return q8_8;
+    }
+
+    public void setQ8_8(String q8_8) {
+        this.q8_8 = q8_8;
+    }
+
+    public String getQ7_4() {
+        return q7_4;
+    }
+
+    public void setQ7_4(String q7_4) {
+        this.q7_4 = q7_4;
+    }
+
+    public String getQ7_5() {
+        return q7_5;
+    }
+
+    public void setQ7_5(String q7_5) {
+        this.q7_5 = q7_5;
+    }
+
+    public String getQ7_6() {
+        return q7_6;
+    }
+
+    public void setQ7_6(String q7_6) {
+        this.q7_6 = q7_6;
     }
 
     public void setQ1_3(String q1_3) {
@@ -347,6 +814,14 @@ public class Analise extends ModelFirestore implements Serializable {
 
     public String getQ1_6() {
         return q1_6;
+    }
+
+    public String getQ6_1() {
+        return q6_1;
+    }
+
+    public void setQ6_1(String q6_1) {
+        this.q6_1 = q6_1;
     }
 
     public void setQ1_6(String q1_6) {
@@ -597,6 +1072,110 @@ public class Analise extends ModelFirestore implements Serializable {
         return q5_2;
     }
 
+    public String getQ10_1() {
+        return q10_1;
+    }
+
+    public void setQ10_1(String q10_1) {
+        this.q10_1 = q10_1;
+    }
+
+    public String getQ10_2() {
+        return q10_2;
+    }
+
+    public void setQ10_2(String q10_2) {
+        this.q10_2 = q10_2;
+    }
+
+    public String getQ10_3() {
+        return q10_3;
+    }
+
+    public void setQ10_3(String q10_3) {
+        this.q10_3 = q10_3;
+    }
+
+    public String getQ10_4() {
+        return q10_4;
+    }
+
+    public void setQ10_4(String q10_4) {
+        this.q10_4 = q10_4;
+    }
+
+    public String getQ10_5() {
+        return q10_5;
+    }
+
+    public void setQ10_5(String q10_5) {
+        this.q10_5 = q10_5;
+    }
+
+    public String getQ10_6() {
+        return q10_6;
+    }
+
+    public void setQ10_6(String q10_6) {
+        this.q10_6 = q10_6;
+    }
+
+    public String getQ10_7() {
+        return q10_7;
+    }
+
+    public void setQ10_7(String q10_7) {
+        this.q10_7 = q10_7;
+    }
+
+    public String getQ10_8() {
+        return q10_8;
+    }
+
+    public void setQ10_8(String q10_8) {
+        this.q10_8 = q10_8;
+    }
+
+    public String getQ10_9() {
+        return q10_9;
+    }
+
+    public void setQ10_9(String q10_9) {
+        this.q10_9 = q10_9;
+    }
+
+    public List<String> getQ10_10() {
+        return q10_10;
+    }
+
+    public void setQ10_10(List<String> q10_10) {
+        this.q10_10 = q10_10;
+    }
+
+    public String getQ10_11() {
+        return q10_11;
+    }
+
+    public void setQ10_11(String q10_11) {
+        this.q10_11 = q10_11;
+    }
+
+    public String getQ10_12() {
+        return q10_12;
+    }
+
+    public void setQ10_12(String q10_12) {
+        this.q10_12 = q10_12;
+    }
+
+    public String getQ10_13() {
+        return q10_13;
+    }
+
+    public void setQ10_13(String q10_13) {
+        this.q10_13 = q10_13;
+    }
+
     public void setQ5_2(String q5_2) {
         this.q5_2 = q5_2;
     }
@@ -710,6 +1289,54 @@ public class Analise extends ModelFirestore implements Serializable {
         map.put("q5_4", this.q5_4);
         map.put("q5_5", this.q5_5);
 
+        //tela quesitos completo 2
+        map.put("q6_1", this.q6_1);
+
+        //******TELA Pontos importantes do texto informativo *******/
+        map.put("q7_1", this.q7_1);
+        map.put("q7_2", this.q7_2);
+        map.put("q7_3", this.q7_3);
+        map.put("q7_4", this.q7_4);
+        map.put("q7_5", this.q7_5);
+        map.put("q7_6", this.q7_6);
+
+        //******TELA Pontos importantes do texto argumentativo *******/
+        map.put("q8_1", this.q8_1);
+        map.put("q8_2", this.q8_2);
+        map.put("q8_3", this.q8_3);
+        map.put("q8_4", this.q8_4);
+        map.put("q8_5", this.q8_5);
+        map.put("q8_6", this.q8_6);
+        map.put("q8_7", this.q8_5);
+        map.put("q8_8", this.q8_6);
+
+        //******TELA Pontos importantes do texto poesia *******/
+        map.put("q9_1", this.q9_1);
+        map.put("q9_2", this.q9_2);
+        map.put("q9_3", this.q9_3);
+        map.put("q9_4", this.q9_4);
+        map.put("q9_5", this.q9_5);
+        map.put("q9_6", this.q9_6);
+        map.put("q9_7", this.q9_7);
+        map.put("q9_8", this.q9_8);
+        map.put("q9_9", this.q9_9);
+        map.put("q9_10", this.q9_10);
+
+        //******TELA Pontos importantes do texto narrativo *******/
+        map.put("q10_1", this.q10_1);
+        map.put("q10_2", this.q10_2);
+        map.put("q10_3", this.q10_3);
+        map.put("q10_4", this.q10_4);
+        map.put("q10_5", this.q10_5);
+        map.put("q10_6", this.q10_6);
+        map.put("q10_7", this.q10_7);
+        map.put("q10_8", this.q10_8);
+        map.put("q10_9", this.q10_9);
+        map.put("q10_10", this.q10_10);
+        map.put("q10_11", this.q10_11);
+        map.put("q10_12", this.q10_12);
+        map.put("q10_13", this.q10_13);
+
 
         map.put("audios", this.getAudios());
 
@@ -721,7 +1348,18 @@ public class Analise extends ModelFirestore implements Serializable {
     }
 
     public class ConstsIdentificacoes {
+
+        public static final String SIM = "SIM";
+        public static final String NAO = "NAO";
+
+
+        public static final String TEXTO_INFORMATIVO = "informativo";
+        public static final String TEXTO_ARGUMENTATIVO = "argumentativo";
+        public static final String TEXTO_POESIA = "poesia";
+        public static final String TEXTO_NARRATIVO = "narrativo";
+
         public static final String APENAS_ANOTACAOES = "apenas_anotacoes";
+
         private static final String APENAS_ANOTACAOES_COMPLETE = "Anotações livres";
         public static final String APENAS_REACOES = "apenas_reacoes";
         private static final String APENAS_REACOES_COMPLETE = "Reações";

@@ -1,5 +1,6 @@
 package br.com.dforlani.readwithme.ui.quesitos;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
@@ -21,7 +22,7 @@ public class QuesitosCompleto1Activity extends QuesitosBaseActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quesitos_quesitos_completo_1);
+        setContentView(R.layout.activity_quesitos_completo_1);
 
         TextView title = findViewById(R.id.title_app_bar_quesitos);
         title.setText(R.string.title_elementos_exteriores_ao_texto);
@@ -54,6 +55,11 @@ public class QuesitosCompleto1Activity extends QuesitosBaseActivity {
     @Override
     public void onBackPressed() {
         voltarActIdentificacao();
+    }
+
+    @Override
+    protected Class getNextActivity() {
+        return null;
     }
 
     private void voltarActIdentificacao() {
@@ -95,7 +101,9 @@ public class QuesitosCompleto1Activity extends QuesitosBaseActivity {
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
-                    voltarToMainActivity(QuesitosCompleto1Activity.this);
+                    Intent intent = new Intent(QuesitosCompleto1Activity.this, QuesitosCompleto2Activity.class);
+                    intent.putExtra("analise", analise);
+                    startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                 }
 
 

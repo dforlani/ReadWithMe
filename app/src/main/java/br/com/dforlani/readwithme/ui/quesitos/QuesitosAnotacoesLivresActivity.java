@@ -51,6 +51,11 @@ public class QuesitosAnotacoesLivresActivity extends QuesitosBaseActivity {
         voltarActIdentificacao();
     }
 
+    @Override
+    protected Class getNextActivity() {
+        return null;
+    }
+
     private void voltarActIdentificacao() {
         salvarVoltarAnaliseActAnteriorAndFinish();
     }
