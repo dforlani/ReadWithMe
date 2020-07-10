@@ -1,5 +1,3 @@
-
-
 package br.com.dforlani.readwithme.ui.quesitos;
 
 import android.content.Intent;

@@ -251,7 +251,6 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
         }
 
 
-
         public List<Integer> getIdentificadoresCheckQ2_17() {
             List<Integer> auxListCheck = new ArrayList<>();
             auxListCheck.add(R.id.act_reacoes_check_vida_academica);

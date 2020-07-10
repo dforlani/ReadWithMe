@@ -471,6 +471,56 @@ public class Analise extends ModelFirestore implements Serializable {
      */
     private String q12_1;
 
+    /**
+     * Marque as dificuldades encontradas:
+     */
+    private List<String> q13_1;
+
+    /**
+     * Descreva de forma mais detalhada suas dificuldades, com citações:
+     */
+    private String q13_2;
+
+    /**
+     * Como você resolveu suas dificuldades?
+     */
+    private String q13_3;
+
+    /**
+     * Você pretende resolvê-las com alguma estratégia? Qual?
+     */
+    private String q13_4;
+
+    /**
+     * Você consegue relacionar o texto com alguma dessas experiências?
+     */
+    private List<String> q14_1;
+
+    /**
+     * Descreva as experiências que acreditar mais importantes:
+     */
+    private String q14_2;
+
+    /**
+     * Você consegue relacionar o texto com algum desses objetos culturais?
+     */
+    private List<String> q14_3;
+
+    /**
+     * Descreva com mais detalhes as relações marcadas na questão anterior:
+     */
+    private String q14_4;
+
+    /**
+     * Você consegue relacionar o texto com algum texto acadêmico cujo autor concorde ou complemente as ideias apresentadas? Qual?
+     */
+    private String q14_5;
+
+    /**
+     * Você consegue relacionar o texto com algum texto acadêmico cujo autor discorde das ideais apresentadas? Qual?
+     */
+    private String q14_6;
+
     private List<Map<String, String>> audios = new ArrayList<>();
 
 
@@ -567,6 +617,86 @@ public class Analise extends ModelFirestore implements Serializable {
 
     public void setQ11_3(String q11_3) {
         this.q11_3 = q11_3;
+    }
+
+    public List<String> getQ13_1() {
+        return q13_1;
+    }
+
+    public void setQ13_1(List<String> q13_1) {
+        this.q13_1 = q13_1;
+    }
+
+    public List<String> getQ14_1() {
+        return q14_1;
+    }
+
+    public void setQ14_1(List<String> q14_1) {
+        this.q14_1 = q14_1;
+    }
+
+    public String getQ14_2() {
+        return q14_2;
+    }
+
+    public void setQ14_2(String q14_2) {
+        this.q14_2 = q14_2;
+    }
+
+    public List<String> getQ14_3() {
+        return q14_3;
+    }
+
+    public void setQ14_3(List<String> q14_3) {
+        this.q14_3 = q14_3;
+    }
+
+    public String getQ14_4() {
+        return q14_4;
+    }
+
+    public void setQ14_4(String q14_4) {
+        this.q14_4 = q14_4;
+    }
+
+    public String getQ14_5() {
+        return q14_5;
+    }
+
+    public void setQ14_5(String q14_5) {
+        this.q14_5 = q14_5;
+    }
+
+    public String getQ14_6() {
+        return q14_6;
+    }
+
+    public void setQ14_6(String q14_6) {
+        this.q14_6 = q14_6;
+    }
+
+    public String getQ13_2() {
+        return q13_2;
+    }
+
+    public void setQ13_2(String q13_2) {
+        this.q13_2 = q13_2;
+    }
+
+    public String getQ13_3() {
+        return q13_3;
+    }
+
+    public void setQ13_3(String q13_3) {
+        this.q13_3 = q13_3;
+    }
+
+    public String getQ13_4() {
+        return q13_4;
+    }
+
+    public void setQ13_4(String q13_4) {
+        this.q13_4 = q13_4;
     }
 
     public String getQ11_4() {
@@ -1358,8 +1488,23 @@ public class Analise extends ModelFirestore implements Serializable {
         map.put("q11_5", this.q11_5);
         map.put("q11_6", this.q11_6);
 
+
         //******TELA Analise teve dificuldade leitura *******/
         map.put("q12_1", this.q12_1);
+
+        //******TELA Complementar Dificuldade de Leitura *******/
+        map.put("q13_1", this.q13_1);
+        map.put("q13_2", this.q13_2);
+        map.put("q13_3", this.q13_3);
+        map.put("q13_4", this.q13_4);
+
+        //******TELA Relações do texto com outros conteúdos *******/
+        map.put("q14_1", this.q14_1);
+        map.put("q14_2", this.q14_2);
+        map.put("q14_3", this.q14_3);
+        map.put("q14_4", this.q14_4);
+        map.put("q14_5", this.q14_5);
+        map.put("q14_6", this.q14_6);
 
         map.put("audios", this.getAudios());
 
@@ -1374,6 +1519,9 @@ public class Analise extends ModelFirestore implements Serializable {
 
         public static final String SIM = "SIM";
         public static final String NAO = "NAO";
+
+        public static final String SIM_MINUSCULAS = "Sim";
+        public static final String NAO_MINUSCULAS = "Não";
 
 
         public static final String TEXTO_INFORMATIVO = "informativo";

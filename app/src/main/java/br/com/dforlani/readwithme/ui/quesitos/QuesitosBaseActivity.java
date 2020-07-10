@@ -33,10 +33,9 @@ import br.com.dforlani.readwithme.ui.audiorecorder.AudioRecorderActivity;
 
 public abstract class QuesitosBaseActivity extends AppCompatActivity {
 
+    protected static final int RETURN_FROM_INNER_QUESITOS_ACTIVITY = 143;
     private static final String TAG = "QuesitosBase.class";
     private static final int REQUEST_AUDIO_RECORDER = 255;
-    protected static final int RETURN_FROM_INNER_QUESITOS_ACTIVITY = 143;
-
     // ViewHolder viewHolder;
     protected Analise analise;
     protected ProgressBar progressBar;
@@ -130,7 +129,6 @@ public abstract class QuesitosBaseActivity extends AppCompatActivity {
 
 
     }
-
 
 
     @Override

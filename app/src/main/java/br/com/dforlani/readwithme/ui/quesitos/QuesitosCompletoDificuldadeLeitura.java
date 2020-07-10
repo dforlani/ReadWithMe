@@ -61,10 +61,10 @@ public class QuesitosCompletoDificuldadeLeitura extends QuesitosBaseActivity {
         salvarQuesitos();
         if (analise.getQ12_1() != null) {
             switch (analise.getQ12_1()) {
-                case Analise.ConstsIdentificacoes.SIM:
+                case Analise.ConstsIdentificacoes.SIM_MINUSCULAS:
                     intent = new Intent(QuesitosCompletoDificuldadeLeitura.this, QuesitosCompletoComentarDificuldadeLeitura.class);
                     break;
-                case Analise.ConstsIdentificacoes.NAO:
+                case Analise.ConstsIdentificacoes.NAO_MINUSCULAS:
                     intent = new Intent(QuesitosCompletoDificuldadeLeitura.this, QuesitosCompletoTextoComOutrosConteudos.class);
                     break;
             }

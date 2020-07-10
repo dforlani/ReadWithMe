@@ -68,6 +68,12 @@
             android:name=".ui.quesitos.QuesitosCompletoDificuldadeLeitura"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".ui.quesitos.QuesitosCompletoComentarDificuldadeLeitura"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.quesitos.QuesitosCompletoRelacoesOutrosConteudos"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ui.quesitos.QuesitosResumoesCitacoesParafrasesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
