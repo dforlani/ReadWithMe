@@ -181,7 +181,7 @@ public abstract class QuesitosBaseActivity extends AppCompatActivity {
      * @param group
      * @param posicao
      */
-    protected void setRadio(RadioGroup group, String posicao) {
+    protected void setRadioByPos(RadioGroup group, String posicao) {
         if (posicao != null) {
             int pos = Integer.parseInt(posicao);
             if (pos >= 0) {
@@ -191,6 +191,23 @@ public abstract class QuesitosBaseActivity extends AppCompatActivity {
                 } catch (Exception e) {
                     Log.d(TAG, "Não foi encontrado o radio button");
                 }
+            }
+        }
+    }
+
+    /**
+     * A partir de um RadioGroup, localiza o que está na posição certa e o seta
+     *
+     * @param group
+     * @param posicao
+     */
+    protected void setRadioByText(RadioGroup group, String texto) {
+        if (texto != null) {
+            int quant = group.getChildCount();
+            for (int pos = 0; pos < quant; pos++) {
+                RadioButton rBtt = (RadioButton) group.getChildAt(pos);
+                if (rBtt.getText().toString().contentEquals(texto))
+                    rBtt.setChecked(true);
             }
         }
     }

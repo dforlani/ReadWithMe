@@ -62,8 +62,15 @@
             android:name=".ui.quesitos.QuesitosCompletoTextoNarrativo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".ui.quesitos.QuesitosCompletoAnaliseBibliografia"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.quesitos.QuesitosCompletoDificuldadeLeitura"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ui.quesitos.QuesitosResumoesCitacoesParafrasesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
+
         <activity android:name=".ui.barcode.BarCodeActivity" />
         <activity
             android:name=".ui.barcode.BarCode2Activity"

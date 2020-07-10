@@ -146,25 +146,25 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
 
         ViewHolder() {
             radioInteresseQ2_1 = findViewById(R.id.act_reacoes_radio_classifica_interesse);
-            setRadio(radioInteresseQ2_1, analise.getQ2_1());
+            setRadioByPos(radioInteresseQ2_1, analise.getQ2_1());
 
             q2_2 = findViewById(R.id.act_reacoes_input_2);
             q2_2.setText(analise.getQ2_2());
 
             radioSentiaQ2_3 = findViewById(R.id.act_reacoes_radio_sentia);
-            setRadio(radioSentiaQ2_3, analise.getQ2_3());
+            setRadioByPos(radioSentiaQ2_3, analise.getQ2_3());
 
             q2_4 = findViewById(R.id.act_reacoes_input_4);
             q2_4.setText(analise.getQ2_4());
 
             radioPrazerQ2_5 = findViewById(R.id.act_reacoes_radio_classifica_prazer);
-            setRadio(radioPrazerQ2_5, analise.getQ2_5());
+            setRadioByPos(radioPrazerQ2_5, analise.getQ2_5());
 
             q2_6 = findViewById(R.id.act_reacoes_input_6);
             q2_6.setText(analise.getQ2_6());
 
             radioObjetivoQ2_7 = findViewById(R.id.act_reacoes_radio_objetivo_ao_ler);
-            setRadio(radioObjetivoQ2_7, analise.getQ2_7());
+            setRadioByPos(radioObjetivoQ2_7, analise.getQ2_7());
 
             checkAvalieiMalQ2_8 = findViewById(R.id.act_reacoes_check_avaliei_mal);
             checkTextoNaoCumpreQ2_8 = findViewById(R.id.act_reacoes_check_texto_nao_cumpre);
@@ -178,7 +178,7 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
             q2_9.setText(analise.getQ2_9());
 
             radioIdeiasAutorQ2_10 = findViewById(R.id.act_reacoes_radio_ideias_autor);
-            setRadio(radioIdeiasAutorQ2_10, analise.getQ2_10());
+            setRadioByPos(radioIdeiasAutorQ2_10, analise.getQ2_10());
 
             q2_11 = findViewById(R.id.act_reacoes_input_11);
             q2_11.setText(analise.getQ2_11());
@@ -187,13 +187,13 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
             q2_12.setText(analise.getQ2_12());
 
             radioEstiloAutorQ2_13 = findViewById(R.id.act_reacoes_radio_estilo_autor);
-            setRadio(radioEstiloAutorQ2_13, analise.getQ2_13());
+            setRadioByPos(radioEstiloAutorQ2_13, analise.getQ2_13());
 
             q2_14 = findViewById(R.id.act_reacoes_input_14);
             q2_14.setText(analise.getQ2_14());
 
             radioGeneroAgradaQ2_15 = findViewById(R.id.act_reacoes_radio_genero_agrada);
-            setRadio(radioGeneroAgradaQ2_15, analise.getQ2_15());
+            setRadioByPos(radioGeneroAgradaQ2_15, analise.getQ2_15());
 
             q2_16 = findViewById(R.id.act_reacoes_input_16);
             q2_16.setText(analise.getQ2_16());

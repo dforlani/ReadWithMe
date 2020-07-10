@@ -466,6 +466,11 @@ public class Analise extends ModelFirestore implements Serializable {
      */
     private String q11_6;
 
+    /**
+     * Deseja comentar algo sobre elas? *
+     */
+    private String q12_1;
+
     private List<Map<String, String>> audios = new ArrayList<>();
 
 
@@ -534,6 +539,14 @@ public class Analise extends ModelFirestore implements Serializable {
 
     public String getQ11_1() {
         return q11_1;
+    }
+
+    public String getQ12_1() {
+        return q12_1;
+    }
+
+    public void setQ12_1(String q12_1) {
+        this.q12_1 = q12_1;
     }
 
     public void setQ11_1(String q11_1) {
@@ -1337,6 +1350,16 @@ public class Analise extends ModelFirestore implements Serializable {
         map.put("q10_12", this.q10_12);
         map.put("q10_13", this.q10_13);
 
+        //******TELA Analise Bibliografia *******/
+        map.put("q11_1", this.q11_1);
+        map.put("q11_2", this.q11_2);
+        map.put("q11_3", this.q11_3);
+        map.put("q11_4", this.q11_4);
+        map.put("q11_5", this.q11_5);
+        map.put("q11_6", this.q11_6);
+
+        //******TELA Analise teve dificuldade leitura *******/
+        map.put("q12_1", this.q12_1);
 
         map.put("audios", this.getAudios());
 

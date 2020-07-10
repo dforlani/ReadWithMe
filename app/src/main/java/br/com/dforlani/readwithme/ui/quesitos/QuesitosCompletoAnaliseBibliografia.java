@@ -24,7 +24,7 @@ public class QuesitosCompletoAnaliseBibliografia extends QuesitosBaseActivity {
         inflateMenu();
 
         TextView title = findViewById(R.id.title_app_bar_quesitos);
-        title.setText("Análise da Bibliografia utilizada\n");
+        title.setText("Análise da Bibliografia utilizada");
         viewHolder = new ViewHolder();
     }
 
@@ -45,7 +45,7 @@ public class QuesitosCompletoAnaliseBibliografia extends QuesitosBaseActivity {
 
             analise.save(email);
         } else {
-            Toast.makeText(QuesitosCompletoTextoNarrativo.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(QuesitosCompletoAnaliseBibliografia.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -73,20 +73,20 @@ public class QuesitosCompletoAnaliseBibliografia extends QuesitosBaseActivity {
         ViewHolder() {
             super();
             radioGroupQ11_1 = findViewById(R.id.radio_group_q11_1);
-            setRadio(radioGroupQ11_1, analise.getQ11_1());
+            setRadioByPos(radioGroupQ11_1, analise.getQ11_1());
 
             radioGroupQ11_2 = findViewById(R.id.radio_group_q11_2);
-            setRadio(radioGroupQ11_2, analise.getQ11_2());
+            setRadioByText(radioGroupQ11_2, analise.getQ11_2());
 
             radioGroupQ11_3 = findViewById(R.id.radio_group_q11_3);
-            setRadio(radioGroupQ11_3, analise.getQ11_3());
+            setRadioByPos(radioGroupQ11_3, analise.getQ11_3());
 
 
             q11_4 = findViewById(R.id.act_input_act_q11_4);
             q11_4.setText(analise.getQ11_4());
 
             radioGroupQ11_5 = findViewById(R.id.radio_group_q11_5);
-            setRadio(radioGroupQ11_5, analise.getQ11_5());
+            setRadioByText(radioGroupQ11_5, analise.getQ11_5());
 
             q11_6 = findViewById(R.id.act_input_act_q11_6);
             q11_6.setText(analise.getQ11_6());
