@@ -65,7 +65,7 @@ public class QuesitosCompletoDificuldadeLeitura extends QuesitosBaseActivity {
                     intent = new Intent(QuesitosCompletoDificuldadeLeitura.this, QuesitosCompletoComentarDificuldadeLeitura.class);
                     break;
                 case Analise.ConstsIdentificacoes.NAO_MINUSCULAS:
-                    intent = new Intent(QuesitosCompletoDificuldadeLeitura.this, QuesitosCompletoTextoComOutrosConteudos.class);
+                    intent = new Intent(QuesitosCompletoDificuldadeLeitura.this, QuesitosCompletoRelacoesOutrosConteudos.class);
                     break;
             }
             if (intent != null) {

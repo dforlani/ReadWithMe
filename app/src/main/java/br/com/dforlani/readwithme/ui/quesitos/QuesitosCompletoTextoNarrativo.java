@@ -87,7 +87,7 @@ public class QuesitosCompletoTextoNarrativo extends QuesitosBaseActivity {
             salvarQuesitos();
             switch (analise.getQ10_13()) {
                 case Analise.ConstsIdentificacoes.SIM:
-                    intent = new Intent(QuesitosCompletoTextoNarrativo.this, QuesitosCompletoAnaliseIlustracoesGrafico.class);
+                    intent = new Intent(QuesitosCompletoTextoNarrativo.this, QuesitosCompletoProjetoGrafico.class);
                     break;
                 case Analise.ConstsIdentificacoes.NAO:
                     intent = new Intent(QuesitosCompletoTextoNarrativo.this, QuesitosCompletoDificuldadeLeitura.class);

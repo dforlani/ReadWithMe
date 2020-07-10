@@ -71,6 +71,17 @@
             android:name=".ui.quesitos.QuesitosCompletoComentarDificuldadeLeitura"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
+            android:name=".ui.quesitos.QuesitosCompletoAnaliseIlustracoesGrafico"
+            android:theme="@style/AppTheme.NoActionBar" />
+
+
+        <activity
+            android:name=".ui.quesitos.QuesitosCompletoGostariaAnalisarIlustracoesPoesia"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".ui.quesitos.QuesitosCompletoProjetoGrafico"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
             android:name=".ui.quesitos.QuesitosCompletoRelacoesOutrosConteudos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity

@@ -521,6 +521,61 @@ public class Analise extends ModelFirestore implements Serializable {
      */
     private String q14_6;
 
+    /**
+     * Você gostaria de analisar as ilustrações e o projeto do gráfico mais detalhadamente? *
+     */
+    private String q15_1;
+
+    /**
+     * Qual é, ou são, o(s) artista(s) responsáveis pelo projeto gráfico ou pelas ilustrações?
+     */
+    private String q16_1;
+
+    /**
+     * O formato do livro é diferente ou relevante? Como?
+     */
+    private String q16_2;
+
+    /**
+     * O material utilizado na confecção do livro é diferente o relevante? Como?
+     */
+    private String q16_3;
+
+    /**
+     * Como as ilustrações se relacionam com o texto?
+     */
+    private String q16_4;
+
+    /**
+     * Qual é a técnica utilizada na produção das ilustrações?
+     */
+    private String q16_5;
+
+    /**
+     * Há algo interessante a respeito das cores utilizadas? Que sensação elas te trazem?
+     */
+    private String q16_6;
+
+    /**
+     * Há algo interessante sobre o desenho das personagens, ou de alguma personagem específica?
+     */
+    private String q16_7;
+
+    /**
+     * Há algo interessante sobre os espaços e cenários desenhados?
+     */
+    private String q16_8;
+
+    /**
+     * Há coisas interessantes a se relatar sobre objetos de cena desenhados? Há algum objeto de cena específico que mereça destaque?
+     */
+    private String q16_9;
+
+    /**
+     * O que mais é possível dizer a respeito das ilustrações?
+     */
+    private String q16_10;
+
     private List<Map<String, String>> audios = new ArrayList<>();
 
 
@@ -609,6 +664,94 @@ public class Analise extends ModelFirestore implements Serializable {
 
     public void setQ11_2(String q11_2) {
         this.q11_2 = q11_2;
+    }
+
+    public String getQ16_1() {
+        return q16_1;
+    }
+
+    public void setQ16_1(String q16_1) {
+        this.q16_1 = q16_1;
+    }
+
+    public String getQ16_2() {
+        return q16_2;
+    }
+
+    public void setQ16_2(String q16_2) {
+        this.q16_2 = q16_2;
+    }
+
+    public String getQ16_3() {
+        return q16_3;
+    }
+
+    public void setQ16_3(String q16_3) {
+        this.q16_3 = q16_3;
+    }
+
+    public String getQ16_4() {
+        return q16_4;
+    }
+
+    public void setQ16_4(String q16_4) {
+        this.q16_4 = q16_4;
+    }
+
+    public String getQ16_5() {
+        return q16_5;
+    }
+
+    public void setQ16_5(String q16_5) {
+        this.q16_5 = q16_5;
+    }
+
+    public String getQ16_6() {
+        return q16_6;
+    }
+
+    public void setQ16_6(String q16_6) {
+        this.q16_6 = q16_6;
+    }
+
+    public String getQ16_7() {
+        return q16_7;
+    }
+
+    public void setQ16_7(String q16_7) {
+        this.q16_7 = q16_7;
+    }
+
+    public String getQ16_8() {
+        return q16_8;
+    }
+
+    public void setQ16_8(String q16_8) {
+        this.q16_8 = q16_8;
+    }
+
+    public String getQ16_9() {
+        return q16_9;
+    }
+
+    public void setQ16_9(String q16_9) {
+        this.q16_9 = q16_9;
+    }
+
+    public String getQ16_10() {
+        return q16_10;
+    }
+
+    public void setQ16_10(String q16_10) {
+        this.q16_10 = q16_10;
+    }
+
+    public String getQ15_1() {
+        return q15_1;
+    }
+
+    public void setQ15_1(String q15_1) {
+        this.q15_1 = q15_1;
     }
 
     public String getQ11_3() {

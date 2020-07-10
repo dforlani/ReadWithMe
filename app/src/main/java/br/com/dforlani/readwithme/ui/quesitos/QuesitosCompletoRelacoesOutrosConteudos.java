@@ -59,7 +59,7 @@ public class QuesitosCompletoRelacoesOutrosConteudos extends QuesitosBaseActivit
      */
     @Override
     protected Class getNextActivity() {
-        return QuesitosCompletoReacoesTexto.class;
+        return QuesitosReacoesActivity.class;
     }
 
     class ViewHolder extends QuesitosBaseActivity.ViewHolder {
@@ -111,6 +111,7 @@ public class QuesitosCompletoRelacoesOutrosConteudos extends QuesitosBaseActivit
             check6Q14_3 = findViewById(R.id.act_check62Q14_3);
             check7Q14_3 = findViewById(R.id.act_check72Q14_3);
             check8Q14_3 = findViewById(R.id.act_check82Q14_3);
+            setCheckBox(analise.getQ14_3(), getIdentificadoresCheckQ14_3());
 
             q14_4 = findViewById(R.id.act_input_act_q14_4);
             q14_4.setText(analise.getQ14_4());

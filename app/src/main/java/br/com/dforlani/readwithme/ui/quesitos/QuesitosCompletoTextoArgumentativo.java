@@ -83,7 +83,7 @@ public class QuesitosCompletoTextoArgumentativo extends QuesitosBaseActivity {
                     intent = new Intent(QuesitosCompletoTextoArgumentativo.this, QuesitosCompletoAnaliseBibliografia.class);
                     break;
                 case Analise.ConstsIdentificacoes.NAO:
-                    intent = new Intent(QuesitosCompletoTextoArgumentativo.this, QuesitosCompletoElementosExteriores2.class);
+                    intent = new Intent(QuesitosCompletoTextoArgumentativo.this, QuesitosCompletoDificuldadeLeitura.class);
                     break;
             }
             if (intent != null) {

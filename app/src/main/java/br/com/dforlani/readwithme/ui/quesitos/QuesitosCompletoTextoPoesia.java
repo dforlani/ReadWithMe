@@ -85,7 +85,7 @@ public class QuesitosCompletoTextoPoesia extends QuesitosBaseActivity {
             salvarQuesitos();
             switch (analise.getQ9_10()) {
                 case Analise.ConstsIdentificacoes.SIM:
-                    intent = new Intent(QuesitosCompletoTextoPoesia.this, QuesitosCompletoAnaliseHistoriaPoesia.class);
+                    intent = new Intent(QuesitosCompletoTextoPoesia.this, QuesitosCompletoTextoNarrativo.class);
                     break;
                 case Analise.ConstsIdentificacoes.NAO:
                     intent = new Intent(QuesitosCompletoTextoPoesia.this, QuesitosCompletoGostariaAnalisarIlustracoesPoesia.class);
