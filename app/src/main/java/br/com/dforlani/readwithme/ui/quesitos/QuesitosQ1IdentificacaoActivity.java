@@ -22,7 +22,7 @@ import br.com.dforlani.readwithme.ui.barcode.BarCodeActivity;
 import br.com.dforlani.readwithme.util.GoogleBooksAPI;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
+public class QuesitosQ1IdentificacaoActivity extends QuesitosBaseActivity {
 
     private static final String TAG = "Quesitos1Activity.class";
     private static final int REQUEST_BARCOCODE_RESULT = 998;
@@ -53,7 +53,7 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
             bindAnalise();
             analise.save(email);
         } else {
-            Toast.makeText(QuesitosIdentificacaoActivity.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(QuesitosQ1IdentificacaoActivity.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -123,7 +123,7 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
     }
 
     private void buscaDadosISBN(String isbn) {
-        GoogleBooksAPI book = new GoogleBooksAPI(QuesitosIdentificacaoActivity.this, viewHolder.q1_1, viewHolder.q1_2, progressBar, this);
+        GoogleBooksAPI book = new GoogleBooksAPI(QuesitosQ1IdentificacaoActivity.this, viewHolder.q1_1, viewHolder.q1_2, progressBar, this);
         progressBar.setVisibility(View.VISIBLE);
 
         book.execute(isbn);
@@ -175,26 +175,26 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                         salvarQuesitos();
                         switch (analise.getQ1_11()) {
                             case Analise.IDENTIFICACOES.ANALISE_COMPLETA:
-                                intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosCompleto1Activity.class);
+                                intent = new Intent(QuesitosQ1IdentificacaoActivity.this, QuesitosQ5Completo1Activity.class);
                                 intent.putExtra("analise", analise);
                                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                                 break;
                             case Analise.IDENTIFICACOES.APENAS_ANOTACAOES:
-                                intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosAnotacoesLivresActivity.class);
+                                intent = new Intent(QuesitosQ1IdentificacaoActivity.this, QuesitosQ3AnotacoesLivresActivity.class);
                                 intent.putExtra("analise", analise);
                                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
 
                                 break;
 
                             case Analise.IDENTIFICACOES.APENAS_REACOES:
-                                intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosReacoesActivity.class);
+                                intent = new Intent(QuesitosQ1IdentificacaoActivity.this, QuesitosQ2ReacoesActivity.class);
                                 intent.putExtra("analise", analise);
                                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
 
                                 break;
 
                             case Analise.IDENTIFICACOES.APENAS_RESUMOS:
-                                intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosResumoesCitacoesParafrasesActivity.class);
+                                intent = new Intent(QuesitosQ1IdentificacaoActivity.this, QuesitosQ4ResumoesCitacoesParafrasesActivity.class);
                                 intent.putExtra("analise", analise);
                                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                                 break;
@@ -204,7 +204,7 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                                 break;
                         }
                     } else {
-                        Toast.makeText(QuesitosIdentificacaoActivity.this, "Selecione um tipo de análise ou a opção encerrar", Toast.LENGTH_LONG).show();
+                        Toast.makeText(QuesitosQ1IdentificacaoActivity.this, "Selecione um tipo de análise ou a opção encerrar", Toast.LENGTH_LONG).show();
                     }
                 }
             });
@@ -252,7 +252,7 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                     int month = cldr.get(Calendar.MONTH);
                     int year = cldr.get(Calendar.YEAR);
                     // date picker dialog
-                    picker = new DatePickerDialog(QuesitosIdentificacaoActivity.this,
+                    picker = new DatePickerDialog(QuesitosQ1IdentificacaoActivity.this,
                             new DatePickerDialog.OnDateSetListener() {
                                 @Override
                                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {
@@ -273,7 +273,7 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                     int month = cldr.get(Calendar.MONTH);
                     int year = cldr.get(Calendar.YEAR);
                     // date picker dialog
-                    picker = new DatePickerDialog(QuesitosIdentificacaoActivity.this,
+                    picker = new DatePickerDialog(QuesitosQ1IdentificacaoActivity.this,
                             new DatePickerDialog.OnDateSetListener() {
                                 @Override
                                 public void onDateSet(DatePicker view, int year, int monthOfYear, int dayOfMonth) {

@@ -8,7 +8,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context=".ui.quesitos.QuesitosCompletoRelacoesOutrosConteudos"
+    tools:context=".ui.quesitos.QuesitosQ14CompletoRelacoesOutrosConteudos"
     tools:openDrawer="start">
 
     <include

@@ -12,7 +12,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class QuesitosCompleto1Activity extends QuesitosBaseActivity {
+public class QuesitosQ5Completo1Activity extends QuesitosBaseActivity {
 
     private static final String TAG = "QuesitosCompleto1Activity.class";
 
@@ -46,7 +46,7 @@ public class QuesitosCompleto1Activity extends QuesitosBaseActivity {
             analise.save(email);
 
         } else {
-            Toast.makeText(QuesitosCompleto1Activity.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(QuesitosQ5Completo1Activity.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -101,7 +101,7 @@ public class QuesitosCompleto1Activity extends QuesitosBaseActivity {
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
-                    Intent intent = new Intent(QuesitosCompleto1Activity.this, QuesitosCompleto2Activity.class);
+                    Intent intent = new Intent(QuesitosQ5Completo1Activity.this, QuesitosQ6Completo2Activity.class);
                     intent.putExtra("analise", analise);
                     startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                 }

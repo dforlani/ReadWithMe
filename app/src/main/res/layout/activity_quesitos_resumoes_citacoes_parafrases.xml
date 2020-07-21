@@ -7,7 +7,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context=".ui.quesitos.QuesitosResumoesCitacoesParafrasesActivity">
+    tools:context=".ui.quesitos.QuesitosQ4ResumoesCitacoesParafrasesActivity">
 
     <include
         layout="@layout/app_bar_quesitos"

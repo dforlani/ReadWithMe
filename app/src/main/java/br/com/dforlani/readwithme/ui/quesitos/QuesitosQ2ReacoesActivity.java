@@ -16,7 +16,7 @@ import java.util.List;
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class QuesitosReacoesActivity extends QuesitosBaseActivity {
+public class QuesitosQ2ReacoesActivity extends QuesitosBaseActivity {
 
     private static final String TAG = "QuesitosReacoesActivity.class";
 
@@ -73,7 +73,7 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
             analise.save(email);
 
         } else {
-            Toast.makeText(QuesitosReacoesActivity.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(QuesitosQ2ReacoesActivity.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -222,7 +222,7 @@ public class QuesitosReacoesActivity extends QuesitosBaseActivity {
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
-                    voltarToMainActivity(QuesitosReacoesActivity.this);
+                    voltarToMainActivity(QuesitosQ2ReacoesActivity.this);
                 }
 
 

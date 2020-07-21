@@ -10,7 +10,7 @@ import com.google.android.material.textfield.TextInputEditText;
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class QuesitosCompletoProjetoGrafico extends QuesitosBaseActivity {
+public class Quesitos16CompletoProjetoGrafico extends QuesitosBaseActivity {
 
     private static final String TAG = "QuesitosCompletoProjetoGrafico.class";
     ViewHolder viewHolder;
@@ -51,7 +51,7 @@ public class QuesitosCompletoProjetoGrafico extends QuesitosBaseActivity {
 
             analise.save(email);
         } else {
-            Toast.makeText(QuesitosCompletoProjetoGrafico.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(Quesitos16CompletoProjetoGrafico.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -64,7 +64,7 @@ public class QuesitosCompletoProjetoGrafico extends QuesitosBaseActivity {
      */
     @Override
     protected Class getNextActivity() {
-        return QuesitosCompletoDificuldadeLeitura.class;
+        return Quesitos12CompletoDificuldadeLeitura.class;
     }
 
     class ViewHolder extends QuesitosBaseActivity.ViewHolder {

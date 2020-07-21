@@ -22,7 +22,7 @@ import java.util.List;
 
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
-import br.com.dforlani.readwithme.ui.quesitos.QuesitosIdentificacaoActivity;
+import br.com.dforlani.readwithme.ui.quesitos.QuesitosQ1IdentificacaoActivity;
 import br.com.dforlani.readwithme.util.Preferencias;
 
 public class AnaliseAdapter extends RecyclerView.Adapter<AnaliseAdapter.AnaliseViewHolder> {
@@ -77,7 +77,7 @@ public class AnaliseAdapter extends RecyclerView.Adapter<AnaliseAdapter.AnaliseV
                 public void onClick(View v) {
 
 
-                    Intent intent = new Intent(act.getBaseContext(), QuesitosIdentificacaoActivity.class);
+                    Intent intent = new Intent(act.getBaseContext(), QuesitosQ1IdentificacaoActivity.class);
                     intent.putExtra("analise", analise);
                     act.startActivity(intent);
                 }

@@ -8,7 +8,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context=".ui.quesitos.QuesitosCompletoGostariaAnalisarIlustracoesPoesia"
+    tools:context=".ui.quesitos.QuesitosQ15CompletoGostariaAnalisarIlustracoesPoesia"
     tools:openDrawer="start">
 
     <include

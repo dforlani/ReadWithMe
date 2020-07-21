@@ -46,7 +46,7 @@ import br.com.dforlani.readwithme.firestore.livedata.AnaliseListLiveData;
 import br.com.dforlani.readwithme.firestore.livedata.AnaliseListViewModel;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.ui.adapter.AnaliseAdapter;
-import br.com.dforlani.readwithme.ui.quesitos.QuesitosIdentificacaoActivity;
+import br.com.dforlani.readwithme.ui.quesitos.QuesitosQ1IdentificacaoActivity;
 import br.com.dforlani.readwithme.util.Preferencias;
 
 public class MainActivity extends BaseActivity {
@@ -88,7 +88,7 @@ public class MainActivity extends BaseActivity {
         bttAddAnalise.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent myIntent = new Intent(MainActivity.this, QuesitosIdentificacaoActivity.class);
+                Intent myIntent = new Intent(MainActivity.this, QuesitosQ1IdentificacaoActivity.class);
                 startActivity(myIntent);
             }
         });

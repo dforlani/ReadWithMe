@@ -33,42 +33,42 @@
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".ui.quesitos.QuesitosIdentificacaoActivity"
+            android:name=".ui.quesitos.QuesitosQ1IdentificacaoActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".ui.quesitos.QuesitosReacoesActivity"
+            android:name=".ui.quesitos.QuesitosQ2ReacoesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosAnotacoesLivresActivity"
+            android:name=".ui.quesitos.QuesitosQ3AnotacoesLivresActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosCompleto1Activity"
+            android:name=".ui.quesitos.QuesitosQ5Completo1Activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosCompleto2Activity"
+            android:name=".ui.quesitos.QuesitosQ6Completo2Activity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosCompletoTextoInformativo"
+            android:name=".ui.quesitos.QuesitosQ7CompletoTextoInformativo"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity
-            android:name=".ui.quesitos.QuesitosCompletoTextoArgumentativo"
+            android:name=".ui.quesitos.QuesitosQ8CompletoTextoArgumentativo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosCompletoTextoPoesia"
+            android:name=".ui.quesitos.QuesitosQ9CompletoTextoPoesia"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosCompletoTextoNarrativo"
+            android:name=".ui.quesitos.QuesitosQ10CompletoTextoNarrativo"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosCompletoAnaliseBibliografia"
+            android:name=".ui.quesitos.QuesitosQ11CompletoAnaliseBibliografia"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosCompletoDificuldadeLeitura"
+            android:name=".ui.quesitos.Quesitos12CompletoDificuldadeLeitura"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosCompletoComentarDificuldadeLeitura"
+            android:name=".ui.quesitos.QuesitosQ13CompletoComentarDificuldadeLeitura"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".ui.quesitos.QuesitosCompletoAnaliseIlustracoesGrafico"
@@ -76,16 +76,16 @@
 
 
         <activity
-            android:name=".ui.quesitos.QuesitosCompletoGostariaAnalisarIlustracoesPoesia"
+            android:name=".ui.quesitos.QuesitosQ15CompletoGostariaAnalisarIlustracoesPoesia"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosCompletoProjetoGrafico"
+            android:name=".ui.quesitos.Quesitos16CompletoProjetoGrafico"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosCompletoRelacoesOutrosConteudos"
+            android:name=".ui.quesitos.QuesitosQ14CompletoRelacoesOutrosConteudos"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".ui.quesitos.QuesitosResumoesCitacoesParafrasesActivity"
+            android:name=".ui.quesitos.QuesitosQ4ResumoesCitacoesParafrasesActivity"
             android:theme="@style/AppTheme.NoActionBar" />
 
         <activity android:name=".ui.barcode.BarCodeActivity" />

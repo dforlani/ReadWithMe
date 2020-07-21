@@ -17,7 +17,7 @@ import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class QuesitosCompletoTextoPoesia extends QuesitosBaseActivity {
+public class QuesitosQ9CompletoTextoPoesia extends QuesitosBaseActivity {
 
     private static final String TAG = "QuesitosCompletoTextoPoesia.class";
     ViewHolder viewHolder;
@@ -53,7 +53,7 @@ public class QuesitosCompletoTextoPoesia extends QuesitosBaseActivity {
 
             analise.save(email);
         } else {
-            Toast.makeText(QuesitosCompletoTextoPoesia.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(QuesitosQ9CompletoTextoPoesia.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -85,10 +85,10 @@ public class QuesitosCompletoTextoPoesia extends QuesitosBaseActivity {
             salvarQuesitos();
             switch (analise.getQ9_10()) {
                 case Analise.IDENTIFICACOES.SIM:
-                    intent = new Intent(QuesitosCompletoTextoPoesia.this, QuesitosCompletoTextoNarrativo.class);
+                    intent = new Intent(QuesitosQ9CompletoTextoPoesia.this, QuesitosQ10CompletoTextoNarrativo.class);
                     break;
                 case Analise.IDENTIFICACOES.NAO:
-                    intent = new Intent(QuesitosCompletoTextoPoesia.this, QuesitosCompletoGostariaAnalisarIlustracoesPoesia.class);
+                    intent = new Intent(QuesitosQ9CompletoTextoPoesia.this, QuesitosQ15CompletoGostariaAnalisarIlustracoesPoesia.class);
                     break;
             }
             if (intent != null) {
@@ -96,7 +96,7 @@ public class QuesitosCompletoTextoPoesia extends QuesitosBaseActivity {
                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
             }
         } else {
-            Toast.makeText(QuesitosCompletoTextoPoesia.this, "Selecione se gostaria de analisar a história existente no poema", Toast.LENGTH_LONG).show();
+            Toast.makeText(QuesitosQ9CompletoTextoPoesia.this, "Selecione se gostaria de analisar a história existente no poema", Toast.LENGTH_LONG).show();
         }
     }
 

@@ -8,7 +8,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context=".ui.quesitos.QuesitosCompletoTextoNarrativo"
+    tools:context=".ui.quesitos.QuesitosQ10CompletoTextoNarrativo"
     tools:openDrawer="start">
 
     <include

@@ -17,7 +17,7 @@ import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class QuesitosCompletoTextoNarrativo extends QuesitosBaseActivity {
+public class QuesitosQ10CompletoTextoNarrativo extends QuesitosBaseActivity {
 
     private static final String TAG = "QuesitosCompletoTextoNarrativo.class";
     ViewHolder viewHolder;
@@ -55,7 +55,7 @@ public class QuesitosCompletoTextoNarrativo extends QuesitosBaseActivity {
 
             analise.save(email);
         } else {
-            Toast.makeText(QuesitosCompletoTextoNarrativo.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(QuesitosQ10CompletoTextoNarrativo.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -87,10 +87,10 @@ public class QuesitosCompletoTextoNarrativo extends QuesitosBaseActivity {
             salvarQuesitos();
             switch (analise.getQ10_13()) {
                 case Analise.IDENTIFICACOES.SIM:
-                    intent = new Intent(QuesitosCompletoTextoNarrativo.this, QuesitosCompletoProjetoGrafico.class);
+                    intent = new Intent(QuesitosQ10CompletoTextoNarrativo.this, Quesitos16CompletoProjetoGrafico.class);
                     break;
                 case Analise.IDENTIFICACOES.NAO:
-                    intent = new Intent(QuesitosCompletoTextoNarrativo.this, QuesitosCompletoDificuldadeLeitura.class);
+                    intent = new Intent(QuesitosQ10CompletoTextoNarrativo.this, Quesitos12CompletoDificuldadeLeitura.class);
                     break;
             }
             if (intent != null) {
@@ -98,7 +98,7 @@ public class QuesitosCompletoTextoNarrativo extends QuesitosBaseActivity {
                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
             }
         } else {
-            Toast.makeText(QuesitosCompletoTextoNarrativo.this, "Selecione se gostaria de analisar ilustrações e o projeto gráfico", Toast.LENGTH_LONG).show();
+            Toast.makeText(QuesitosQ10CompletoTextoNarrativo.this, "Selecione se gostaria de analisar ilustrações e o projeto gráfico", Toast.LENGTH_LONG).show();
         }
     }
 

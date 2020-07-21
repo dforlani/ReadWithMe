@@ -13,7 +13,7 @@ import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class QuesitosCompletoTextoArgumentativo extends QuesitosBaseActivity {
+public class QuesitosQ8CompletoTextoArgumentativo extends QuesitosBaseActivity {
 
     private static final String TAG = "QuesitosCompletoTextoArgumentativo.class";
 
@@ -48,7 +48,7 @@ public class QuesitosCompletoTextoArgumentativo extends QuesitosBaseActivity {
 
             analise.save(email);
         } else {
-            Toast.makeText(QuesitosCompletoTextoArgumentativo.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(QuesitosQ8CompletoTextoArgumentativo.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -76,14 +76,15 @@ public class QuesitosCompletoTextoArgumentativo extends QuesitosBaseActivity {
      */
     protected void salvarContinuarPraProximaActivity() {
         Intent intent = null;
+        salvarQuesitos();
         if (analise.getQ8_8() != null) {
-            salvarQuesitos();
+
             switch (analise.getQ8_8()) {
                 case Analise.IDENTIFICACOES.SIM:
-                    intent = new Intent(QuesitosCompletoTextoArgumentativo.this, QuesitosCompletoAnaliseBibliografia.class);
+                    intent = new Intent(QuesitosQ8CompletoTextoArgumentativo.this, QuesitosQ11CompletoAnaliseBibliografia.class);
                     break;
                 case Analise.IDENTIFICACOES.NAO:
-                    intent = new Intent(QuesitosCompletoTextoArgumentativo.this, QuesitosCompletoDificuldadeLeitura.class);
+                    intent = new Intent(QuesitosQ8CompletoTextoArgumentativo.this, Quesitos12CompletoDificuldadeLeitura.class);
                     break;
             }
             if (intent != null) {
@@ -91,7 +92,7 @@ public class QuesitosCompletoTextoArgumentativo extends QuesitosBaseActivity {
                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
             }
         } else {
-            Toast.makeText(QuesitosCompletoTextoArgumentativo.this, "Selecione se há pontos importantes sobre a bibliografia", Toast.LENGTH_LONG).show();
+            Toast.makeText(QuesitosQ8CompletoTextoArgumentativo.this, "Selecione se há pontos importantes sobre a bibliografia", Toast.LENGTH_LONG).show();
         }
     }
 

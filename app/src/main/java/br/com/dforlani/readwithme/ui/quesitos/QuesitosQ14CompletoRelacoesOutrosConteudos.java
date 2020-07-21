@@ -13,7 +13,7 @@ import java.util.List;
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class QuesitosCompletoRelacoesOutrosConteudos extends QuesitosBaseActivity {
+public class QuesitosQ14CompletoRelacoesOutrosConteudos extends QuesitosBaseActivity {
 
     private static final String TAG = "QuesitosCompletoRelacoesOutrosConteudos.class";
     ViewHolder viewHolder;
@@ -46,7 +46,7 @@ public class QuesitosCompletoRelacoesOutrosConteudos extends QuesitosBaseActivit
 
             analise.save(email);
         } else {
-            Toast.makeText(QuesitosCompletoRelacoesOutrosConteudos.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(QuesitosQ14CompletoRelacoesOutrosConteudos.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -59,7 +59,7 @@ public class QuesitosCompletoRelacoesOutrosConteudos extends QuesitosBaseActivit
      */
     @Override
     protected Class getNextActivity() {
-        return QuesitosReacoesActivity.class;
+        return QuesitosQ2ReacoesActivity.class;
     }
 
     class ViewHolder extends QuesitosBaseActivity.ViewHolder {

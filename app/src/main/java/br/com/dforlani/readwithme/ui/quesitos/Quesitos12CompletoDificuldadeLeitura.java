@@ -10,20 +10,20 @@ import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class QuesitosCompletoGostariaAnalisarIlustracoesPoesia extends QuesitosBaseActivity {
+public class Quesitos12CompletoDificuldadeLeitura extends QuesitosBaseActivity {
 
-    private static final String TAG = "QuesitosCompletoGostariaAnalisarIlustracoesPoesia.class";
+    private static final String TAG = "QuesitosCompletoDificuldadeLeitura.class";
     ViewHolder viewHolder;
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quesitos_completo_gostaria_analisar_ilustracoes);
+        setContentView(R.layout.activity_quesitos_completo_dificuldade_leitura);
         inflateMenu();
 
         TextView title = findViewById(R.id.title_app_bar_quesitos);
-        title.setText("Ilustrações no texto poético");
+        title.setText("Você teve dificuldades com a leitura?");
         viewHolder = new ViewHolder();
     }
 
@@ -33,11 +33,11 @@ public class QuesitosCompletoGostariaAnalisarIlustracoesPoesia extends QuesitosB
         Preferencias pref = new Preferencias(this.getBaseContext());
         email = pref.getEmail();
         if (email != null) {
-            analise.setQ15_1(getPosRadioGroupSelected(viewHolder.radioGroupQ15_1));
+            analise.setQ12_1(getPosRadioGroupSelected(viewHolder.radioGroupQ12_1));
 
             analise.save(email);
         } else {
-            Toast.makeText(QuesitosCompletoGostariaAnalisarIlustracoesPoesia.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(Quesitos12CompletoDificuldadeLeitura.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -59,13 +59,13 @@ public class QuesitosCompletoGostariaAnalisarIlustracoesPoesia extends QuesitosB
     protected void salvarContinuarPraProximaActivity() {
         Intent intent = null;
         salvarQuesitos();
-        if (analise.getQ15_1() != null) {
-            switch (analise.getQ15_1()) {
+        if (analise.getQ12_1() != null) {
+            switch (analise.getQ12_1()) {
                 case Analise.IDENTIFICACOES.SIM_MINUSCULAS:
-                    intent = new Intent(QuesitosCompletoGostariaAnalisarIlustracoesPoesia.this, QuesitosCompletoProjetoGrafico.class);
+                    intent = new Intent(Quesitos12CompletoDificuldadeLeitura.this, QuesitosQ13CompletoComentarDificuldadeLeitura.class);
                     break;
                 case Analise.IDENTIFICACOES.NAO_MINUSCULAS:
-                    intent = new Intent(QuesitosCompletoGostariaAnalisarIlustracoesPoesia.this, QuesitosCompletoDificuldadeLeitura.class);
+                    intent = new Intent(Quesitos12CompletoDificuldadeLeitura.this, QuesitosQ14CompletoRelacoesOutrosConteudos.class);
                     break;
             }
             if (intent != null) {
@@ -73,18 +73,18 @@ public class QuesitosCompletoGostariaAnalisarIlustracoesPoesia extends QuesitosB
                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
             }
         } else {
-            Toast.makeText(QuesitosCompletoGostariaAnalisarIlustracoesPoesia.this, "Selecione se gostaria de analisar analisar as ilustrações e o projeto do gráfico", Toast.LENGTH_LONG).show();
+            Toast.makeText(Quesitos12CompletoDificuldadeLeitura.this, "Selecione se gostaria de analisar a história existente no poema", Toast.LENGTH_LONG).show();
         }
     }
 
     class ViewHolder extends QuesitosBaseActivity.ViewHolder {
-        RadioGroup radioGroupQ15_1;
+        RadioGroup radioGroupQ12_1;
 
 
         ViewHolder() {
             super();
-            radioGroupQ15_1 = findViewById(R.id.radio_group_q15_1);
-            setRadioByText(radioGroupQ15_1, analise.getQ15_1());
+            radioGroupQ12_1 = findViewById(R.id.radio_group_q12_1);
+            setRadioByText(radioGroupQ12_1, analise.getQ12_1());
         }
 
     }

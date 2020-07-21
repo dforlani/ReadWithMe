@@ -11,7 +11,7 @@ import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.model.Analise;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class QuesitosCompleto2Activity extends QuesitosBaseActivity {
+public class QuesitosQ6Completo2Activity extends QuesitosBaseActivity {
 
     private static final String TAG = "QuesitosCompleto2Activity.class";
 
@@ -38,7 +38,7 @@ public class QuesitosCompleto2Activity extends QuesitosBaseActivity {
             //binds feito pelo OnClick
             analise.save(email);
         } else {
-            Toast.makeText(QuesitosCompleto2Activity.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(QuesitosQ6Completo2Activity.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
     }
@@ -80,32 +80,32 @@ public class QuesitosCompleto2Activity extends QuesitosBaseActivity {
             salvarQuesitos();
             switch (analise.getQ6_1()) {
                 case Analise.IDENTIFICACOES.TEXTO_INFORMATIVO:
-                    intent = new Intent(QuesitosCompleto2Activity.this, QuesitosCompletoTextoInformativo.class);
+                    intent = new Intent(QuesitosQ6Completo2Activity.this, QuesitosQ7CompletoTextoInformativo.class);
                     intent.putExtra("analise", analise);
                     startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                     break;
                 case Analise.IDENTIFICACOES.TEXTO_ARGUMENTATIVO:
-                    intent = new Intent(QuesitosCompleto2Activity.this, QuesitosCompletoTextoArgumentativo.class);
+                    intent = new Intent(QuesitosQ6Completo2Activity.this, QuesitosQ8CompletoTextoArgumentativo.class);
                     intent.putExtra("analise", analise);
                     startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                     break;
 
                 case Analise.IDENTIFICACOES.TEXTO_POESIA:
-                    intent = new Intent(QuesitosCompleto2Activity.this, QuesitosCompletoTextoPoesia.class);
+                    intent = new Intent(QuesitosQ6Completo2Activity.this, QuesitosQ9CompletoTextoPoesia.class);
                     intent.putExtra("analise", analise);
                     startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
 
                     break;
 
                 case Analise.IDENTIFICACOES.TEXTO_NARRATIVO:
-                    intent = new Intent(QuesitosCompleto2Activity.this, QuesitosCompletoTextoNarrativo.class);
+                    intent = new Intent(QuesitosQ6Completo2Activity.this, QuesitosQ10CompletoTextoNarrativo.class);
                     intent.putExtra("analise", analise);
                     startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                     break;
 
             }
         } else {
-            Toast.makeText(QuesitosCompleto2Activity.this, "Selecione um tipo de texto", Toast.LENGTH_LONG).show();
+            Toast.makeText(QuesitosQ6Completo2Activity.this, "Selecione um tipo de texto", Toast.LENGTH_LONG).show();
         }
     }
 

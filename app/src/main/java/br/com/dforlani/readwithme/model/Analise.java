@@ -1692,30 +1692,13 @@ public class Analise extends ModelFirestore implements Serializable {
         String texto = "";
         RESPOSTAS_CHECK respostasCheck = new RESPOSTAS_CHECK(context);
 
-        texto += getTextToShareQ1();
-
-        texto += getTextToShareQ2(respostasCheck);
-        texto += getTextToShareQ3();
-        texto += getTextToShareQ4();
-        texto += getTextToShareQ5();
-        texto += getTextToShareQ6();
-        texto += getTextToShareQ7();
-        texto += getTextToShareQ8();
-        texto += getTextToShareQ9(respostasCheck);
-        texto += getTextToShareQ10(respostasCheck);
-        texto += getTextToShareQ11();
-        texto += getTextToShareQ12();
-        texto += getTextToShareQ13(respostasCheck);
-        texto += getTextToShareQ14(respostasCheck);
-        texto += getTextToShareQ15();
-        texto += getTextToShareQ16();
+        texto += getTextToShareQ1(respostasCheck);
 
 
         return texto;
-
     }
 
-    private String getTextToShareQ16() {
+    private String getTextToShareQ16(RESPOSTAS_CHECK respostas_check) {
         String texto = Analise.getPerguntaTexto(PERGUNTAS.q16_1, q16_1);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q16_2, q16_2);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q16_3, q16_3);
@@ -1726,11 +1709,25 @@ public class Analise extends ModelFirestore implements Serializable {
         texto += Analise.getPerguntaTexto(PERGUNTAS.q16_8, q16_8);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q16_9, q16_9);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q16_10, q16_10);
+
+        texto += getTextToShareQ12(respostas_check);
+
         return texto;
     }
 
-    private String getTextToShareQ15() {
-        return Analise.getPerguntaTextoRadioButton(PERGUNTAS.q15_1, q15_1);
+    private String getTextToShareQ15(RESPOSTAS_CHECK respostas_check) {
+        String texto = Analise.getPerguntaTextoRadioButton(PERGUNTAS.q15_1, q15_1);
+        if (this.getQ15_1() != null) {
+            switch (this.getQ15_1()) {
+                case Analise.IDENTIFICACOES.SIM_MINUSCULAS:
+                    texto += getTextToShareQ16(respostas_check);
+                    break;
+                case Analise.IDENTIFICACOES.NAO_MINUSCULAS:
+                    texto += getTextToShareQ12(respostas_check);
+                    break;
+            }
+        }
+        return texto;
     }
 
     private String getTextToShareQ14(RESPOSTAS_CHECK respostas_check) {
@@ -1740,6 +1737,9 @@ public class Analise extends ModelFirestore implements Serializable {
         texto += Analise.getPerguntaTexto(PERGUNTAS.q13_4, q13_4);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q14_5, q14_5);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q14_6, q14_6);
+
+        texto += getTextToShareQ2(respostas_check);
+
         return texto;
     }
 
@@ -1748,24 +1748,41 @@ public class Analise extends ModelFirestore implements Serializable {
         texto += Analise.getPerguntaTexto(PERGUNTAS.q13_2, q13_2);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q13_3, q13_3);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q13_4, q13_4);
+
+        texto += getTextToShareQ14(respostas_check);
+
         return texto;
     }
 
-    private String getTextToShareQ12() {
-        return Analise.getPerguntaTextoRadioButton(PERGUNTAS.q12_1, q12_1);
+    private String getTextToShareQ12(RESPOSTAS_CHECK respostas_check) {
+        String texto = Analise.getPerguntaTextoRadioButton(PERGUNTAS.q12_1, q12_1);
+        if (this.getQ12_1() != null) {
+            switch (this.getQ12_1()) {
+                case Analise.IDENTIFICACOES.SIM_MINUSCULAS:
+                    texto += getTextToShareQ13(respostas_check);
+                    break;
+                case Analise.IDENTIFICACOES.NAO_MINUSCULAS:
+                    texto += getTextToShareQ14(respostas_check);
+                    break;
+            }
+        }
+        return texto;
     }
 
-    private String getTextToShareQ11() {
+    private String getTextToShareQ11(RESPOSTAS_CHECK respostas_check) {
         String texto = Analise.getPerguntaTextoRadioButton(PERGUNTAS.q11_1, q11_1);
         texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q11_2, q11_2);
         texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q11_3, q11_3);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q11_4, q11_4);
         texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q11_5, q11_5);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q11_6, q11_6);
+
+        texto += getTextToShareQ12(respostas_check);
+
         return texto;
     }
 
-    private String getTextToShareQ10(RESPOSTAS_CHECK respostasCheck) {
+    private String getTextToShareQ10(RESPOSTAS_CHECK respostas_check) {
         String texto = Analise.getPerguntaTexto(PERGUNTAS.q10_1, q10_1);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q10_2, q10_2);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q10_3, q10_3);
@@ -1775,7 +1792,7 @@ public class Analise extends ModelFirestore implements Serializable {
         texto += Analise.getPerguntaTexto(PERGUNTAS.q10_7, q10_7);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q10_8, q10_8);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q10_9, q10_9);
-        texto += Analise.getPerguntaTextoCheckBox(PERGUNTAS.q10_10, q10_10, respostasCheck.q10_10);
+        texto += Analise.getPerguntaTextoCheckBox(PERGUNTAS.q10_10, q10_10, respostas_check.q10_10);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q10_11, q10_11);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q10_12, q10_12);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q10_13, q10_13);
@@ -1784,25 +1801,49 @@ public class Analise extends ModelFirestore implements Serializable {
         texto += Analise.getPerguntaTexto(PERGUNTAS.q10_13, q10_13);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q10_13, q10_13);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q10_13, q10_13);
+
+        if (this.getQ10_13() != null) {
+
+            switch (this.getQ10_13()) {
+                case Analise.IDENTIFICACOES.SIM:
+                    texto += getTextToShareQ16(respostas_check);
+                    break;
+                case Analise.IDENTIFICACOES.NAO:
+                    texto += getTextToShareQ12(respostas_check);
+                    break;
+            }
+        }
         return texto;
     }
 
-    private String getTextToShareQ9(RESPOSTAS_CHECK respostasCheck) {
+    private String getTextToShareQ9(RESPOSTAS_CHECK respostas_check) {
         String texto = Analise.getPerguntaTexto(PERGUNTAS.q9_1, q9_1);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q9_2, q9_2);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q9_3, q9_3);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q9_4, q9_4);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q9_5, q9_5);
 
-        texto += Analise.getPerguntaTextoCheckBox(PERGUNTAS.q9_6, q9_6, respostasCheck.q9_6);
+        texto += Analise.getPerguntaTextoCheckBox(PERGUNTAS.q9_6, q9_6, respostas_check.q9_6);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q9_7, q9_7);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q9_8, q9_8);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q9_9, q9_9);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q9_10, q9_10);
+
+        if (this.getQ9_10() != null) {
+
+            switch (this.getQ9_10()) {
+                case Analise.IDENTIFICACOES.SIM:
+                    texto += getTextToShareQ10(respostas_check);
+                    break;
+                case Analise.IDENTIFICACOES.NAO:
+                    texto += getTextToShareQ15(respostas_check);
+                    break;
+            }
+        }
         return texto;
     }
 
-    private String getTextToShareQ8() {
+    private String getTextToShareQ8(RESPOSTAS_CHECK respostas_check) {
         String texto = Analise.getPerguntaTexto(PERGUNTAS.q8_1, q8_1);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q8_2, q8_2);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q8_3, q8_3);
@@ -1811,10 +1852,23 @@ public class Analise extends ModelFirestore implements Serializable {
         texto += Analise.getPerguntaTexto(PERGUNTAS.q8_6, q8_6);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q8_7, q8_7);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q8_8, q8_8);
+
+        if (this.getQ8_8() != null) {
+
+            switch (this.getQ8_8()) {
+                case Analise.IDENTIFICACOES.SIM:
+                    texto += getTextToShareQ11(respostas_check);
+                    break;
+                case Analise.IDENTIFICACOES.NAO:
+                    texto += getTextToShareQ12(respostas_check);
+                    break;
+            }
+        }
+
         return texto;
     }
 
-    private String getTextToShareQ7() {
+    private String getTextToShareQ7(RESPOSTAS_CHECK respostas_check) {
 
         String texto = Analise.getPerguntaTexto(PERGUNTAS.q7_1, q7_1);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q7_2, q7_2);
@@ -1822,23 +1876,59 @@ public class Analise extends ModelFirestore implements Serializable {
         texto += Analise.getPerguntaTexto(PERGUNTAS.q7_4, q7_4);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q7_5, q7_5);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q7_6, q7_6);
+
+        if (this.getQ7_6() != null) {
+
+            switch (this.getQ7_6()) {
+                case Analise.IDENTIFICACOES.SIM:
+                    texto += getTextToShareQ11(respostas_check);
+
+                    break;
+                case Analise.IDENTIFICACOES.NAO:
+                    texto += getTextToShareQ12(respostas_check);
+                    break;
+            }
+        }
         return texto;
     }
 
-    private String getTextToShareQ6() {
-        return Analise.getPerguntaTexto(PERGUNTAS.q6_1, q6_1);
+    private String getTextToShareQ6(RESPOSTAS_CHECK respostas_check) {
+
+        String texto = Analise.getPerguntaTexto(PERGUNTAS.q6_1, q6_1);
+        if (getQ6_1() != null)
+            switch (this.getQ6_1()) {
+                case Analise.IDENTIFICACOES.TEXTO_INFORMATIVO:
+                    texto += getTextToShareQ7(respostas_check);
+                    break;
+                case Analise.IDENTIFICACOES.TEXTO_ARGUMENTATIVO:
+                    texto += getTextToShareQ8(respostas_check);
+                    break;
+
+                case Analise.IDENTIFICACOES.TEXTO_POESIA:
+                    texto += getTextToShareQ9(respostas_check);
+
+                    break;
+
+                case Analise.IDENTIFICACOES.TEXTO_NARRATIVO:
+                    texto += getTextToShareQ10(respostas_check);
+                    break;
+            }
+        return texto;
     }
 
-    private String getTextToShareQ5() {
+    private String getTextToShareQ5(RESPOSTAS_CHECK respostas_check) {
         String texto = Analise.getPerguntaTexto(PERGUNTAS.q5_1, q5_1);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q5_2, q5_2);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q5_3, q5_3);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q5_4, q5_4);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q5_5, q5_5);
+
+        texto += this.getTextToShareQ6(respostas_check);
+
         return texto;
     }
 
-    private String getTextToShareQ4() {
+    private String getTextToShareQ4(RESPOSTAS_CHECK respostas_check) {
         String texto = "";
         texto += Analise.getPerguntaTexto(PERGUNTAS.q4_1, q4_1);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q4_2, q4_2);
@@ -1847,7 +1937,7 @@ public class Analise extends ModelFirestore implements Serializable {
         return texto;
     }
 
-    private String getTextToShareQ3() {
+    private String getTextToShareQ3(RESPOSTAS_CHECK respostas_check) {
         String texto = "";
         texto += Analise.getPerguntaTexto(PERGUNTAS.q3_1, q3_1);
         return texto;
@@ -1877,7 +1967,7 @@ public class Analise extends ModelFirestore implements Serializable {
         return texto;
     }
 
-    private String getTextToShareQ1() {
+    private String getTextToShareQ1(RESPOSTAS_CHECK respostas_check) {
         String texto = "";
         texto += Analise.getPerguntaTexto(PERGUNTAS.q1_1, q1_1);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q1_2, q1_2);
@@ -1890,6 +1980,25 @@ public class Analise extends ModelFirestore implements Serializable {
         texto += Analise.getPerguntaTexto(PERGUNTAS.q1_9, q1_9);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q1_10, q1_10);
         texto += Analise.getPerguntaTexto(PERGUNTAS.q1_11, q1_11);
+
+        switch (this.getQ1_11()) {
+            case Analise.IDENTIFICACOES.ANALISE_COMPLETA:
+                texto += getTextToShareQ5(respostas_check);
+                break;
+            case Analise.IDENTIFICACOES.APENAS_ANOTACAOES:
+                texto += getTextToShareQ3(respostas_check);
+                break;
+
+            case Analise.IDENTIFICACOES.APENAS_REACOES:
+                texto += getTextToShareQ2(respostas_check);
+                break;
+
+            case Analise.IDENTIFICACOES.APENAS_RESUMOS:
+                texto += getTextToShareQ4(respostas_check);
+                break;
+        }
+
+
         return texto;
     }
 
@@ -2117,8 +2226,8 @@ public class Analise extends ModelFirestore implements Serializable {
 
     public class IDENTIFICACOES {
 
-        public static final String SIM = "SIM";
-        public static final String NAO = "NAO";
+        public static final String SIM = "Sim";
+        public static final String NAO = "Não";
 
         public static final String SIM_MINUSCULAS = "Sim";
         public static final String NAO_MINUSCULAS = "Não";

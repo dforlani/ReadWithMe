@@ -8,7 +8,7 @@
     android:focusable="true"
     android:focusableInTouchMode="true"
     android:orientation="vertical"
-    tools:context=".ui.quesitos.QuesitosIdentificacaoActivity"
+    tools:context=".ui.quesitos.QuesitosQ1IdentificacaoActivity"
     tools:openDrawer="start">
 
     <include
@@ -43,7 +43,7 @@
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:orientation="vertical"
-                tools:context=".ui.quesitos.QuesitosIdentificacaoActivity">
+                tools:context=".ui.quesitos.QuesitosQ1IdentificacaoActivity">
 
 
                 <TextView

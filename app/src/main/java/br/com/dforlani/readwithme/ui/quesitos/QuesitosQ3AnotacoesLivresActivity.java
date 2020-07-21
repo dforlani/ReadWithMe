@@ -11,9 +11,9 @@ import com.google.android.material.textfield.TextInputEditText;
 import br.com.dforlani.readwithme.R;
 import br.com.dforlani.readwithme.util.Preferencias;
 
-public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActivity {
+public class QuesitosQ3AnotacoesLivresActivity extends QuesitosBaseActivity {
 
-    private static final String TAG = "QuesitosResumoesCitacoesParafrasesActivity.class";
+    private static final String TAG = "QuesitosAnotacoesLivresActivity.class";
 
     ViewHolder viewHolder;
 
@@ -21,15 +21,13 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_quesitos_resumoes_citacoes_parafrases);
-
+        setContentView(R.layout.activity_quesitos_anotacoes_livres);
 
         TextView title = findViewById(R.id.title_app_bar_quesitos);
-        title.setText(R.string.title_resumos_citacoes_parafrase);
+        title.setText(R.string.title_anotacoes_livres);
 
         viewHolder = new ViewHolder();
     }
-
 
     @Override
     protected void salvarQuesitos() {
@@ -37,24 +35,20 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
         Preferencias pref = new Preferencias(this.getBaseContext());
         email = pref.getEmail();
         if (email != null) {
-            analise.setQ4_1(viewHolder.q4_1.getText().toString());
-            analise.setQ4_2(viewHolder.q4_2.getText().toString());
-            analise.setQ4_3(viewHolder.q4_3.getText().toString());
-            analise.setQ4_4(viewHolder.q4_4.getText().toString());
+            analise.setQ3_1(viewHolder.q3_1.getText().toString());
 
             analise.save(email);
 
         } else {
-            Toast.makeText(QuesitosResumoesCitacoesParafrasesActivity.this, "Nenhum Email fornecido, não foi possível salvar.",
+            Toast.makeText(QuesitosQ3AnotacoesLivresActivity.this, "Nenhum Email fornecido, não foi possível salvar.",
                     Toast.LENGTH_LONG).show();
         }
-
     }
 
 
     @Override
     public void onBackPressed() {
-        salvarVoltarAnaliseActAnteriorAndFinish();
+        voltarActIdentificacao();
     }
 
     @Override
@@ -62,47 +56,41 @@ public class QuesitosResumoesCitacoesParafrasesActivity extends QuesitosBaseActi
         return null;
     }
 
+    private void voltarActIdentificacao() {
+        salvarVoltarAnaliseActAnteriorAndFinish();
+    }
 
     class ViewHolder {
         Button continuar;
         Button voltar;
 
-        TextInputEditText q4_1;
-        TextInputEditText q4_2;
-        TextInputEditText q4_3;
-        TextInputEditText q4_4;
+        TextInputEditText q3_1;
 
 
         ViewHolder() {
 
-            q4_1 = findViewById(R.id.act_text_q_resumos_citacoes_input_q4_1);
-            q4_1.setText(analise.getQ4_1());
-
-            q4_2 = findViewById(R.id.act_text_q_resumos_citacoes_input_q4_2);
-            q4_2.setText(analise.getQ4_2());
-
-            q4_3 = findViewById(R.id.act_text_q_resumos_citacoes_input_q4_3);
-            q4_3.setText(analise.getQ4_3());
-
-            q4_4 = findViewById(R.id.act_text_q_resumos_citacoes_input_q4_4);
-            q4_4.setText(analise.getQ4_4());
-
+            q3_1 = findViewById(R.id.act_text_q_anotacoes_livres_input_q3_1);
+            q3_1.setText(analise.getQ3_1());
 
             continuar = findViewById(R.id.act_quesitos_reacoes_btt_continuar);
             continuar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
                     salvarQuesitos();
-                    voltarToMainActivity(QuesitosResumoesCitacoesParafrasesActivity.this);
+                    voltarToMainActivity(QuesitosQ3AnotacoesLivresActivity.this);
+
                 }
+
+
             });
 
             voltar = findViewById(R.id.act_quesitos_reacoes_btt_voltar);
             voltar.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    salvarVoltarAnaliseActAnteriorAndFinish();
+                    voltarActIdentificacao();
                 }
+
             });
         }
     }
