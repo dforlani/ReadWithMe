@@ -93,21 +93,21 @@
     <string name="text_q_reacoes_17">"Você acredita que a leitura desse texto contribuiu em alguma dessas áreas? "</string>
     <string name="text_q_reacoes_18">"Justifique a resposta, citando trechos ou fazendo paráfrases: "</string>
     <string name="text_q_reacoes_19">Você acredita que a leitura do texto contribuiria para a vida de outras pessoas? Quais? Como?</string>
-    <string name="check_reacoes_avaliei_mal">Avaliei mal o conteúdo do texto, não era o que eu buscava</string>
-    <string name="check_reacoes_texto_nao_cumpre">O texto não cumpre o prometido nos elementos externos, capa, orelha, sinopse, etc</string>
-    <string name="check_texto_nao_cumpre_quem_recomendou">O texto não cumpre o que prometia quem o recomendou</string>
-    <string name="check_texto_profundidade_maior_menor">A profundidade do texto era maior ou menor do que a minha avaliação inicial</string>
-    <string name="check_texto_outra_coisa">Outra coisa</string>
-    <string name="check_reacoes_vida_academica">vida acadêmica a curto prazo</string>
-    <string name="check_prazer_e_diversao">prazer e diversão!</string>
-    <string name="check_reacoes_minha_pesquisa_atual">minha pesquisa atual</string>
-    <string name="check_reacoes_pesquisas_futuras_reas_em_que_quero_me_especializar_no_futuro">pesquisas futuras, áreas em que quero me especializar no futuro</string>
-    <string name="check_reacoes_minha_vida_profissional">minha vida profissional</string>
-    <string name="check_reacoes_pratica_leitura">minha prática de leitura</string>
-    <string name="check_reacoes_producao_textos">minha produção de textos</string>
-    <string name="check_reacoes_vida_pessoal">minha vida pessoal</string>
-    <string name="check_reacoes_conhecimento_mundo">meu conhecimento do mundo</string>
-    <string name="check_reacoes_gosto_muito">conhecimento sobre algo que gosto muito</string>
+    <string name="act_reacoes_check_avaliei_mal">Avaliei mal o conteúdo do texto, não era o que eu buscava</string>
+    <string name="act_reacoes_check_texto_nao_cumpre">O texto não cumpre o prometido nos elementos externos, capa, orelha, sinopse, etc</string>
+    <string name="act_reacoes_check_texto_nao_cumpre_quem_recomendou">O texto não cumpre o que prometia quem o recomendou</string>
+    <string name="act_reacoes_check_profundidade_maior_menor">A profundidade do texto era maior ou menor do que a minha avaliação inicial</string>
+    <string name="act_reacoes_check_outra_coisa">Outra coisa</string>
+    <string name="act_reacoes_check_vida_academica">vida acadêmica a curto prazo</string>
+    <string name="act_reacoes_check_prazer_e_diversao">prazer e diversão!</string>
+    <string name="act_reacoes_check_minha_pesquisa_atual">minha pesquisa atual</string>
+    <string name="act_reacoes_check_pesquisas_futuras">pesquisas futuras, áreas em que quero me especializar no futuro</string>
+    <string name="act_reacoes_check_vida_profissional">minha vida profissional</string>
+    <string name="act_reacoes_check_pratica_leitura">minha prática de leitura</string>
+    <string name="act_reacoes_check_producao_textos">minha produção de textos</string>
+    <string name="act_reacoes_check_vida_pessoal">minha vida pessoal</string>
+    <string name="act_reacoes_check_conhecimento_mundo">meu conhecimento do mundo</string>
+    <string name="act_reacoes_check_gosto_muito">conhecimento sobre algo que gosto muito</string>
     <string name="title_anotacoes_livres">Anotações livres</string>
     <string name="text_q_anotacoes_livres_q3_1">Vai fundo</string>
     <string name="title_elementos_exteriores_ao_texto">Elementos exteriores ao texto</string>
@@ -115,5 +115,38 @@
     <string name="delete">Remover Análise</string>
     <string name="title_complete_2">Qual tipo de texto você está lendo?</string>
     <string name="title_quesitos_texto_informativo">Pontos importantes do texto informativo</string>
+    <string name="act_poesia_algumas_palavras">Algumas palavras utilizadas se destacam pela repetição, transformação</string>
+    <string name="act_poesia_o_vocabulario">O vocabulário como um todo se destaca</string>
+    <string name="act_poesia_as_figuras">As figuras de linguagem utilizadas são importantes para o clima do texto</string>
+    <string name="act_poesia_o_tamanho">O tamanho das frases e dos parágrafos se destacam</string>
+    <string name="act_poesia_a_utilizacao">A utilização da pontuação faz diferença</string>
+    <string name="act_poesia_o_equilibrio">O equilíbrio na utilização de verbos, substantivos e adjetivos é importante</string>
+    <string name="act_poesia_outra">Outra</string>
+    <string name="act_narrativo_algumas_palavras">Algumas palavras utilizadas se destacam pela repetição, transformação</string>
+
+    <string name="act_narrativo_as_figuras">As figuras de linguagem utilizadas são importantes para o clima do texto</string>
+
+
+    <string name="act_comentar_difuldade_check1_Q13_1">Vocabulário antigo, com muitas palavras em desuso</string>
+    <string name="act_comentar_difuldade_check2_Q13_1">Vocabulário muito técnico, ainda não conheço bem o assunto</string>
+    <string name="act_comentar_difuldade_check3_Q13_1">Vocabulário de uma classe social muito específica</string>
+    <string name="act_comentar_difuldade_check4_Q13_1">A forma como o autor coloca seus argumentos é confusa</string>
+    <string name="act_comentar_difuldade_check5_Q13_1">O estilo do autor é muito rebuscado ou intrincado</string>
+    <string name="act_comentar_difuldade_check6_Q13_1">O pensamento do autor é muito abstrato, difícil de visualizar</string>
+    <string name="act_comentar_difuldade_check7_Q13_1">Dificuldade em relacionar o texto ao objetivo de leitura</string>
+    <string name="act_check_1Q14_1">sua relação pessoal com alguma pessoa, ou com um grupo de pessoas</string>
+    <string name="act_check_2Q14_1">uma experiência pessoal sua ou de alguém que você conhece</string>
+    <string name="act_check_3Q14_1">uma experiência profissional ou acadêmica que você teve</string>
+    <string name="act_check_4Q14_1">palestra ou evento acadêmico a que você compareceu</string>
+    <string name="act_check_5Q14_1">alguma aula que você assistiu</string>
+    <string name="act_check_6Q14_1">uma comida, um lugar, uma cidade...</string>
+    <string name="act_check_1Q14_3">obras diversas de um artista específico</string>
+    <string name="act_check_2Q14_3">um filme</string>
+    <string name="act_check_3Q14_3">uma peça de teatro</string>
+    <string name="act_check42Q14_3">uma obra literária em prosa</string>
+    <string name="act_check52Q14_3">uma poesia ou o conjunto de poesias de um poeta</string>
+    <string name="act_check62Q14_3">uma música</string>
+    <string name="act_check72Q14_3">uma pintura, um grafite</string>
+    <string name="act_check82Q14_3">uma escultura, um elemento arquitetônico</string>
 
 </resources>

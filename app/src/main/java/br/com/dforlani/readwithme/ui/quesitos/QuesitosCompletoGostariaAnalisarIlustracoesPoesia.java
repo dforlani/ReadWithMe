@@ -61,10 +61,10 @@ public class QuesitosCompletoGostariaAnalisarIlustracoesPoesia extends QuesitosB
         salvarQuesitos();
         if (analise.getQ15_1() != null) {
             switch (analise.getQ15_1()) {
-                case Analise.ConstsIdentificacoes.SIM_MINUSCULAS:
+                case Analise.IDENTIFICACOES.SIM_MINUSCULAS:
                     intent = new Intent(QuesitosCompletoGostariaAnalisarIlustracoesPoesia.this, QuesitosCompletoProjetoGrafico.class);
                     break;
-                case Analise.ConstsIdentificacoes.NAO_MINUSCULAS:
+                case Analise.IDENTIFICACOES.NAO_MINUSCULAS:
                     intent = new Intent(QuesitosCompletoGostariaAnalisarIlustracoesPoesia.this, QuesitosCompletoDificuldadeLeitura.class);
                     break;
             }

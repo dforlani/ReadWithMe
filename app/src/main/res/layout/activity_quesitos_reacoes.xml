@@ -702,9 +702,8 @@
                     android:id="@+id/act_reacoes_check_avaliei_mal"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
-
                     android:tag="act_reacoes_check_avaliei_mal"
-                    android:text="@string/check_reacoes_avaliei_mal" />
+                    android:text="@string/act_reacoes_check_avaliei_mal" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_texto_nao_cumpre"
@@ -712,7 +711,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_texto_nao_cumpre"
-                    android:text="@string/check_reacoes_texto_nao_cumpre" />
+                    android:text="@string/act_reacoes_check_texto_nao_cumpre" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_texto_nao_cumpre_quem_recomendou"
@@ -720,7 +719,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_texto_nao_cumpre_quem_recomendou"
-                    android:text="@string/check_texto_nao_cumpre_quem_recomendou" />
+                    android:text="@string/act_reacoes_check_texto_nao_cumpre_quem_recomendou" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_profundidade_maior_menor"
@@ -728,7 +727,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_profundidade_maior_menor"
-                    android:text="@string/check_texto_profundidade_maior_menor" />
+                    android:text="@string/act_reacoes_check_profundidade_maior_menor" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_outra_coisa"
@@ -736,7 +735,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_outra_coisa"
-                    android:text="@string/check_texto_outra_coisa" />
+                    android:text="@string/act_reacoes_check_outra_coisa" />
 
 
                 <TextView
@@ -1324,7 +1323,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_vida_academica"
-                    android:text="@string/check_reacoes_vida_academica" />
+                    android:text="@string/act_reacoes_check_vida_academica" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_prazer_e_diversao"
@@ -1332,7 +1331,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_prazer_e_diversao"
-                    android:text="@string/check_prazer_e_diversao" />
+                    android:text="@string/act_reacoes_check_prazer_e_diversao" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_minha_pesquisa_atual"
@@ -1340,7 +1339,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_minha_pesquisa_atual"
-                    android:text="@string/check_reacoes_minha_pesquisa_atual" />
+                    android:text="@string/act_reacoes_check_minha_pesquisa_atual" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_pesquisas_futuras"
@@ -1348,7 +1347,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_pesquisas_futuras"
-                    android:text="@string/check_reacoes_pesquisas_futuras_reas_em_que_quero_me_especializar_no_futuro" />
+                    android:text="@string/act_reacoes_check_pesquisas_futuras" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_vida_profissional"
@@ -1356,7 +1355,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_vida_profissional"
-                    android:text="@string/check_reacoes_minha_vida_profissional" />
+                    android:text="@string/act_reacoes_check_vida_profissional" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_pratica_leitura"
@@ -1364,7 +1363,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_pratica_leitura"
-                    android:text="@string/check_reacoes_pratica_leitura" />
+                    android:text="@string/act_reacoes_check_pratica_leitura" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_producao_textos"
@@ -1372,7 +1371,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_producao_textos"
-                    android:text="@string/check_reacoes_producao_textos" />
+                    android:text="@string/act_reacoes_check_producao_textos" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_vida_pessoal"
@@ -1380,7 +1379,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_vida_pessoal"
-                    android:text="@string/check_reacoes_vida_pessoal" />
+                    android:text="@string/act_reacoes_check_vida_pessoal" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_conhecimento_mundo"
@@ -1388,7 +1387,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_conhecimento_mundo"
-                    android:text="@string/check_reacoes_conhecimento_mundo" />
+                    android:text="@string/act_reacoes_check_conhecimento_mundo" />
 
                 <CheckBox
                     android:id="@+id/act_reacoes_check_gosto_muito"
@@ -1396,7 +1395,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:tag="act_reacoes_check_gosto_muito"
-                    android:text="@string/check_reacoes_gosto_muito" />
+                    android:text="@string/act_reacoes_check_gosto_muito" />
 
                 <TextView
 

@@ -67,11 +67,11 @@ public class QuesitosCompletoTextoPoesia extends QuesitosBaseActivity {
         switch (view.getId()) {
             case R.id.radio_button_completo_2_texto_poesia_sim:
                 if (checked)
-                    analise.setQ9_10(Analise.ConstsIdentificacoes.SIM);
+                    analise.setQ9_10(Analise.IDENTIFICACOES.SIM);
                 break;
             case R.id.radio_button_completo_2_texto_poesia_nao:
                 if (checked)
-                    analise.setQ9_10(Analise.ConstsIdentificacoes.NAO);
+                    analise.setQ9_10(Analise.IDENTIFICACOES.NAO);
                 break;
         }
     }
@@ -84,10 +84,10 @@ public class QuesitosCompletoTextoPoesia extends QuesitosBaseActivity {
         if (analise.getQ9_10() != null) {
             salvarQuesitos();
             switch (analise.getQ9_10()) {
-                case Analise.ConstsIdentificacoes.SIM:
+                case Analise.IDENTIFICACOES.SIM:
                     intent = new Intent(QuesitosCompletoTextoPoesia.this, QuesitosCompletoTextoNarrativo.class);
                     break;
-                case Analise.ConstsIdentificacoes.NAO:
+                case Analise.IDENTIFICACOES.NAO:
                     intent = new Intent(QuesitosCompletoTextoPoesia.this, QuesitosCompletoGostariaAnalisarIlustracoesPoesia.class);
                     break;
             }
@@ -168,11 +168,11 @@ public class QuesitosCompletoTextoPoesia extends QuesitosBaseActivity {
 
             if (analise.getQ9_10() != null) {
                 switch (analise.getQ9_10()) {
-                    case Analise.ConstsIdentificacoes.SIM:
+                    case Analise.IDENTIFICACOES.SIM:
                         ((RadioButton) findViewById(R.id.radio_button_completo_2_texto_poesia_sim)).setChecked(true);
                         break;
 
-                    case Analise.ConstsIdentificacoes.NAO:
+                    case Analise.IDENTIFICACOES.NAO:
                         ((RadioButton) findViewById(R.id.radio_button_completo_2_texto_poesia_nao)).setChecked(true);
                         break;
                 }

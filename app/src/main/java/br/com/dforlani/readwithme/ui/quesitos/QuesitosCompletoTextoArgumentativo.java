@@ -62,11 +62,11 @@ public class QuesitosCompletoTextoArgumentativo extends QuesitosBaseActivity {
         switch (view.getId()) {
             case R.id.radio_button_completo_2_texto_argumentativo_sim:
                 if (checked)
-                    analise.setQ8_8(Analise.ConstsIdentificacoes.SIM);
+                    analise.setQ8_8(Analise.IDENTIFICACOES.SIM);
                 break;
             case R.id.radio_button_completo_2_texto_argumentativo_nao:
                 if (checked)
-                    analise.setQ8_8(Analise.ConstsIdentificacoes.NAO);
+                    analise.setQ8_8(Analise.IDENTIFICACOES.NAO);
                 break;
         }
     }
@@ -79,10 +79,10 @@ public class QuesitosCompletoTextoArgumentativo extends QuesitosBaseActivity {
         if (analise.getQ8_8() != null) {
             salvarQuesitos();
             switch (analise.getQ8_8()) {
-                case Analise.ConstsIdentificacoes.SIM:
+                case Analise.IDENTIFICACOES.SIM:
                     intent = new Intent(QuesitosCompletoTextoArgumentativo.this, QuesitosCompletoAnaliseBibliografia.class);
                     break;
-                case Analise.ConstsIdentificacoes.NAO:
+                case Analise.IDENTIFICACOES.NAO:
                     intent = new Intent(QuesitosCompletoTextoArgumentativo.this, QuesitosCompletoDificuldadeLeitura.class);
                     break;
             }
@@ -140,11 +140,11 @@ public class QuesitosCompletoTextoArgumentativo extends QuesitosBaseActivity {
 
             if (analise.getQ8_8() != null) {
                 switch (analise.getQ8_8()) {
-                    case Analise.ConstsIdentificacoes.SIM:
+                    case Analise.IDENTIFICACOES.SIM:
                         ((RadioButton) findViewById(R.id.radio_button_completo_2_texto_argumentativo_sim)).setChecked(true);
                         break;
 
-                    case Analise.ConstsIdentificacoes.NAO:
+                    case Analise.IDENTIFICACOES.NAO:
                         ((RadioButton) findViewById(R.id.radio_button_completo_2_texto_argumentativo_nao)).setChecked(true);
                         break;
                 }

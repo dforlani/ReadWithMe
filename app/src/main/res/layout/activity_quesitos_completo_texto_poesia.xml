@@ -147,7 +147,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_poesia_algumas_palavras"
-                    android:text="Algumas palavras utilizadas se destacam pela repetição, transformação" />
+                    android:text="@string/act_poesia_algumas_palavras" />
 
                 <CheckBox
                     android:id="@+id/act_poesia_o_vocabulario"
@@ -155,7 +155,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_poesia_o_vocabulario"
-                    android:text="O vocabulário como um todo se destaca" />
+                    android:text="@string/act_poesia_o_vocabulario" />
 
                 <CheckBox
                     android:id="@+id/act_poesia_as_figuras"
@@ -163,7 +163,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_poesia_as_figuras"
-                    android:text="As figuras de linguagem utilizadas são importantes para o clima do texto" />
+                    android:text="@string/act_poesia_as_figuras" />
 
                 <CheckBox
                     android:id="@+id/act_poesia_o_tamanho"
@@ -171,7 +171,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_poesia_o_tamanho"
-                    android:text="O tamanho das frases e dos parágrafos se destacam" />
+                    android:text="@string/act_poesia_o_tamanho" />
 
                 <CheckBox
                     android:id="@+id/act_poesia_a_utilizacao"
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_poesia_a_utilizacao"
-                    android:text="A utilização da pontuação faz diferença" />
+                    android:text="@string/act_poesia_a_utilizacao" />
 
                 <CheckBox
                     android:id="@+id/act_poesia_o_equilibrio"
@@ -187,7 +187,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_poesia_o_equilibrio"
-                    android:text="O equilíbrio na utilização de verbos, substantivos e adjetivos é importante" />
+                    android:text="@string/act_poesia_o_equilibrio" />
 
                 <CheckBox
                     android:id="@+id/act_poesia_outra"
@@ -195,7 +195,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_poesia_outra"
-                    android:text="Outra" />
+                    android:text="@string/act_poesia_outra" />
 
 
                 <TextView

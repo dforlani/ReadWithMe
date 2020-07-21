@@ -52,21 +52,21 @@ public class QuesitosCompleto2Activity extends QuesitosBaseActivity {
         switch (view.getId()) {
             case R.id.radio_button_completo_2_texto_informativo:
                 if (checked)
-                    analise.setQ6_1(Analise.ConstsIdentificacoes.TEXTO_INFORMATIVO);
+                    analise.setQ6_1(Analise.IDENTIFICACOES.TEXTO_INFORMATIVO);
                 break;
             case R.id.radio_button_completo_2_texto_argumentativo:
                 if (checked)
-                    analise.setQ6_1(Analise.ConstsIdentificacoes.TEXTO_ARGUMENTATIVO);
+                    analise.setQ6_1(Analise.IDENTIFICACOES.TEXTO_ARGUMENTATIVO);
 
                 break;
             case R.id.radio_button_completo_2_texto_narrativo:
                 if (checked)
-                    analise.setQ6_1(Analise.ConstsIdentificacoes.TEXTO_NARRATIVO);
+                    analise.setQ6_1(Analise.IDENTIFICACOES.TEXTO_NARRATIVO);
 
                 break;
             case R.id.radio_button_completo_2_texto_poesia:
                 if (checked)
-                    analise.setQ6_1(Analise.ConstsIdentificacoes.TEXTO_POESIA);
+                    analise.setQ6_1(Analise.IDENTIFICACOES.TEXTO_POESIA);
                 break;
         }
     }
@@ -79,25 +79,25 @@ public class QuesitosCompleto2Activity extends QuesitosBaseActivity {
         if (analise.getQ6_1() != null) {
             salvarQuesitos();
             switch (analise.getQ6_1()) {
-                case Analise.ConstsIdentificacoes.TEXTO_INFORMATIVO:
+                case Analise.IDENTIFICACOES.TEXTO_INFORMATIVO:
                     intent = new Intent(QuesitosCompleto2Activity.this, QuesitosCompletoTextoInformativo.class);
                     intent.putExtra("analise", analise);
                     startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                     break;
-                case Analise.ConstsIdentificacoes.TEXTO_ARGUMENTATIVO:
+                case Analise.IDENTIFICACOES.TEXTO_ARGUMENTATIVO:
                     intent = new Intent(QuesitosCompleto2Activity.this, QuesitosCompletoTextoArgumentativo.class);
                     intent.putExtra("analise", analise);
                     startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                     break;
 
-                case Analise.ConstsIdentificacoes.TEXTO_POESIA:
+                case Analise.IDENTIFICACOES.TEXTO_POESIA:
                     intent = new Intent(QuesitosCompleto2Activity.this, QuesitosCompletoTextoPoesia.class);
                     intent.putExtra("analise", analise);
                     startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
 
                     break;
 
-                case Analise.ConstsIdentificacoes.TEXTO_NARRATIVO:
+                case Analise.IDENTIFICACOES.TEXTO_NARRATIVO:
                     intent = new Intent(QuesitosCompleto2Activity.this, QuesitosCompletoTextoNarrativo.class);
                     intent.putExtra("analise", analise);
                     startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
@@ -132,19 +132,19 @@ public class QuesitosCompleto2Activity extends QuesitosBaseActivity {
 
             if (analise.getQ6_1() != null) {
                 switch (analise.getQ6_1()) {
-                    case Analise.ConstsIdentificacoes.TEXTO_ARGUMENTATIVO:
+                    case Analise.IDENTIFICACOES.TEXTO_ARGUMENTATIVO:
                         ((RadioButton) findViewById(R.id.radio_button_completo_2_texto_argumentativo)).setChecked(true);
                         break;
 
-                    case Analise.ConstsIdentificacoes.TEXTO_INFORMATIVO:
+                    case Analise.IDENTIFICACOES.TEXTO_INFORMATIVO:
                         ((RadioButton) findViewById(R.id.radio_button_completo_2_texto_informativo)).setChecked(true);
                         break;
 
-                    case Analise.ConstsIdentificacoes.TEXTO_POESIA:
+                    case Analise.IDENTIFICACOES.TEXTO_POESIA:
                         ((RadioButton) findViewById(R.id.radio_button_completo_2_texto_poesia)).setChecked(true);
                         break;
 
-                    case Analise.ConstsIdentificacoes.TEXTO_NARRATIVO:
+                    case Analise.IDENTIFICACOES.TEXTO_NARRATIVO:
                         ((RadioButton) findViewById(R.id.radio_button_completo_2_texto_narrativo)).setChecked(true);
                         break;
                 }

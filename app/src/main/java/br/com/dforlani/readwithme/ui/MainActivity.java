@@ -20,7 +20,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
 import com.facebook.login.LoginManager;
-import com.google.android.gms.ads.AdListener;
 import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.MobileAds;
@@ -115,63 +114,75 @@ public class MainActivity extends BaseActivity {
 
 
     public void initADMOB() {
-        //Incializa o ADMob
-        MobileAds.initialize(this.getBaseContext(), new OnInitializationCompleteListener() {
+        MobileAds.initialize(this, new OnInitializationCompleteListener() {
             @Override
             public void onInitializationComplete(InitializationStatus initializationStatus) {
             }
         });
-        //RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("52A5BC24BE3C2E91266B673DAE167199"));
-        mAdView = this.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().addTestDevice("52A5BC24BE3C2E91266B673DAE167199").build();
+        mAdView = findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
         mAdView.loadAd(adRequest);
-        mAdView.setAdListener(new AdListener() {
-            @Override
-            public void onAdLoaded() {
-                int o = 0;
-                o++;
-                // Code to be executed when an ad finishes loading.
-            }
-
-            @Override
-            public void onAdFailedToLoad(int errorCode) {
-                int o = 0;
-                o++;
-                // Code to be executed when an ad request fails.
-            }
-
-            @Override
-            public void onAdOpened() {
-                int o = 0;
-                o++;
-                // Code to be executed when an ad opens an overlay that
-                // covers the screen.
-            }
-
-            @Override
-            public void onAdClicked() {
-                int o = 0;
-                o++;
-                // Code to be executed when the user clicks on an ad.
-            }
-
-            @Override
-            public void onAdLeftApplication() {
-                int o = 0;
-                o++;
-                // Code to be executed when the user has left the app.
-            }
-
-            @Override
-            public void onAdClosed() {
-                int o = 0;
-                o++;
-                // Code to be executed when the user is about to return
-                // to the app after tapping on an ad.
-            }
-        });
-        /*********FIMM DO ABMOB********/
     }
+
+//    public void initADMOBTeste() {
+//        //Incializa o ADMob
+//        MobileAds.initialize(this.getBaseContext(), new OnInitializationCompleteListener() {
+//            @Override
+//            public void onInitializationComplete(InitializationStatus initializationStatus) {
+//            }
+//        });
+//        //RequestConfiguration.Builder().setTestDeviceIds(Arrays.asList("52A5BC24BE3C2E91266B673DAE167199"));
+//        mAdView = this.findViewById(R.id.adView);
+//        AdRequest adRequest = new AdRequest.Builder().addTestDevice("52A5BC24BE3C2E91266B673DAE167199").build();
+//        mAdView.loadAd(adRequest);
+//
+//        mAdView.setAdListener(new AdListener() {
+//            @Override
+//            public void onAdLoaded() {
+//                int o = 0;
+//                o++;
+//                // Code to be executed when an ad finishes loading.
+//            }
+//
+//            @Override
+//            public void onAdFailedToLoad(int errorCode) {
+//                int o = 0;
+//                o++;
+//                // Code to be executed when an ad request fails.
+//            }
+//
+//            @Override
+//            public void onAdOpened() {
+//                int o = 0;
+//                o++;
+//                // Code to be executed when an ad opens an overlay that
+//                // covers the screen.
+//            }
+//
+//            @Override
+//            public void onAdClicked() {
+//                int o = 0;
+//                o++;
+//                // Code to be executed when the user clicks on an ad.
+//            }
+//
+//            @Override
+//            public void onAdLeftApplication() {
+//                int o = 0;
+//                o++;
+//                // Code to be executed when the user has left the app.
+//            }
+//
+//            @Override
+//            public void onAdClosed() {
+//                int o = 0;
+//                o++;
+//                // Code to be executed when the user is about to return
+//                // to the app after tapping on an ad.
+//            }
+//        });
+//        /*********FIMM DO ABMOB********/
+//    }
 
 
     private void initAnalisesRecyclerView() {
@@ -300,7 +311,11 @@ public class MainActivity extends BaseActivity {
                 if (!task.isSuccessful()) {
                     return;
                 }
-                String token = task.getResult().getToken();
+
+                String token = "";
+                if (task != null && task.getResult() != null) {
+                    token = task.getResult().getToken();
+                }
                 Log.d(TAG, token);
             }
         });

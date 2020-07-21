@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check_1Q14_1"
-                    android:text="sua relação pessoal com alguma pessoa, ou com um grupo de pessoas" />
+                    android:text="@string/act_check_1Q14_1" />
 
                 <CheckBox
                     android:id="@+id/act_check_2Q14_1"
@@ -55,7 +55,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check_2Q14_1"
-                    android:text="uma experiência pessoal sua ou de alguém que você conhece" />
+                    android:text="@string/act_check_2Q14_1" />
 
                 <CheckBox
                     android:id="@+id/act_check_3Q14_1"
@@ -63,7 +63,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check_3Q14_1"
-                    android:text="uma experiência profissional ou acadêmica que você teve" />
+                    android:text="@string/act_check_3Q14_1" />
 
                 <CheckBox
                     android:id="@+id/act_check_4Q14_1"
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check_4Q14_1"
-                    android:text="palestra ou evento acadêmico a que você compareceu" />
+                    android:text="@string/act_check_4Q14_1" />
 
                 <CheckBox
                     android:id="@+id/act_check_5Q14_1"
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check_5Q14_1"
-                    android:text="alguma aula que você assistiu" />
+                    android:text="@string/act_check_5Q14_1" />
 
                 <CheckBox
                     android:id="@+id/act_check_6Q14_1"
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check_6Q14_1"
-                    android:text="uma comida, um lugar, uma cidade..." />
+                    android:text="@string/act_check_6Q14_1" />
 
 
                 <TextView
@@ -123,7 +123,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check_1Q14_3"
-                    android:text="obras diversas de um artista específico" />
+                    android:text="@string/act_check_1Q14_3" />
 
                 <CheckBox
                     android:id="@+id/act_check_2Q14_3"
@@ -131,7 +131,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check_2Q14_3"
-                    android:text="um filme" />
+                    android:text="@string/act_check_2Q14_3" />
 
                 <CheckBox
                     android:id="@+id/act_check_3Q14_3"
@@ -139,7 +139,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check_3Q14_3"
-                    android:text="uma peça de teatro" />
+                    android:text="@string/act_check_3Q14_3" />
 
                 <CheckBox
                     android:id="@+id/act_check42Q14_3"
@@ -147,7 +147,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check42Q14_3"
-                    android:text="uma obra literária em prosa" />
+                    android:text="@string/act_check42Q14_3" />
 
                 <CheckBox
                     android:id="@+id/act_check52Q14_3"
@@ -155,7 +155,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check52Q14_3"
-                    android:text="uma poesia ou o conjunto de poesias de um poeta" />
+                    android:text="@string/act_check52Q14_3" />
 
                 <CheckBox
                     android:id="@+id/act_check62Q14_3"
@@ -163,7 +163,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check62Q14_3"
-                    android:text="uma música" />
+                    android:text="@string/act_check62Q14_3" />
 
                 <CheckBox
                     android:id="@+id/act_check72Q14_3"
@@ -171,7 +171,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check72Q14_3"
-                    android:text="uma pintura, um grafite" />
+                    android:text="@string/act_check72Q14_3" />
 
                 <CheckBox
                     android:id="@+id/act_check82Q14_3"
@@ -179,7 +179,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_check82Q14_3"
-                    android:text="uma escultura, um elemento arquitetônico" />
+                    android:text="@string/act_check82Q14_3" />
 
 
                 <TextView

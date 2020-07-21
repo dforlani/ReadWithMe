@@ -69,11 +69,11 @@ public class QuesitosCompletoTextoNarrativo extends QuesitosBaseActivity {
         switch (view.getId()) {
             case R.id.radio_button_completo_2_texto_narrativo_sim:
                 if (checked)
-                    analise.setQ10_13(Analise.ConstsIdentificacoes.SIM);
+                    analise.setQ10_13(Analise.IDENTIFICACOES.SIM);
                 break;
             case R.id.radio_button_completo_2_texto_narrativo_nao:
                 if (checked)
-                    analise.setQ10_13(Analise.ConstsIdentificacoes.NAO);
+                    analise.setQ10_13(Analise.IDENTIFICACOES.NAO);
                 break;
         }
     }
@@ -86,10 +86,10 @@ public class QuesitosCompletoTextoNarrativo extends QuesitosBaseActivity {
         if (analise.getQ10_13() != null) {
             salvarQuesitos();
             switch (analise.getQ10_13()) {
-                case Analise.ConstsIdentificacoes.SIM:
+                case Analise.IDENTIFICACOES.SIM:
                     intent = new Intent(QuesitosCompletoTextoNarrativo.this, QuesitosCompletoProjetoGrafico.class);
                     break;
-                case Analise.ConstsIdentificacoes.NAO:
+                case Analise.IDENTIFICACOES.NAO:
                     intent = new Intent(QuesitosCompletoTextoNarrativo.this, QuesitosCompletoDificuldadeLeitura.class);
                     break;
             }
@@ -182,11 +182,11 @@ public class QuesitosCompletoTextoNarrativo extends QuesitosBaseActivity {
 
             if (analise.getQ10_13() != null) {
                 switch (analise.getQ10_13()) {
-                    case Analise.ConstsIdentificacoes.SIM:
+                    case Analise.IDENTIFICACOES.SIM:
                         ((RadioButton) findViewById(R.id.radio_button_completo_2_texto_narrativo_sim)).setChecked(true);
                         break;
 
-                    case Analise.ConstsIdentificacoes.NAO:
+                    case Analise.IDENTIFICACOES.NAO:
                         ((RadioButton) findViewById(R.id.radio_button_completo_2_texto_narrativo_nao)).setChecked(true);
                         break;
                 }

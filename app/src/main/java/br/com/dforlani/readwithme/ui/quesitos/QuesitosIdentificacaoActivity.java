@@ -82,25 +82,25 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
         switch (view.getId()) {
             case R.id.radio_button_apenas_anotacoes:
                 if (checked)
-                    viewHolder.q1_11 = Analise.ConstsIdentificacoes.APENAS_ANOTACAOES;
+                    viewHolder.q1_11 = Analise.IDENTIFICACOES.APENAS_ANOTACAOES;
                 break;
             case R.id.radio_button_apenas_reacoes:
                 if (checked)
-                    viewHolder.q1_11 = Analise.ConstsIdentificacoes.APENAS_REACOES;
+                    viewHolder.q1_11 = Analise.IDENTIFICACOES.APENAS_REACOES;
 
                 break;
             case R.id.radio_button_apenas_resumos:
                 if (checked)
-                    viewHolder.q1_11 = Analise.ConstsIdentificacoes.APENAS_RESUMOS;
+                    viewHolder.q1_11 = Analise.IDENTIFICACOES.APENAS_RESUMOS;
 
                 break;
             case R.id.radio_button_encerrar:
                 if (checked)
-                    viewHolder.q1_11 = Analise.ConstsIdentificacoes.ENCERRAR;
+                    viewHolder.q1_11 = Analise.IDENTIFICACOES.ENCERRAR;
                 break;
             case R.id.radio_button_sim:
                 if (checked)
-                    viewHolder.q1_11 = Analise.ConstsIdentificacoes.ANALISE_COMPLETA;
+                    viewHolder.q1_11 = Analise.IDENTIFICACOES.ANALISE_COMPLETA;
                 break;
         }
     }
@@ -174,32 +174,32 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
                     if (analise.getQ1_11() != null) {
                         salvarQuesitos();
                         switch (analise.getQ1_11()) {
-                            case Analise.ConstsIdentificacoes.ANALISE_COMPLETA:
+                            case Analise.IDENTIFICACOES.ANALISE_COMPLETA:
                                 intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosCompleto1Activity.class);
                                 intent.putExtra("analise", analise);
                                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                                 break;
-                            case Analise.ConstsIdentificacoes.APENAS_ANOTACAOES:
+                            case Analise.IDENTIFICACOES.APENAS_ANOTACAOES:
                                 intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosAnotacoesLivresActivity.class);
                                 intent.putExtra("analise", analise);
                                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
 
                                 break;
 
-                            case Analise.ConstsIdentificacoes.APENAS_REACOES:
+                            case Analise.IDENTIFICACOES.APENAS_REACOES:
                                 intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosReacoesActivity.class);
                                 intent.putExtra("analise", analise);
                                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
 
                                 break;
 
-                            case Analise.ConstsIdentificacoes.APENAS_RESUMOS:
+                            case Analise.IDENTIFICACOES.APENAS_RESUMOS:
                                 intent = new Intent(QuesitosIdentificacaoActivity.this, QuesitosResumoesCitacoesParafrasesActivity.class);
                                 intent.putExtra("analise", analise);
                                 startActivityForResult(intent, RETURN_FROM_INNER_QUESITOS_ACTIVITY);
                                 break;
 
-                            case Analise.ConstsIdentificacoes.ENCERRAR:
+                            case Analise.IDENTIFICACOES.ENCERRAR:
                                 finish();
                                 break;
                         }
@@ -319,24 +319,24 @@ public class QuesitosIdentificacaoActivity extends QuesitosBaseActivity {
 
             q1_11 = analise.getQ1_11();
             if (q1_11 == null) {
-                q1_11 = Analise.ConstsIdentificacoes.ANALISE_COMPLETA;
+                q1_11 = Analise.IDENTIFICACOES.ANALISE_COMPLETA;
             }
 
             if (q1_11 != null) {
                 switch (q1_11) {
-                    case Analise.ConstsIdentificacoes.APENAS_ANOTACAOES:
+                    case Analise.IDENTIFICACOES.APENAS_ANOTACAOES:
                         ((RadioButton) findViewById(R.id.radio_button_apenas_anotacoes)).setChecked(true);
                         break;
 
-                    case Analise.ConstsIdentificacoes.APENAS_REACOES:
+                    case Analise.IDENTIFICACOES.APENAS_REACOES:
                         ((RadioButton) findViewById(R.id.radio_button_apenas_reacoes)).setChecked(true);
                         break;
 
-                    case Analise.ConstsIdentificacoes.APENAS_RESUMOS:
+                    case Analise.IDENTIFICACOES.APENAS_RESUMOS:
                         ((RadioButton) findViewById(R.id.radio_button_apenas_resumos)).setChecked(true);
                         break;
 
-                    case Analise.ConstsIdentificacoes.ENCERRAR:
+                    case Analise.IDENTIFICACOES.ENCERRAR:
                         ((RadioButton) findViewById(R.id.radio_button_encerrar)).setChecked(true);
                         break;
 

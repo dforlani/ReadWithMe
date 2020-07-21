@@ -47,7 +47,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_comentar_difuldade_check1_Q13_1"
-                    android:text="Vocabulário antigo, com muitas palavras em desuso" />
+                    android:text="@string/act_comentar_difuldade_check1_Q13_1" />
 
                 <CheckBox
                     android:id="@+id/act_comentar_difuldade_check2_Q13_1"
@@ -55,15 +55,15 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_comentar_difuldade_check2_Q13_1"
-                    android:text="Vocabulário muito técnico, ainda não conheço bem o assunto" />
+                    android:text="@string/act_comentar_difuldade_check2_Q13_1" />
 
                 <CheckBox
                     android:id="@+id/act_comentar_difuldade_check3_Q13_1"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
 
-                    android:tag="act_narrativo_as_figuras"
-                    android:text="Vocabulário de uma classe social muito específica" />
+                    android:tag="act_comentar_difuldade_check3_Q13_1"
+                    android:text="@string/act_comentar_difuldade_check3_Q13_1" />
 
                 <CheckBox
                     android:id="@+id/act_comentar_difuldade_check4_Q13_1"
@@ -71,7 +71,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_comentar_difuldade_check4_Q13_1"
-                    android:text="A forma como o autor coloca seus argumentos é confusa" />
+                    android:text="@string/act_comentar_difuldade_check4_Q13_1" />
 
                 <CheckBox
                     android:id="@+id/act_comentar_difuldade_check5_Q13_1"
@@ -79,7 +79,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_comentar_difuldade_check5_Q13_1"
-                    android:text="O estilo do autor é muito rebuscado ou intrincado" />
+                    android:text="@string/act_comentar_difuldade_check5_Q13_1" />
 
                 <CheckBox
                     android:id="@+id/act_comentar_difuldade_check6_Q13_1"
@@ -87,7 +87,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_comentar_difuldade_check6_Q13_1"
-                    android:text="O pensamento do autor é muito abstrato, difícil de visualizar" />
+                    android:text="@string/act_comentar_difuldade_check6_Q13_1" />
 
                 <CheckBox
                     android:id="@+id/act_comentar_difuldade_check7_Q13_1"
@@ -95,7 +95,7 @@
                     android:layout_height="wrap_content"
 
                     android:tag="act_comentar_difuldade_check7_Q13_1"
-                    android:text="Dificuldade em relacionar o texto ao objetivo de leitura" />
+                    android:text="@string/act_comentar_difuldade_check7_Q13_1" />
 
 
                 <TextView

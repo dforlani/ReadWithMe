@@ -13,6 +13,8 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+import br.com.dforlani.readwithme.R;
+
 public class Analise extends ModelFirestore implements Serializable {
     public static final String COLECAO = "Analise";
 
@@ -1490,29 +1492,20 @@ public class Analise extends ModelFirestore implements Serializable {
         this.q5_5 = q5_5;
     }
 
-    public String getTipoAnalise() {
-        if (this.q1_11 != null)
-            switch (this.q1_11) {
-                case ConstsIdentificacoes.APENAS_ANOTACAOES:
-                    return ConstsIdentificacoes.APENAS_ANOTACAOES_COMPLETE;
-
-                case ConstsIdentificacoes.APENAS_REACOES:
-                    return ConstsIdentificacoes.APENAS_REACOES_COMPLETE;
-
-                case ConstsIdentificacoes.APENAS_RESUMOS:
-                    return ConstsIdentificacoes.APENAS_RESUMOS_COMPLETE;
-
-                case ConstsIdentificacoes.ENCERRAR:
-                    return ConstsIdentificacoes.ENCERRAR_COMPLETO;
-
-                case ConstsIdentificacoes.ANALISE_COMPLETA:
-                    return ConstsIdentificacoes.ANALISE_COMPLETA_COMPLETO;
-            }
-        return "";
+    private static String getPerguntaTexto(String pergunta, String resposta) {
+        if (resposta == null) {
+            return pergunta + "\n\n";
+        } else {
+            return pergunta + "\n" + resposta + "\n\n";
+        }
     }
 
-    public boolean isEncerrar() {
-        return this.q1_11.compareTo(ConstsIdentificacoes.ENCERRAR) == 0;
+    private static String getPerguntaTextoRadioButton(String pergunta, String resposta) {
+        if (resposta == null || resposta.contentEquals("-1")) {
+            return pergunta + "\n\n";
+        } else {
+            return pergunta + "\n" + resposta + "\n\n";
+        }
     }
 
     @Override
@@ -1658,7 +1651,471 @@ public class Analise extends ModelFirestore implements Serializable {
         this.setSubDocument(Usuario.COLECAO, email, Analise.COLECAO, this.id, map);
     }
 
-    public class ConstsIdentificacoes {
+    private static String getPerguntaTextoCheckBox(String pergunta, List<String> respostas, HashMap<String, String> possibilidades) {
+        String texto = pergunta + "\n";
+        if (respostas != null && respostas.size() > 0 && possibilidades != null && possibilidades.size() > 0) {
+            for (String resposta : respostas) {
+                if (possibilidades.get(resposta) != null)
+                    texto += possibilidades.get(resposta) + "\n";
+            }
+        }
+
+        return texto + "\n";
+    }
+
+    public String getTipoAnalise() {
+        if (this.q1_11 != null)
+            switch (this.q1_11) {
+                case IDENTIFICACOES.APENAS_ANOTACAOES:
+                    return IDENTIFICACOES.APENAS_ANOTACAOES_COMPLETE;
+
+                case IDENTIFICACOES.APENAS_REACOES:
+                    return IDENTIFICACOES.APENAS_REACOES_COMPLETE;
+
+                case IDENTIFICACOES.APENAS_RESUMOS:
+                    return IDENTIFICACOES.APENAS_RESUMOS_COMPLETE;
+
+                case IDENTIFICACOES.ENCERRAR:
+                    return IDENTIFICACOES.ENCERRAR_COMPLETO;
+
+                case IDENTIFICACOES.ANALISE_COMPLETA:
+                    return IDENTIFICACOES.ANALISE_COMPLETA_COMPLETO;
+            }
+        return "";
+    }
+
+    public boolean isEncerrar() {
+        return this.q1_11.compareTo(IDENTIFICACOES.ENCERRAR) == 0;
+    }
+
+    public String getTextToShare(Context context) {
+        String texto = "";
+        RESPOSTAS_CHECK respostasCheck = new RESPOSTAS_CHECK(context);
+
+        texto += getTextToShareQ1();
+
+        texto += getTextToShareQ2(respostasCheck);
+        texto += getTextToShareQ3();
+        texto += getTextToShareQ4();
+        texto += getTextToShareQ5();
+        texto += getTextToShareQ6();
+        texto += getTextToShareQ7();
+        texto += getTextToShareQ8();
+        texto += getTextToShareQ9(respostasCheck);
+        texto += getTextToShareQ10(respostasCheck);
+        texto += getTextToShareQ11();
+        texto += getTextToShareQ12();
+        texto += getTextToShareQ13(respostasCheck);
+        texto += getTextToShareQ14(respostasCheck);
+        texto += getTextToShareQ15();
+        texto += getTextToShareQ16();
+
+
+        return texto;
+
+    }
+
+    private String getTextToShareQ16() {
+        String texto = Analise.getPerguntaTexto(PERGUNTAS.q16_1, q16_1);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q16_2, q16_2);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q16_3, q16_3);
+        texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q16_4, q16_4);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q16_5, q16_5);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q16_6, q16_6);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q16_7, q16_7);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q16_8, q16_8);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q16_9, q16_9);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q16_10, q16_10);
+        return texto;
+    }
+
+    private String getTextToShareQ15() {
+        return Analise.getPerguntaTextoRadioButton(PERGUNTAS.q15_1, q15_1);
+    }
+
+    private String getTextToShareQ14(RESPOSTAS_CHECK respostas_check) {
+        String texto = Analise.getPerguntaTextoCheckBox(PERGUNTAS.q14_1, q14_1, respostas_check.q14_1);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q14_2, q14_2);
+        texto += Analise.getPerguntaTextoCheckBox(PERGUNTAS.q14_3, q14_3, respostas_check.q14_3);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q13_4, q13_4);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q14_5, q14_5);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q14_6, q14_6);
+        return texto;
+    }
+
+    private String getTextToShareQ13(RESPOSTAS_CHECK respostas_check) {
+        String texto = Analise.getPerguntaTextoCheckBox(PERGUNTAS.q13_1, q13_1, respostas_check.q13_1);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q13_2, q13_2);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q13_3, q13_3);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q13_4, q13_4);
+        return texto;
+    }
+
+    private String getTextToShareQ12() {
+        return Analise.getPerguntaTextoRadioButton(PERGUNTAS.q12_1, q12_1);
+    }
+
+    private String getTextToShareQ11() {
+        String texto = Analise.getPerguntaTextoRadioButton(PERGUNTAS.q11_1, q11_1);
+        texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q11_2, q11_2);
+        texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q11_3, q11_3);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q11_4, q11_4);
+        texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q11_5, q11_5);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q11_6, q11_6);
+        return texto;
+    }
+
+    private String getTextToShareQ10(RESPOSTAS_CHECK respostasCheck) {
+        String texto = Analise.getPerguntaTexto(PERGUNTAS.q10_1, q10_1);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_2, q10_2);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_3, q10_3);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_4, q10_4);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_5, q10_5);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_6, q10_6);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_7, q10_7);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_8, q10_8);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_9, q10_9);
+        texto += Analise.getPerguntaTextoCheckBox(PERGUNTAS.q10_10, q10_10, respostasCheck.q10_10);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_11, q10_11);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_12, q10_12);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_13, q10_13);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_13, q10_13);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_13, q10_13);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_13, q10_13);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_13, q10_13);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q10_13, q10_13);
+        return texto;
+    }
+
+    private String getTextToShareQ9(RESPOSTAS_CHECK respostasCheck) {
+        String texto = Analise.getPerguntaTexto(PERGUNTAS.q9_1, q9_1);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q9_2, q9_2);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q9_3, q9_3);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q9_4, q9_4);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q9_5, q9_5);
+
+        texto += Analise.getPerguntaTextoCheckBox(PERGUNTAS.q9_6, q9_6, respostasCheck.q9_6);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q9_7, q9_7);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q9_8, q9_8);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q9_9, q9_9);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q9_10, q9_10);
+        return texto;
+    }
+
+    private String getTextToShareQ8() {
+        String texto = Analise.getPerguntaTexto(PERGUNTAS.q8_1, q8_1);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q8_2, q8_2);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q8_3, q8_3);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q8_4, q8_4);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q8_5, q8_5);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q8_6, q8_6);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q8_7, q8_7);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q8_8, q8_8);
+        return texto;
+    }
+
+    private String getTextToShareQ7() {
+
+        String texto = Analise.getPerguntaTexto(PERGUNTAS.q7_1, q7_1);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q7_2, q7_2);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q7_3, q7_3);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q7_4, q7_4);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q7_5, q7_5);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q7_6, q7_6);
+        return texto;
+    }
+
+    private String getTextToShareQ6() {
+        return Analise.getPerguntaTexto(PERGUNTAS.q6_1, q6_1);
+    }
+
+    private String getTextToShareQ5() {
+        String texto = Analise.getPerguntaTexto(PERGUNTAS.q5_1, q5_1);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q5_2, q5_2);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q5_3, q5_3);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q5_4, q5_4);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q5_5, q5_5);
+        return texto;
+    }
+
+    private String getTextToShareQ4() {
+        String texto = "";
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q4_1, q4_1);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q4_2, q4_2);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q4_3, q4_3);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q4_4, q4_4);
+        return texto;
+    }
+
+    private String getTextToShareQ3() {
+        String texto = "";
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q3_1, q3_1);
+        return texto;
+    }
+
+    private String getTextToShareQ2(RESPOSTAS_CHECK respostasCheck) {
+        String texto = "";
+        texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q2_1, q2_1);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q2_2, q2_2);
+        texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q2_3, q2_3);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q2_4, q2_4);
+        texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q2_5, q2_5);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q2_6, q2_6);
+        texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q2_7, q2_7);
+        texto += Analise.getPerguntaTextoCheckBox(PERGUNTAS.q2_8, q2_8, respostasCheck.q2_8);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q2_9, q2_9);
+        texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q2_10, q2_10);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q2_11, q2_11);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q2_12, q2_12);
+        texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q2_13, q2_13);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q2_14, q2_14);
+        texto += Analise.getPerguntaTextoRadioButton(PERGUNTAS.q2_15, q2_15);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q2_16, q2_16);
+        texto += Analise.getPerguntaTextoCheckBox(PERGUNTAS.q2_17, q2_17, respostasCheck.q2_17);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q2_18, q2_18);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q2_19, q2_19);
+        return texto;
+    }
+
+    private String getTextToShareQ1() {
+        String texto = "";
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q1_1, q1_1);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q1_2, q1_2);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q1_3, q1_3);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q1_4, q1_4);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q1_5, q1_5);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q1_6, q1_6);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q1_7, q1_7);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q1_8, q1_8);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q1_9, q1_9);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q1_10, q1_10);
+        texto += Analise.getPerguntaTexto(PERGUNTAS.q1_11, q1_11);
+        return texto;
+    }
+
+    public static class RESPOSTAS_CHECK {
+        public HashMap<String, String> q2_8 = new HashMap<>();
+        public HashMap<String, String> q9_6 = new HashMap<>();
+        public Context context;
+        public HashMap<String, String> q10_10 = new HashMap<>();
+        public HashMap<String, String> q2_17 = new HashMap<>();
+        public HashMap<String, String> q13_1 = new HashMap<>();
+        public HashMap<String, String> q14_1 = new HashMap<>();
+        public HashMap<String, String> q14_3 = new HashMap<>();
+
+
+        public RESPOSTAS_CHECK(Context context) {
+            this.context = context;
+
+            initQ2_8();
+            initQQ9_6();
+            initQQ10_10();
+            initQ2_17();
+            initQ13_1();
+            initQ14_1();
+            initQ14_3();
+        }
+
+        private void initQ14_3() {
+            q14_3.put("act_check_1Q14_3", context.getString(R.string.act_check_1Q14_3));
+            q14_3.put("act_check_2Q14_3", context.getString(R.string.act_check_2Q14_3));
+            q14_3.put("act_check_3Q14_3", context.getString(R.string.act_check_3Q14_3));
+            q14_3.put("act_check42Q14_3", context.getString(R.string.act_check42Q14_3));
+            q14_3.put("act_check52Q14_3", context.getString(R.string.act_check52Q14_3));
+            q14_3.put("act_check62Q14_3", context.getString(R.string.act_check62Q14_3));
+            q14_3.put("act_check72Q14_3", context.getString(R.string.act_check72Q14_3));
+            q14_3.put("act_check82Q14_3", context.getString(R.string.act_check82Q14_3));
+
+        }
+
+        private void initQ14_1() {
+            q14_1.put("act_check_1Q14_1", context.getString(R.string.act_check_1Q14_1));
+            q14_1.put("act_check_2Q14_1", context.getString(R.string.act_check_2Q14_1));
+            q14_1.put("act_check_3Q14_1", context.getString(R.string.act_check_3Q14_1));
+            q14_1.put("act_check_4Q14_1", context.getString(R.string.act_check_4Q14_1));
+            q14_1.put("act_check_5Q14_1", context.getString(R.string.act_check_5Q14_1));
+            q14_1.put("act_check_6Q14_1", context.getString(R.string.act_check_6Q14_1));
+        }
+
+        private void initQ13_1() {
+            q13_1.put("act_comentar_difuldade_check1_Q13_1", context.getString(R.string.act_comentar_difuldade_check1_Q13_1));
+            q13_1.put("act_comentar_difuldade_check2_Q13_1", context.getString(R.string.act_comentar_difuldade_check2_Q13_1));
+            q13_1.put("act_comentar_difuldade_check3_Q13_1", context.getString(R.string.act_comentar_difuldade_check3_Q13_1));
+            q13_1.put("act_comentar_difuldade_check4_Q13_1", context.getString(R.string.act_comentar_difuldade_check4_Q13_1));
+            q13_1.put("act_comentar_difuldade_check5_Q13_1", context.getString(R.string.act_comentar_difuldade_check5_Q13_1));
+            q13_1.put("act_comentar_difuldade_check6_Q13_1", context.getString(R.string.act_comentar_difuldade_check6_Q13_1));
+            q13_1.put("act_comentar_difuldade_check7_Q13_1", context.getString(R.string.act_comentar_difuldade_check7_Q13_1));
+        }
+
+        void initQ2_8() {
+            q2_8.put("act_reacoes_check_avaliei_mal", context.getString(R.string.act_reacoes_check_avaliei_mal));
+            q2_8.put("act_reacoes_check_texto_nao_cumpre", context.getString(R.string.act_reacoes_check_texto_nao_cumpre));
+            q2_8.put("act_reacoes_check_texto_nao_cumpre_quem_recomendou", context.getString(R.string.act_reacoes_check_texto_nao_cumpre_quem_recomendou));
+            q2_8.put("act_reacoes_check_profundidade_maior_menor", context.getString(R.string.act_reacoes_check_profundidade_maior_menor));
+            q2_8.put("act_reacoes_check_outra_coisa", context.getString(R.string.act_reacoes_check_outra_coisa));
+        }
+
+        public void initQQ9_6() {
+            q9_6.put("act_poesia_algumas_palavras", context.getString(R.string.act_poesia_algumas_palavras));
+            q9_6.put("act_poesia_o_vocabulario", context.getString(R.string.act_poesia_o_vocabulario));
+            q9_6.put("act_poesia_as_figuras", context.getString(R.string.act_poesia_as_figuras));
+            q9_6.put("act_poesia_o_tamanho", context.getString(R.string.act_poesia_o_tamanho));
+            q9_6.put("act_poesia_a_utilizacao", context.getString(R.string.act_poesia_a_utilizacao));
+            q9_6.put("act_poesia_o_equilibrio", context.getString(R.string.act_poesia_o_equilibrio));
+            q9_6.put("act_poesia_outra", context.getString(R.string.act_poesia_outra));
+        }
+
+        void initQQ10_10() {
+            q10_10.put("act_narrativo_algumas_palavras", context.getString(R.string.act_narrativo_algumas_palavras));
+            q10_10.put("act_poesia_o_vocabulario", context.getString(R.string.act_poesia_o_vocabulario));
+            q10_10.put("act_narrativo_as_figuras", context.getString(R.string.act_narrativo_as_figuras));
+            q10_10.put("act_poesia_o_tamanho", context.getString(R.string.act_poesia_o_tamanho));
+            q10_10.put("act_poesia_a_utilizacao", context.getString(R.string.act_poesia_a_utilizacao));
+            q10_10.put("act_poesia_o_equilibrio", context.getString(R.string.act_poesia_o_equilibrio));
+            q10_10.put("act_poesia_outra", context.getString(R.string.act_poesia_outra));
+        }
+
+        void initQ2_17() {
+            q2_17.put("act_reacoes_check_vida_academica", context.getString(R.string.act_reacoes_check_vida_academica));
+            q2_17.put("act_reacoes_check_prazer_e_diversao", context.getString(R.string.act_reacoes_check_prazer_e_diversao));
+            q2_17.put("act_reacoes_check_vida_profissional", context.getString(R.string.act_reacoes_check_vida_profissional));
+            q2_17.put("act_reacoes_check_producao_textos", context.getString(R.string.act_reacoes_check_producao_textos));
+            q2_17.put("act_reacoes_check_conhecimento_mundo", context.getString(R.string.act_reacoes_check_conhecimento_mundo));
+            q2_17.put("act_reacoes_check_gosto_muito", context.getString(R.string.act_reacoes_check_gosto_muito));
+
+
+        }
+    }
+
+    public static class PERGUNTAS {
+        public static final String q1_1 = " Título do texto";
+        public static final String q1_2 = "Autor ou autores";
+        public static final String q1_3 = "Você já conhecia o autor do texto? Já leu outros textos dele? O que achou? O que é importante registrar?";
+        public static final String q1_4 = "Referência Bibliográfica";
+        public static final String q1_5 = "Qual o seu objetivo ao ler o texto?";
+        public static final String q1_6 = "Assunto principal do texto";
+        public static final String q1_7 = "Outros assuntos do texto";
+        public static final String q1_8 = "Como você chegou até o texto? O texto foi indicado por alguém? Quem? Essa informação é importante para a leitura? Por quê?";
+        public static final String q1_9 = "Data de início da leitura";
+        public static final String q1_10 = "Data de término da leitura";
+        public static final String q1_11 = "Você quer fazer uma análise completa?";
+
+        public static final String q2_1 = "Como você classificaria o seu interesse após 5 minutos de leitura?";
+        public static final String q2_2 = "Justifique a resposta, é importante para você se conhecer como leitor:";
+        public static final String q2_3 = "E na metade de leitura, como você se sentia?";
+        public static final String q2_4 = "Justifique a resposta, é importante para você se conhecer como leitor:";
+        public static final String q2_5 = "Como você classificaria o prazer ao final da leitura?";
+        public static final String q2_6 = "Justifique a resposta, é importante para você se conhecer como leitor:";
+        public static final String q2_7 = "Seu objetivo ao ler o texto foi cumprido?";
+        public static final String q2_8 = "Caso a leitura não tenha sido satisfatória para o objetivo, o que aconteceu?";
+        public static final String q2_9 = "Que outra coisa?";
+        public static final String q2_10 = "As ideias do autor lhe agradam?";
+        public static final String q2_11 = "Com que partes do texto você concorda mais? Faça citações ou paráfrases:";
+        public static final String q2_12 = " Com que parte(s) do texto você discorda? Faça citações, paráfrases, discuta e apresente argumentos:";
+        public static final String q2_13 = "O estilo de escrita do autor lhe agrada?";
+        public static final String q2_14 = "Justifique a resposta, é importante para você se conhecer como leitor:";
+        public static final String q2_15 = "O gênero desse livro lhe agrada?";
+        public static final String q2_16 = "Justifique a resposta, é importante para você se conhecer como leitor:";
+        public static final String q2_17 = "Você acredita que a leitura desse texto contribuiu em alguma dessas áreas?";
+        public static final String q2_18 = "Justifique a resposta, citando trechos ou fazendo paráfrases:";
+
+        public static final String q2_19 = "Você acredita que a leitura do texto contribuiria para a vida de outras pessoas? Quais? Como?";
+
+        public static final String q3_1 = " Anotações Livres";
+
+
+        public static final String q4_1 = "Resumo geral";
+        public static final String q4_2 = "Resumo de capítulos";
+        public static final String q4_3 = " Paráfrases (não esqueça de marcar as páginas!)";
+        public static final String q4_4 = "Citações diretas (não esqueça de marcar as páginas!)";
+
+        public static final String q5_1 = "Há algo interessante sobre as capas, a orelha ou o título do livro que você queira registrar?";
+        public static final String q5_2 = "Há algo interessante sobre o projeto gráfico do livro? (formato, papel, cores, ilustrações) - em caso de texto narrativo ilustrado, haverá um guia detalhado para análise posterior.";
+        public static final String q5_3 = "Há algo interessante a respeito da editora, da série ou coleção a que o livro pertence que você queira registrar?";
+        public static final String q5_4 = "A edição e a data de publicação do livro são importantes para seu objetivo de leitura? Por quê? Como?";
+        public static final String q5_5 = "Há apresentação, notas, apêndices? Eles são importantes para compreensão do assunto? Quem escreveu esses textos? O que é importante anotar?";
+
+        public static final String q6_1 = "Qual tipo de texto você está lendo?";
+
+
+        //******TELA Pontos importantes do texto informativo *******/
+        public static final String q7_1 = "Qual o assunto principal do texto? Sintetize e/ou registre trechos importantes";
+        public static final String q7_2 = "Qual o assunto principal do texto? Sintetize e/ou registre trechos importantes";
+        public static final String q7_3 = "Quais as fontes utilizadas? Elas são confiáveis? É possível resgatá-las e lê-las no original?";
+        public static final String q7_4 = "As informações estão completas? Há lacunas?";
+        public static final String q7_5 = "Ficaram questões a ser compreendidas?";
+        public static final String q7_6 = "Há pontos importantes a anotar sobre a bibliografia utilizada pelo autor?";
+
+        public static final String q8_1 = "Qual a tese central do texto? Sintetize e/ou registre trechos importantes";
+        public static final String q8_2 = "Quais os argumentos utilizados? Sintetize e/ou registre trechos importantes";
+        public static final String q8_3 = "Há ilustrações, tabelas ou gráficos acompanhando o texto? São importantes? Há algo a registrar sobre elas?";
+        public static final String q8_4 = "Há outros pontos importantes a ser registrados?";
+        public static final String q8_5 = "Você concorda ou não com a tese? Por quê?";
+        public static final String q8_6 = "Os argumentos utilizados são verdadeiros? Há fontes? Você confia nas fontes apresentadas? Você pode apresentar fontes ou argumentos contrários?";
+        public static final String q8_7 = " Os argumentos estão bem construídos e concatenados? Eles suportam a tese ou não tem relação com ela?";
+        public static final String q8_8 = "Há pontos importantes a anotar sobre a bibliografia utilizada pelo autor?";
+
+        public static final String q9_1 = "A leitura foi prazerosa e interessante? Qual a impressão mais vívida provocada pela leitura?";
+        public static final String q9_2 = "Há um tema central no(s) poema(s)? Em caso de coletânea, há um eixo temático que amarre os poemas entre si? Isso é importante?";
+        public static final String q9_3 = "Como é a rima do poema?";
+        public static final String q9_4 = "Como é a métrica do poema?";
+        public static final String q9_5 = "O eu lírico se apresenta de alguma forma? Há algo a relatar?";
+        public static final String q9_6 = "Questões de linguagem que podem aparecer no texto:";
+        public static final String q9_7 = "Quais figuras de linguagem estão presentes no poema?";
+        public static final String q9_8 = "Descreva de forma mais detalhada o que lhe chamou atenção na questão anterior, fazendo citações";
+        public static final String q9_9 = "A forma como o poema se distribui na página é importante? É um poema concreto?";
+        public static final String q9_10 = "O texto é um poema épico ou narrativo? Você gostaria de analisar também a história existente no poema?";
+
+        public static final String q10_1 = "A leitura foi prazerosa e interessante? Qual a impressão mais vívida provocada pela leitura?";
+        public static final String q10_2 = "O que acontece na história? Qual o enredo?";
+        public static final String q10_3 = "Quem são os personagens, como são, como se relacionam? Quais são mais importantes para a história, quais são coadjuvantes?";
+        public static final String q10_4 = "O que se pode registrar sobre o espaço da narrativa? Algum elemento espacial se apresenta com mais destaque?";
+        public static final String q10_5 = "O que se pode registrar sobre a sequência temporal dos acontecimentos narrados? O tempo é cronológico, psicológico? Os fatos são narrados na sequência em que acontecem? Há algo específico sobre o tempo que seja interessante registrar?";
+        public static final String q10_6 = "Há descrições? Como são?";
+        public static final String q10_7 = "Qual o gênero literário escolhido? Isso é importante?";
+        public static final String q10_8 = "Qual o tipo do narrador? Isso é importante?";
+        public static final String q10_9 = "Qual o foco narrativo predominante: mostrar ou contar? Isso é importante?";
+        public static final String q10_10 = "Questões de linguagem que podem aparecer no texto:";
+        public static final String q10_11 = "Descreva de forma mais detalhada o que lhe chamou atenção na questão anterior, fazendo citações";
+        public static final String q10_12 = "Há ilustrações acompanhando o texto? Como se relacionam com o texto? São importantes? Há algo a registrar sobre elas?";
+        public static final String q10_13 = "Você gostaria de analisar as ilustrações e o projeto do gráfico mais detalhadamente?";
+
+        public static final String q11_1 = "Você conhece alguma obra relacionada?";
+        public static final String q11_2 = "São obras atuais?";
+        public static final String q11_3 = "Você conhece alguma obra relacionada?";
+        public static final String q11_4 = "Você considera a bibliografia adequada ao assunto do texto?";
+        public static final String q11_5 = " Qual lacuna? Qual a relevância dessa lacuna para seu objetivo em ler o texto?";
+        public static final String q11_6 = "Pode-se perceber algum enfoque político a partir dessas obras?";
+
+        public static final String q12_1 = "Deseja comentar algo sobre elas? ";
+
+        public static final String q13_1 = "Marque as dificuldades encontradas:";
+        public static final String q13_2 = "Descreva de forma mais detalhada suas dificuldades, com citações:";
+        public static final String q13_3 = "Como você resolveu suas dificuldades?";
+        public static final String q13_4 = "Você pretende resolvê-las com alguma estratégia? Qual?";
+
+        public static final String q14_1 = "Você consegue relacionar o texto com alguma dessas experiências?";
+        public static final String q14_2 = "Descreva as experiências que acreditar mais importantes:";
+        public static final String q14_3 = "Você consegue relacionar o texto com algum desses objetos culturais?";
+        public static final String q14_4 = "Descreva com mais detalhes as relações marcadas na questão anterior:";
+        public static final String q14_5 = "Você consegue relacionar o texto com algum texto acadêmico cujo autor concorde ou complemente as ideias apresentadas? Qual?";
+        public static final String q14_6 = "Você consegue relacionar o texto com algum texto acadêmico cujo autor discorde das ideais apresentadas? Qual?";
+
+        public static final String q15_1 = "Você gostaria de analisar as ilustrações e o projeto do gráfico mais detalhadamente?";
+
+        public static final String q16_1 = "Qual é, ou são, o(s) artista(s) responsáveis pelo projeto gráfico ou pelas ilustrações?";
+        public static final String q16_2 = "O formato do livro é diferente ou relevante? Como?";
+        public static final String q16_3 = "O material utilizado na confecção do livro é diferente o relevante? Como?";
+        public static final String q16_4 = "Como as ilustrações se relacionam com o texto?";
+        public static final String q16_5 = "Qual é a técnica utilizada na produção das ilustrações?";
+        public static final String q16_6 = "Há algo interessante a respeito das cores utilizadas? Que sensação elas te trazem?";
+        public static final String q16_7 = "Há algo interessante sobre o desenho das personagens, ou de alguma personagem específica?";
+        public static final String q16_8 = "Há algo interessante sobre os espaços e cenários desenhados?";
+        public static final String q16_9 = "Há coisas interessantes a se relatar sobre objetos de cena desenhados? Há algum objeto de cena específico que mereça destaque?";
+        public static final String q16_10 = "O que mais é possível dizer a respeito das ilustrações?";
+    }
+
+    public class IDENTIFICACOES {
 
         public static final String SIM = "SIM";
         public static final String NAO = "NAO";
@@ -1683,6 +2140,7 @@ public class Analise extends ModelFirestore implements Serializable {
         private static final String ENCERRAR_COMPLETO = "Análise simples";
         public static final String ANALISE_COMPLETA = "analise_completa";
         private static final String ANALISE_COMPLETA_COMPLETO = "Análise completa";
+
     }
 
     public void remover(String email, Context context) {

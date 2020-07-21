@@ -60,11 +60,11 @@ public class QuesitosCompletoTextoInformativo extends QuesitosBaseActivity {
         switch (view.getId()) {
             case R.id.radio_button_completo_texto_informativo_sim:
                 if (checked)
-                    analise.setQ7_6(Analise.ConstsIdentificacoes.SIM);
+                    analise.setQ7_6(Analise.IDENTIFICACOES.SIM);
                 break;
             case R.id.radio_button_completo_texto_informativo_nao:
                 if (checked)
-                    analise.setQ7_6(Analise.ConstsIdentificacoes.NAO);
+                    analise.setQ7_6(Analise.IDENTIFICACOES.NAO);
                 break;
         }
     }
@@ -77,10 +77,10 @@ public class QuesitosCompletoTextoInformativo extends QuesitosBaseActivity {
         if (analise.getQ7_6() != null) {
             salvarQuesitos();
             switch (analise.getQ7_6()) {
-                case Analise.ConstsIdentificacoes.SIM:
+                case Analise.IDENTIFICACOES.SIM:
                     intent = new Intent(QuesitosCompletoTextoInformativo.this, QuesitosCompletoAnaliseBibliografia.class);
                     break;
-                case Analise.ConstsIdentificacoes.NAO:
+                case Analise.IDENTIFICACOES.NAO:
                     intent = new Intent(QuesitosCompletoTextoInformativo.this, QuesitosCompletoDificuldadeLeitura.class);
                     break;
             }
@@ -130,11 +130,11 @@ public class QuesitosCompletoTextoInformativo extends QuesitosBaseActivity {
 
             if (analise.getQ7_6() != null) {
                 switch (analise.getQ7_6()) {
-                    case Analise.ConstsIdentificacoes.SIM:
+                    case Analise.IDENTIFICACOES.SIM:
                         ((RadioButton) findViewById(R.id.radio_button_completo_texto_informativo_sim)).setChecked(true);
                         break;
 
-                    case Analise.ConstsIdentificacoes.NAO:
+                    case Analise.IDENTIFICACOES.NAO:
                         ((RadioButton) findViewById(R.id.radio_button_completo_texto_informativo_nao)).setChecked(true);
                         break;
                 }

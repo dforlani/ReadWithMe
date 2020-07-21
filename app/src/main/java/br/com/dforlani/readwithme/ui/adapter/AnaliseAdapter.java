@@ -105,11 +105,24 @@ public class AnaliseAdapter extends RecyclerView.Adapter<AnaliseAdapter.AnaliseV
                 public void onCreateContextMenu(ContextMenu menu, View v, ContextMenu.ContextMenuInfo menuInfo) {
                     MenuInflater inflater = act.getMenuInflater();
                     inflater.inflate(R.menu.context_menu, menu);
-                    MenuItem item = menu.findItem(R.id.menu_context_delete_analise);
-                    item.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                    MenuItem itemDelete = menu.findItem(R.id.menu_context_delete_analise);
+                    itemDelete.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
                         @Override
                         public boolean onMenuItemClick(MenuItem item) {
                             removerAnalise();
+                            return true;
+                        }
+                    });
+                    MenuItem itemCompartilhar = menu.findItem(R.id.menu_context_compartilhar);
+                    itemCompartilhar.setOnMenuItemClickListener(new MenuItem.OnMenuItemClickListener() {
+                        @Override
+                        public boolean onMenuItemClick(MenuItem item) {
+                            Intent sendIntent = new Intent();
+                            sendIntent.setAction(Intent.ACTION_SEND);
+                            sendIntent.setType("text/html");
+                            sendIntent.putExtra(Intent.EXTRA_TEXT, analise.getTextToShare(context));
+                            Intent shareIntent = Intent.createChooser(sendIntent, null);
+                            context.startActivity(shareIntent);
                             return true;
                         }
                     });
