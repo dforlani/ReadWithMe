@@ -10,7 +10,6 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import androidx.annotation.NonNull;
-import androidx.navigation.ui.AppBarConfiguration;
 
 import com.bumptech.glide.Glide;
 import com.bumptech.glide.request.RequestOptions;
@@ -52,7 +51,6 @@ public class LoginActivity extends BaseActivity {
 
     private static final int RC_GOOGLE_SIGN_IN = 9001;
     private static String TAG = "LoginActivity";
-    private AppBarConfiguration mAppBarConfiguration;
     private FirebaseAuth mAuth;
     private TextView mNameLogin;
     private Button mBttDisconect;

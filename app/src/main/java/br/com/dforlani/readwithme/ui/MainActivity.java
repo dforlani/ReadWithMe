@@ -2,6 +2,7 @@ package br.com.dforlani.readwithme.ui;
 
 import android.app.AlertDialog;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.LayoutInflater;
@@ -394,6 +395,15 @@ public class MainActivity extends BaseActivity {
 
         TextView dialogNameLogin = dialogUsuario.findViewById(R.id.dialog_usuario_name_user);
         dialogNameLogin.setText(user.getDisplayName());
+
+        try {
+            String versionName = getPackageManager().getPackageInfo(getPackageName(), 0).versionName;
+            TextView versionText = dialogUsuario.findViewById(R.id.versionText);
+            versionText.setText("Versão do App: " + versionName);
+
+        } catch (PackageManager.NameNotFoundException e) {
+            e.printStackTrace();
+        }
 
         Button dialogBttDisconect = dialogUsuario.findViewById(R.id.dialog_usuario_disconect_user);
         dialogBttDisconect.setOnClickListener(new View.OnClickListener() {

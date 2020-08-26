@@ -33,7 +33,7 @@ public class FirestoreAnaliseListRepositoryCallback implements AnaliseListViewMo
         }else{
             analisesRef = firebaseFirestore.collection(Usuario.COLECAO).document("naoexiste9955*").collection(Analise.COLECAO);
         }
-        query = analisesRef.orderBy(Analise.COLUMN_DT_CRIACAO).limit(Constants.LIMIT);
+        query = analisesRef.orderBy(Analise.COLUMN_DT_CRIACAO, Query.Direction.DESCENDING).limit(Constants.LIMIT);
     }
 
     @Override
